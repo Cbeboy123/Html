@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="meridian">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExceptionIQ MERIDIAN — Reconciliation Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   MERIDIAN — Premium Reconciliation Intelligence
+   ExceptionIQ v5 · Meridian Design System
+   Fonts: Playfair Display (display) · Source Sans 3 (body) · Source Code Pro (data)
+   Theme: Warm Slate · Amber precision · Teal accents
+   ══════════════════════════════════════════════════════ */
+
+:root{
+  --f-display:'Playfair Display',serif;
+  --f:'Source Sans 3',sans-serif;
+  --m:'Source Code Pro',monospace;
+  --e1:cubic-bezier(.4,0,.2,1);
+  --e2:cubic-bezier(.34,1.56,.64,1);
+  --e3:cubic-bezier(.16,1,.3,1);
+  --d1:80ms;--d2:160ms;--d3:280ms;--d4:420ms;
+}
+
+/* ── MERIDIAN (Default) ── */
+[data-theme="meridian"]{
+  --bg:#1A1C22;
+  --bg2:#151720;
+  --surf:#1F2230;
+  --card:#252838;
+  --raised:#2C3045;
+  --overlay:#323650;
+  --b0:rgba(212,175,105,.02);
+  --b1:rgba(212,175,105,.05);
+  --b2:rgba(212,175,105,.10);
+  --b3:rgba(212,175,105,.17);
+  --b4:rgba(212,175,105,.28);
+  --t1:#EDE8DC;
+  --t2:#8C8472;
+  --t3:#4A4438;
+  --t4:#2A241E;
+  --ai1:#D4AF69;
+  --ai2:#4ECDC4;
+  --ai-g:linear-gradient(135deg,#D4AF69,#4ECDC4);
+  --ai-gs:rgba(212,175,105,.10);
+  --ai-gb:rgba(212,175,105,.22);
+  --acc:#D4AF69;
+  --acc-s:rgba(212,175,105,.10);
+  --acc-b:rgba(212,175,105,.22);
+  --grn:#4ECDC4;
+  --grn-s:rgba(78,205,196,.10);
+  --grn-b:rgba(78,205,196,.22);
+  --amb:#E8944A;
+  --amb-s:rgba(232,148,74,.10);
+  --red:#E05C6A;
+  --red-s:rgba(224,92,106,.10);
+  --red-b:rgba(224,92,106,.22);
+  --teal:#4ECDC4;
+  --teal-s:rgba(78,205,196,.10);
+  --sha-ai:0 0 32px rgba(212,175,105,.20),0 0 64px rgba(78,205,196,.08);
+  --sha-md:0 4px 24px rgba(0,0,0,.50);
+  --sha-lg:0 8px 48px rgba(0,0,0,.65);
+  --sha-xl:0 20px 80px rgba(0,0,0,.85);
+}
+
+/* ── MERIDIAN LIGHT ── */
+[data-theme="meridian-light"]{
+  --bg:#F5F0E8;
+  --bg2:#EDE8DC;
+  --surf:#FDFAF4;
+  --card:#F5F0E8;
+  --raised:#FDFAF4;
+  --overlay:#EDE6D8;
+  --b0:rgba(90,68,30,.02);
+  --b1:rgba(90,68,30,.05);
+  --b2:rgba(90,68,30,.09);
+  --b3:rgba(90,68,30,.15);
+  --b4:rgba(90,68,30,.24);
+  --t1:#1A1410;
+  --t2:#5A4E3A;
+  --t3:#9A8C70;
+  --t4:#C8BCA0;
+  --ai1:#8B6820;
+  --ai2:#2A7B78;
+  --ai-g:linear-gradient(135deg,#8B6820,#2A7B78);
+  --ai-gs:rgba(139,104,32,.08);
+  --ai-gb:rgba(139,104,32,.18);
+  --acc:#8B6820;
+  --acc-s:rgba(139,104,32,.08);
+  --acc-b:rgba(139,104,32,.18);
+  --grn:#2A7B78;
+  --grn-s:rgba(42,123,120,.08);
+  --grn-b:rgba(42,123,120,.18);
+  --amb:#C06030;
+  --amb-s:rgba(192,96,48,.08);
+  --red:#A83040;
+  --red-s:rgba(168,48,64,.08);
+  --red-b:rgba(168,48,64,.18);
+  --teal:#2A7B78;
+  --teal-s:rgba(42,123,120,.08);
+  --sha-ai:0 0 20px rgba(139,104,32,.12);
+  --sha-md:0 4px 24px rgba(90,68,30,.08);
+  --sha-lg:0 8px 48px rgba(90,68,30,.12);
+  --sha-xl:0 20px 80px rgba(90,68,30,.18);
+}
+
+/* ── MERIDIAN SLATE ── */
+[data-theme="meridian-slate"]{
+  --bg:#0E1218;
+  --bg2:#0A0D12;
+  --surf:#141820;
+  --card:#181D28;
+  --raised:#1E2430;
+  --overlay:#242B3A;
+  --b0:rgba(148,178,220,.02);
+  --b1:rgba(148,178,220,.05);
+  --b2:rgba(148,178,220,.09);
+  --b3:rgba(148,178,220,.15);
+  --b4:rgba(148,178,220,.24);
+  --t1:#D8E4F5;
+  --t2:#5A7090;
+  --t3:#2A3848;
+  --t4:#141C28;
+  --ai1:#94B2DC;
+  --ai2:#D4AF69;
+  --ai-g:linear-gradient(135deg,#94B2DC,#D4AF69);
+  --ai-gs:rgba(148,178,220,.10);
+  --ai-gb:rgba(148,178,220,.22);
+  --acc:#94B2DC;
+  --acc-s:rgba(148,178,220,.10);
+  --acc-b:rgba(148,178,220,.22);
+  --grn:#4ECDC4;
+  --grn-s:rgba(78,205,196,.10);
+  --grn-b:rgba(78,205,196,.22);
+  --amb:#D4AF69;
+  --amb-s:rgba(212,175,105,.10);
+  --red:#E05C6A;
+  --red-s:rgba(224,92,106,.10);
+  --red-b:rgba(224,92,106,.22);
+  --teal:#4ECDC4;
+  --teal-s:rgba(78,205,196,.10);
+  --sha-ai:0 0 32px rgba(148,178,220,.18),0 0 64px rgba(212,175,105,.08);
+  --sha-md:0 4px 24px rgba(0,0,0,.60);
+  --sha-lg:0 8px 48px rgba(0,0,0,.75);
+  --sha-xl:0 20px 80px rgba(0,0,0,.90);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:13px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{
+  font-family:var(--f);background:var(--bg);color:var(--t1);
+  height:100vh;overflow:hidden;display:flex;flex-direction:column;
+  transition:background var(--d3) var(--e1),color var(--d3) var(--e1);
+}
+
+/* Meridian micro-pattern background */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(var(--b1) 1px,transparent 1px),
+    linear-gradient(90deg,var(--b1) 1px,transparent 1px);
+  background-size:40px 40px;opacity:.4;
+}
+
+::-webkit-scrollbar{width:3px;height:3px;}
+::-webkit-scrollbar-thumb{background:var(--b3);border-radius:2px;}
+::-webkit-scrollbar-track{background:transparent;}
+
+/* ═══════════════════════
+   HEADER
+═══════════════════════ */
+.header{
+  height:54px;background:var(--surf);border-bottom:1px solid var(--b2);
+  display:flex;align-items:center;padding:0 16px;gap:12px;
+  flex-shrink:0;z-index:200;position:relative;
+  transition:background var(--d3),border-color var(--d3);
+}
+.header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--ai1) 30%,var(--ai2) 70%,transparent);
+  opacity:.5;
+}
+
+.nexus-logo{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+  padding-right:16px;border-right:1px solid var(--b2);cursor:pointer;
+}
+.nexus-mark{
+  width:34px;height:34px;border-radius:6px;flex-shrink:0;
+  background:var(--ai-g);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-display);font-size:14px;font-weight:900;color:#1A1410;
+  box-shadow:var(--sha-ai);
+  transition:transform var(--e2) var(--d3);letter-spacing:-.5px;
+}
+.nexus-mark:hover{transform:scale(1.08) rotate(-3deg);}
+.nexus-wordmark{line-height:1.1;}
+.nexus-name{font-family:var(--f-display);font-size:15px;font-weight:700;color:var(--t1);letter-spacing:-.3px;}
+.nexus-ver{font-family:var(--m);font-size:8px;color:var(--t3);letter-spacing:.8px;margin-top:1px;text-transform:uppercase;}
+
+/* AI COMMAND BAR */
+.ai-cmd-zone{flex:1;max-width:580px;position:relative;}
+.ai-cmd-bar{
+  display:flex;align-items:center;gap:10px;
+  height:36px;padding:0 14px;
+  background:var(--ai-gs);
+  border:1px solid var(--ai-gb);
+  border-radius:6px;
+  cursor:text;
+  transition:all var(--d2);
+  position:relative;overflow:hidden;
+}
+.ai-cmd-bar::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,var(--ai-gs),transparent);
+  animation:shimmer 3s ease infinite;opacity:0;
+  transition:opacity var(--d3);
+}
+.ai-cmd-bar.active::before{opacity:1;}
+@keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.ai-cmd-bar:focus-within{
+  background:var(--ai-gb);border-color:var(--ai1);
+  box-shadow:0 0 0 3px var(--ai-gs),var(--sha-ai);
+}
+.ai-icon{width:20px;height:20px;border-radius:4px;flex-shrink:0;background:var(--ai-g);display:flex;align-items:center;justify-content:center;font-size:11px;}
+.ai-icon-pulse{width:7px;height:7px;border-radius:50%;background:var(--ai1);flex-shrink:0;animation:aipulse 2s ease infinite;}
+@keyframes aipulse{0%,100%{box-shadow:0 0 0 0 var(--ai-gb);opacity:1;}50%{box-shadow:0 0 0 4px var(--ai-gs);opacity:.7;}}
+.ai-cmd-input{flex:1;background:transparent;border:none;outline:none;font-family:var(--f);font-size:12.5px;color:var(--t1);}
+.ai-cmd-input::placeholder{color:var(--t2);}
+.ai-cmd-kb{font-family:var(--m);font-size:9px;color:var(--t3);border:1px solid var(--b3);border-radius:3px;padding:1px 5px;background:var(--b1);flex-shrink:0;}
+
+/* AI suggestion dropdown */
+.ai-sug-drop{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:var(--surf);border:1px solid var(--ai-gb);border-radius:8px;
+  box-shadow:var(--sha-lg);z-index:400;display:none;overflow:hidden;
+  animation:dropIn .15s var(--e3);
+}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px) scale(.98);}to{opacity:1;transform:none;}}
+.ai-sug-drop.open{display:block;}
+.asd-header{padding:8px 14px 4px;display:flex;align-items:center;gap:6px;}
+.asd-title{font-family:var(--f);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--t3);}
+.asd-item{display:flex;align-items:center;gap:10px;padding:9px 14px;cursor:pointer;transition:background var(--d1);}
+.asd-item:hover{background:var(--ai-gs);}
+.asd-ico{width:28px;height:28px;border-radius:5px;background:var(--b1);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.asd-text{font-family:var(--f);font-size:12.5px;color:var(--t1);flex:1;}
+.asd-pill{font-family:var(--m);font-size:9px;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:3px;padding:1px 6px;flex-shrink:0;}
+.asd-div{height:1px;background:var(--b1);margin:3px 0;}
+
+/* KPI strip */
+.kpi-strip{display:flex;border:1px solid var(--b2);border-radius:6px;overflow:hidden;flex-shrink:0;background:var(--card);}
+.kpi-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px 14px;cursor:pointer;border-right:1px solid var(--b2);transition:background var(--d1);}
+.kpi-cell:last-child{border-right:none;}
+.kpi-cell:hover{background:var(--b1);}
+.kpi-cell.on{background:var(--ai-gs);}
+.kpi-n{font-family:var(--f-display);font-size:15px;font-weight:700;letter-spacing:-.5px;line-height:1.1;}
+.kpi-l{font-family:var(--f);font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--t2);margin-top:1px;}
+.kc-a .kpi-n{color:var(--acc);}
+.kc-g .kpi-n{color:var(--grn);}
+.kc-m .kpi-n{color:var(--amb);}
+.kc-r .kpi-n{color:var(--red);}
+.kc-p .kpi-n{color:var(--ai1);}
+
+/* Header right */
+.hdr-right{display:flex;align-items:center;gap:8px;margin-left:auto;}
+.recon-pill{display:flex;align-items:center;gap:5px;padding:4px 10px;border:1px solid var(--b2);border-radius:4px;font-family:var(--m);font-size:10px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.recon-pill:hover{background:var(--b1);color:var(--t1);}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--grn);animation:aipulse 2s ease infinite;flex-shrink:0;}
+.theme-row{display:flex;border:1px solid var(--b2);border-radius:4px;overflow:hidden;}
+.th-o{padding:4px 7px;cursor:pointer;font-size:12px;transition:background var(--d1);border-right:1px solid var(--b2);}
+.th-o:last-child{border-right:none;}
+.th-o:hover{background:var(--b1);}
+.th-o.on{background:var(--ai-gs);}
+.hbtn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:4px;cursor:pointer;color:var(--t2);transition:all var(--d1);position:relative;}
+.hbtn:hover{background:var(--b1);color:var(--t1);}
+.hbtn-dot{position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;background:var(--red);}
+.uav{width:28px;height:28px;border-radius:50%;background:var(--ai-g);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:11px;font-weight:700;color:#1A1410;cursor:pointer;}
+#clockEl{font-family:var(--m);font-size:10px;color:var(--t3);padding:3px 8px;border:1px solid var(--b2);border-radius:3px;white-space:nowrap;}
+
+/* ═══════════════════════
+   PATTERN STRIP
+═══════════════════════ */
+.pattern-strip{
+  display:flex;align-items:center;gap:8px;padding:7px 16px;
+  background:linear-gradient(90deg,var(--ai-gs),transparent);
+  border-bottom:1px solid var(--ai-gb);flex-shrink:0;overflow:hidden;
+}
+.ps-icon{font-size:14px;flex-shrink:0;}
+.ps-badge{font-family:var(--f-display);font-size:10px;font-weight:700;color:var(--ai1);flex-shrink:0;letter-spacing:-.1px;}
+.ps-sep{width:1px;height:16px;background:var(--b3);flex-shrink:0;}
+.ps-text{font-family:var(--f);font-size:11.5px;color:var(--t2);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ps-hi{color:var(--t1);font-weight:600;}
+.ps-conf{font-family:var(--m);font-size:9px;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:2px;padding:1px 6px;flex-shrink:0;}
+.ps-acts{display:flex;gap:4px;flex-shrink:0;}
+.ps-vel{font-family:var(--m);font-size:9.5px;color:var(--grn);flex-shrink:0;}
+
+/* ═══════════════════════
+   FILTER BAR
+═══════════════════════ */
+.filter-bar{
+  display:flex;align-items:center;gap:5px;padding:6px 16px;
+  border-bottom:1px solid var(--b2);flex-shrink:0;overflow-x:auto;
+  background:var(--bg2);transition:background var(--d3),border-color var(--d3);
+}
+.filter-bar::-webkit-scrollbar{display:none;}
+.flabel{font-family:var(--f);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);flex-shrink:0;}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border:1px solid var(--b2);border-radius:3px;font-family:var(--f);font-size:11px;color:var(--t2);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all var(--d1);}
+.chip:hover{border-color:var(--b3);color:var(--t1);}
+.chip.on{background:var(--b1);border-color:var(--b3);color:var(--t1);}
+.chip.ai-chip.on{background:var(--ai-gs);border-color:var(--ai-gb);color:var(--ai1);}
+.chip-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.chip-n{font-family:var(--m);font-size:9.5px;color:var(--t3);}
+.fright{margin-left:auto;display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.result-p{font-family:var(--m);font-size:10px;color:var(--t3);padding:2px 7px;background:var(--b1);border-radius:3px;}
+
+/* ═══════════════════════
+   MAIN LAYOUT
+═══════════════════════ */
+.main{flex:1;display:flex;overflow:hidden;position:relative;z-index:1;}
+
+/* LEFT NAV */
+.lnav{
+  width:42px;background:var(--surf);border-right:1px solid var(--b2);
+  display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:3px;
+  flex-shrink:0;z-index:10;transition:background var(--d3),border-color var(--d3);
+}
+.ni{
+  width:30px;height:30px;border-radius:5px;display:flex;align-items:center;justify-content:center;
+  color:var(--t3);cursor:pointer;transition:all var(--d1);position:relative;
+}
+.ni:hover{background:var(--b1);color:var(--t1);}
+.ni.active{background:var(--ai-gs);color:var(--ai1);}
+.ni-badge{position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--m);font-size:7px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.nsep{height:1px;width:24px;background:var(--b2);margin:4px 0;}
+.nsp{flex:1;}
+
+/* WORKSPACE */
+.workspace{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+
+/* ═══════════════════════
+   WORKBAR / TABS
+═══════════════════════ */
+.ws-bar{
+  display:flex;align-items:center;height:36px;padding:0 14px;gap:8px;
+  border-bottom:1px solid var(--b2);flex-shrink:0;background:var(--surf);
+  transition:background var(--d3),border-color var(--d3);
+}
+.ws-tabs{display:flex;gap:1px;}
+.wt{
+  padding:5px 12px;font-family:var(--f);font-size:11px;font-weight:600;
+  color:var(--t3);cursor:pointer;border-radius:4px;transition:all var(--d1);
+}
+.wt:hover{background:var(--b1);color:var(--t1);}
+.wt.on{background:var(--ai-gs);color:var(--ai1);}
+.ws-right{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.rcount{font-family:var(--m);font-size:10px;color:var(--t3);}
+
+/* ═══════════════════════
+   TABLE
+═══════════════════════ */
+.tbl-wrap{flex:1;overflow:auto;}
+.tbl-wrap::-webkit-scrollbar{width:3px;height:3px;}
+
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead tr{background:var(--bg2);position:sticky;top:0;z-index:5;}
+thead th{
+  padding:8px 12px;text-align:left;font-family:var(--f);font-size:9px;
+  font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);
+  border-bottom:1px solid var(--b2);white-space:nowrap;
+  transition:background var(--d3),border-color var(--d3);
+}
+th.right{text-align:right;}
+tbody tr{border-bottom:1px solid var(--b1);transition:background var(--d1);cursor:pointer;position:relative;}
+tbody tr:hover{background:var(--b0);}
+tbody tr.row-active{background:var(--ai-gs)!important;}
+tbody tr.row-chk{background:var(--acc-s);}
+tbody tr.ai-resolving{background:var(--grn-s)!important;animation:aiRes 1s ease infinite;}
+@keyframes aiRes{0%,100%{opacity:1;}50%{opacity:.6;}}
+tbody tr.ai-highlighted{background:var(--ai-gs)!important;}
+td{padding:8px 12px;vertical-align:middle;white-space:nowrap;}
+
+/* Status indicators */
+.ss{position:absolute;left:0;top:0;bottom:0;width:3px;}
+.ss-open{background:var(--amb);}
+.ss-inv{background:var(--acc);}
+.ss-pend{background:var(--teal);}
+.ss-esc{background:var(--red);}
+.ss-res{background:var(--grn);}
+
+/* Status badges */
+.st{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:2px;font-family:var(--m);font-size:9.5px;font-weight:600;}
+.std{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.so{background:var(--amb-s);color:var(--amb);}.so .std{background:var(--amb);}
+.si{background:var(--acc-s);color:var(--acc);}.si .std{background:var(--acc);}
+.sp{background:var(--teal-s);color:var(--teal);}.sp .std{background:var(--teal);}
+.se{background:var(--red-s);color:var(--red);}.se .std{background:var(--red);}
+.sr{background:var(--grn-s);color:var(--grn);}.sr .std{background:var(--grn);}
+
+/* SLA badges */
+.slax{font-family:var(--m);font-size:9px;font-weight:700;padding:1px 5px;border-radius:2px;}
+.sla-b{background:var(--red-s);color:var(--red);border:1px solid var(--red-b);}
+.sla-n{background:var(--amb-s);color:var(--amb);border:1px solid rgba(232,148,74,.22);}
+.sla-o{background:var(--grn-s);color:var(--grn);border:1px solid var(--grn-b);}
+
+/* Type badge */
+.ty{font-family:var(--m);font-size:10px;font-weight:600;padding:1px 6px;background:var(--b1);border-radius:2px;border:1px solid var(--b2);color:var(--t1);}
+
+/* Amount */
+.amt{font-family:var(--m);font-size:12px;font-weight:600;color:var(--t1);}
+.amt.hi{color:var(--red);}
+
+/* Aging */
+.age{font-family:var(--m);font-size:11px;font-weight:600;}
+.age.cr{color:var(--red);}
+.age.wa{color:var(--amb);}
+.age.ok{color:var(--grn);}
+
+/* Risk */
+.rc{display:flex;align-items:center;gap:5px;}
+.rn{font-family:var(--m);font-size:10.5px;font-weight:700;width:22px;}
+.rhi .rn{color:var(--red);}
+.rmd .rn{color:var(--amb);}
+.rlo .rn{color:var(--grn);}
+.rbw{width:40px;height:4px;background:var(--b2);border-radius:2px;overflow:hidden;}
+.rb{height:100%;border-radius:2px;}
+.rhi .rb{background:var(--red);}
+.rmd .rb{background:var(--amb);}
+.rlo .rb{background:var(--grn);}
+
+/* AI score */
+.ais{display:flex;align-items:center;gap:5px;}
+.ain{font-family:var(--m);font-size:10.5px;font-weight:700;color:var(--ai1);width:22px;}
+.aibw{width:40px;height:4px;background:var(--b2);border-radius:2px;overflow:hidden;}
+.aibf{height:100%;border-radius:2px;background:var(--ai-g);}
+
+/* Owner */
+.own{display:flex;align-items:center;gap:5px;}
+.oa{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:8px;font-weight:700;color:#1A1410;flex-shrink:0;}
+
+/* IDs */
+.iid{font-family:var(--m);font-size:10.5px;color:var(--t2);}
+.bid{font-family:var(--m);font-size:10px;color:var(--t3);}
+
+/* Checkbox */
+.ck{width:14px;height:14px;border:1.5px solid var(--b3);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--m);font-size:9px;font-weight:700;color:var(--acc);transition:all var(--d1);}
+.ck:hover{border-color:var(--acc);}
+.ck.on{background:var(--acc);border-color:var(--acc);color:#fff;}
+
+/* Glance actions */
+.ga{display:none;position:absolute;right:8px;top:50%;transform:translateY(-50%);gap:3px;z-index:2;}
+tbody tr:hover .ga{display:flex;}
+.gab{padding:2px 8px;border-radius:3px;font-family:var(--f);font-size:10.5px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all var(--d1);}
+.gr{background:var(--grn-s);color:var(--grn);border-color:var(--grn-b);}
+.gr:hover{background:var(--grn);color:#fff;}
+.ge{background:var(--amb-s);color:var(--amb);}
+.ge:hover{background:var(--amb);color:#fff;}
+.gn{background:var(--b1);color:var(--t2);border-color:var(--b2);}
+.gn:hover{background:var(--b2);color:var(--t1);}
+
+/* Bulk bar */
+.bulk-bar{display:none;align-items:center;gap:8px;padding:7px 14px;background:var(--acc-s);border-bottom:1px solid var(--acc-b);flex-shrink:0;}
+.bulk-n{font-family:var(--f-display);font-size:12px;font-weight:700;color:var(--acc);}
+.bulk-prev{font-family:var(--f);font-size:11.5px;color:var(--t2);flex:1;}
+
+/* Table footer */
+.tbl-foot{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-top:1px solid var(--b2);background:var(--surf);flex-shrink:0;transition:background var(--d3),border-color var(--d3);}
+.pgi{font-family:var(--m);font-size:10px;color:var(--t3);}
+.pgb{display:flex;gap:3px;}
+.pb{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:3px;font-family:var(--m);font-size:10px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.pb:hover{background:var(--b1);color:var(--t1);}
+.pb.on{background:var(--ai-gs);border-color:var(--ai1);color:var(--ai1);}
+
+/* ═══════════════════════
+   INBOX VIEW
+═══════════════════════ */
+.inbox-view{flex:1;display:none;overflow:hidden;}
+.inbox-pane{width:300px;flex-shrink:0;background:var(--surf);border-right:1px solid var(--b2);display:flex;flex-direction:column;overflow:hidden;transition:background var(--d3),border-color var(--d3);}
+.ib-hdr{padding:10px 14px;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.ib-title{font-family:var(--f-display);font-size:14px;font-weight:700;color:var(--t1);flex:1;}
+.ib-cnt{font-family:var(--m);font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:var(--red-s);color:var(--red);}
+.rev-sw{display:flex;border:1px solid var(--b2);border-radius:4px;overflow:hidden;}
+.ro{padding:3px 8px;font-family:var(--f);font-size:10px;color:var(--t3);cursor:pointer;border-right:1px solid var(--b2);transition:all var(--d1);}
+.ro:last-child{border-right:none;}
+.ro.on{background:var(--ai-g);color:#1A1410;}
+.ib-sort{padding:5px 14px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:4px;flex-shrink:0;}
+.ib-sort-l{font-family:var(--f);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);}
+.isb{padding:2px 7px;border:1px solid var(--b2);border-radius:3px;font-family:var(--f);font-size:10.5px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.isb:hover{background:var(--b1);color:var(--t1);}
+.isb.on{background:var(--ai-gs);border-color:var(--ai1);color:var(--ai1);}
+.rev-prog{padding:6px 14px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:7px;flex-shrink:0;display:none;}
+.rpbw{flex:1;height:3px;background:var(--b2);border-radius:2px;overflow:hidden;}
+.rpbf{height:100%;border-radius:2px;background:var(--ai-g);transition:width var(--d3);}
+.rpl{font-family:var(--m);font-size:10px;color:var(--t3);flex-shrink:0;}
+.ib-list{flex:1;overflow-y:auto;padding:4px;}
+.tc{padding:10px 12px;border:1px solid var(--b1);border-radius:5px;margin-bottom:3px;cursor:pointer;transition:all var(--d1);position:relative;overflow:hidden;}
+.tc:hover{border-color:var(--b3);background:var(--card);}
+.tc.tca{background:var(--ai-gs);border-color:var(--ai1);}
+.tc-str{position:absolute;left:0;top:0;bottom:0;width:3px;}
+.tc-r1{display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+.tc-id{font-family:var(--m);font-size:11px;font-weight:700;color:var(--acc);}
+.tc-t{font-family:var(--m);font-size:9.5px;color:var(--t3);margin-left:auto;}
+.tc-r2{display:flex;align-items:baseline;gap:6px;margin-bottom:3px;}
+.tc-amt{font-family:var(--m);font-size:13px;font-weight:700;color:var(--t1);}
+.tc-type{font-family:var(--f);font-size:10px;color:var(--t3);}
+.tc-r3{display:flex;align-items:center;gap:5px;}
+.tc-own{font-size:11px;color:var(--t2);flex:1;}
+.tc-ab{height:2px;border-radius:1px;margin-top:5px;}
+.tc-acts{display:flex;gap:3px;margin-top:6px;height:0;overflow:hidden;opacity:0;transition:all var(--d2);}
+.tc.tca .tc-acts,.tc:hover .tc-acts{height:auto;opacity:1;}
+.inbox-detail{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+.idn{height:30px;background:var(--surf);border-bottom:1px solid var(--b2);display:flex;align-items:center;padding:0 14px;gap:6px;flex-shrink:0;transition:background var(--d3),border-color var(--d3);}
+.idnb{display:flex;align-items:center;gap:4px;padding:3px 8px;border:1px solid var(--b2);border-radius:3px;font-family:var(--f);font-size:11px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.idnb:hover{background:var(--b1);color:var(--t1);}
+.idnb.dis{opacity:.4;pointer-events:none;}
+.idpg{font-family:var(--m);font-size:10px;color:var(--t3);}
+
+/* ═══════════════════════
+   AI PANEL
+═══════════════════════ */
+.ai-panel{
+  width:360px;flex-shrink:0;
+  background:var(--surf);border-left:1px solid var(--b2);
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:background var(--d3),border-color var(--d3),width var(--d4) var(--e1);
+  position:relative;
+}
+.ai-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ai-g);z-index:1;}
+.ai-panel.wide{width:480px;}
+.ai-panel.narrow{width:280px;}
+
+.aip-hdr{
+  height:44px;display:flex;align-items:center;padding:0 14px;gap:8px;flex-shrink:0;
+  background:linear-gradient(180deg,var(--ai-gs) 0%,transparent 100%);
+  border-bottom:1px solid var(--ai-gb);
+}
+.aip-brain{width:28px;height:28px;border-radius:6px;background:var(--ai-g);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;box-shadow:var(--sha-ai);}
+.aip-title{font-family:var(--f-display);font-size:14px;font-weight:700;color:var(--ai1);flex:1;}
+.aip-status{font-family:var(--m);font-size:9px;color:var(--t3);display:flex;align-items:center;gap:4px;}
+.aip-status-dot{width:5px;height:5px;border-radius:50%;background:var(--ai1);animation:aipulse 2s ease infinite;flex-shrink:0;}
+.aip-controls{display:flex;gap:3px;}
+.apb{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:3px;cursor:pointer;color:var(--t2);transition:all var(--d1);}
+.apb:hover{background:var(--b1);color:var(--t1);}
+.aip-chat-zone{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:280px;}
+.aip-messages{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+.aip-messages::-webkit-scrollbar{width:2px;}
+
+/* Welcome card */
+.ai-welcome{background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:8px;padding:12px 14px;}
+.aiw-head{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.aiw-title{font-family:var(--f-display);font-size:13px;font-weight:700;color:var(--ai1);}
+.aiw-body{font-family:var(--f);font-size:12px;color:var(--t2);line-height:1.6;}
+.aiw-examples{margin-top:8px;display:flex;flex-direction:column;gap:3px;}
+.aiw-eg{font-family:var(--m);font-size:10.5px;color:var(--t2);padding:4px 8px;background:var(--b1);border-radius:4px;cursor:pointer;transition:all var(--d1);border:1px solid transparent;}
+.aiw-eg:hover{background:var(--ai-gs);border-color:var(--ai-gb);color:var(--ai1);}
+
+/* Messages */
+.msg-u{align-self:flex-end;max-width:88%;background:var(--acc);color:#1A1410;border-radius:10px 10px 2px 10px;padding:8px 12px;font-family:var(--f);font-size:12.5px;line-height:1.4;font-weight:500;}
+.msg-ai{align-self:flex-start;max-width:100%;background:var(--card);border:1px solid var(--b2);border-radius:2px 10px 10px 10px;padding:10px 12px;font-family:var(--f);font-size:12.5px;color:var(--t2);line-height:1.5;transition:background var(--d3),border-color var(--d3);}
+.msg-ai-hdr{display:flex;align-items:center;gap:5px;margin-bottom:6px;}
+.msg-ai-ico{font-size:12px;}
+.msg-ai-from{font-family:var(--f-display);font-size:9.5px;font-weight:700;color:var(--ai1);text-transform:uppercase;letter-spacing:.5px;}
+.msg-ai-ts{font-family:var(--m);font-size:9px;color:var(--t3);margin-left:auto;}
+.ai-rc{background:var(--raised);border:1px solid var(--b2);border-radius:5px;padding:9px 11px;margin-top:7px;cursor:pointer;transition:all var(--d1);}
+.ai-rc:hover{border-color:var(--ai1);}
+.ai-rc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;}
+.ai-rc-title{font-family:var(--f);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--t3);}
+.ai-rc-cnt{font-family:var(--m);font-size:10px;font-weight:700;color:var(--ai1);background:var(--ai-gs);border-radius:10px;padding:1px 7px;}
+.ai-rc-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--b1);font-size:11.5px;}
+.ai-rc-row:last-of-type{border-bottom:none;}
+.ai-rcid{font-family:var(--m);font-weight:600;color:var(--acc);cursor:pointer;}
+.ai-rcid:hover{text-decoration:underline;}
+.ai-rcv{font-family:var(--m);font-weight:600;color:var(--t1);}
+.ai-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;}
+.aic{display:inline-flex;align-items:center;gap:3px;padding:4px 9px;border:1px solid var(--ai-gb);border-radius:4px;background:var(--ai-gs);font-family:var(--f);font-size:11px;font-weight:600;color:var(--ai1);cursor:pointer;transition:all var(--d1);}
+.aic:hover{background:var(--ai1);color:#1A1410;border-color:var(--ai1);}
+.aic.g{border-color:var(--grn-b);background:var(--grn-s);color:var(--grn);}.aic.g:hover{background:var(--grn);color:#fff;}
+.aic.r{border-color:var(--red-b);background:var(--red-s);color:var(--red);}.aic.r:hover{background:var(--red);color:#fff;}
+.aic.a{border-color:var(--acc-b);background:var(--acc-s);color:var(--acc);}.aic.a:hover{background:var(--acc);color:#1A1410;}
+.ai-typing{display:flex;align-items:center;gap:4px;padding:8px 12px;background:var(--card);border:1px solid var(--b2);border-radius:2px 10px 10px 10px;align-self:flex-start;}
+.tdot{width:5px;height:5px;border-radius:50%;background:var(--ai1);animation:td 1.4s ease infinite;}
+.tdot:nth-child(2){animation-delay:.2s;}
+.tdot:nth-child(3){animation-delay:.4s;}
+@keyframes td{0%,80%,100%{transform:scale(.7);opacity:.4;}40%{transform:scale(1);opacity:1;}}
+
+.ai-sugs{flex-shrink:0;padding:6px 14px;border-top:1px solid var(--b1);display:flex;gap:4px;overflow-x:auto;}
+.ai-sugs::-webkit-scrollbar{display:none;}
+.aisug{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;padding:4px 9px;border:1px solid var(--b2);border-radius:4px;font-family:var(--f);font-size:11px;color:var(--t2);cursor:pointer;flex-shrink:0;transition:all var(--d1);}
+.aisug:hover{background:var(--b1);border-color:var(--b3);color:var(--t1);}
+
+.ai-input-row{flex-shrink:0;display:flex;align-items:flex-end;gap:6px;padding:8px 14px 10px;border-top:1px solid var(--b2);transition:border-color var(--d3);}
+.ai-ta{flex:1;background:var(--card);border:1px solid var(--b2);border-radius:6px;padding:8px 10px;font-family:var(--f);font-size:12.5px;color:var(--t1);outline:none;resize:none;min-height:36px;max-height:100px;transition:all var(--d1);line-height:1.4;}
+.ai-ta::placeholder{color:var(--t3);}
+.ai-ta:focus{border-color:var(--ai1);box-shadow:0 0 0 2px var(--ai-gs);}
+.ai-send{width:34px;height:34px;flex-shrink:0;border-radius:6px;background:var(--ai-g);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--d1);border:none;box-shadow:var(--sha-ai);}
+.ai-send:hover{transform:scale(1.05);}
+.ai-send svg{color:#1A1410;}
+
+.aip-divider{height:3px;background:var(--b1);flex-shrink:0;cursor:ns-resize;position:relative;display:flex;align-items:center;justify-content:center;transition:background var(--d1);}
+.aip-divider:hover{background:var(--ai-gb);}
+.aip-divider::before{content:'···';color:var(--t3);font-size:10px;letter-spacing:2px;}
+
+/* DETAIL PANE */
+.aip-detail{flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;border-top:1px solid var(--b2);height:320px;transition:height var(--d4) var(--e1),border-color var(--d3);}
+.aip-detail.collapsed{height:0;overflow:hidden;}
+.dpx-hdr{padding:8px 13px;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:7px;flex-shrink:0;transition:border-color var(--d3);}
+.dpx-bid{font-family:var(--m);font-size:12px;font-weight:700;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:2px;padding:2px 8px;}
+.dpx-mode{font-family:var(--f);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);}
+.dpx-r{margin-left:auto;display:flex;gap:3px;}
+.xb{width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:3px;cursor:pointer;color:var(--t2);transition:all var(--d1);}
+.xb:hover{background:var(--b1);color:var(--t1);}
+.wft{display:flex;align-items:center;padding:7px 13px 5px;flex-shrink:0;}
+.wfs{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;}
+.wfl{position:absolute;top:9px;left:50%;right:-50%;height:1.5px;background:var(--b2);}
+.wfl.dn{background:var(--acc);}
+.wfn{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--b3);background:var(--surf);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:var(--t3);z-index:1;transition:all var(--d3);}
+.wfn.dn{background:var(--acc);border-color:var(--acc);color:#1A1410;}
+.wfn.cu{border-color:var(--ai1);color:var(--ai1);box-shadow:0 0 0 3px var(--ai-gs);}
+.wflbl{font-family:var(--f);font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--t3);margin-top:3px;text-align:center;}
+.dp-tabs{display:flex;border-bottom:1px solid var(--b2);padding:0 13px;flex-shrink:0;overflow-x:auto;transition:border-color var(--d3);}
+.dp-tabs::-webkit-scrollbar{display:none;}
+.dpt{padding:6px 9px;font-family:var(--f);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all var(--d1);display:flex;align-items:center;gap:3px;}
+.dpt:hover{color:var(--t1);}
+.dpt.on{color:var(--ai1);border-bottom-color:var(--ai1);}
+.dptn{font-family:var(--m);font-size:8px;font-weight:700;padding:0 3px;border-radius:1px;background:var(--ai1);color:#1A1410;}
+.dpb{flex:1;overflow-y:auto;padding:10px 13px;}
+.dpb::-webkit-scrollbar{width:2px;}
+.mss{margin-bottom:11px;}
+.mst{font-family:var(--f-display);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:5px;display:flex;align-items:center;gap:5px;}
+.mst::after{content:'';flex:1;height:1px;background:var(--b1);}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.mi{background:var(--card);border-radius:4px;padding:6px 8px;border:1px solid var(--b1);transition:background var(--d3),border-color var(--d3);}
+.mil{font-family:var(--f);font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:2px;}
+.miv{font-family:var(--m);font-size:11.5px;font-weight:600;color:var(--t1);}
+.mi.s2{grid-column:1/-1;}
+.cmt{display:flex;gap:6px;padding:6px 0;border-bottom:1px solid var(--b1);}
+.cmt:last-of-type{border-bottom:none;}
+.cmav{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f);font-size:8px;font-weight:700;color:#1A1410;flex-shrink:0;}
+.cmb{flex:1;}
+.cmt-top{display:flex;align-items:baseline;gap:5px;margin-bottom:2px;}
+.cmn{font-size:12px;font-weight:700;color:var(--t1);}
+.cmt-time{font-family:var(--m);font-size:9px;color:var(--t3);}
+.cmt-txt{font-size:12px;color:var(--t2);line-height:1.5;}
+.cmt-in{width:100%;background:var(--card);border:1px solid var(--b2);border-radius:4px;padding:6px 8px;font-family:var(--f);font-size:12px;color:var(--t1);outline:none;resize:none;min-height:44px;transition:all var(--d1);margin-top:7px;}
+.cmt-in:focus{border-color:var(--ai1);box-shadow:0 0 0 2px var(--ai-gs);}
+.ai-card{background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:5px;padding:10px 12px;margin-bottom:8px;}
+.ai-card-t{font-family:var(--f-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ai1);margin-bottom:4px;}
+.ai-card-b{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:7px;}
+.ai-cr{display:flex;align-items:center;gap:5px;font-family:var(--m);font-size:10px;color:var(--t3);}
+.ai-chip{background:var(--grn);color:#fff;padding:1px 5px;border-radius:2px;font-size:9.5px;font-weight:700;}
+.auid-item{display:flex;gap:7px;padding:6px 0;border-bottom:1px solid var(--b1);position:relative;}
+.auid-item:last-child{border-bottom:none;}
+.auid-line{position:absolute;left:9px;top:22px;bottom:-6px;width:1px;background:var(--b1);}
+.auid-ico{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0;z-index:1;}
+.auid-t{font-size:12px;font-weight:500;color:var(--t1);}
+.auid-m{font-family:var(--m);font-size:9px;color:var(--t3);margin-top:2px;}
+.ev-item{display:flex;align-items:center;gap:7px;padding:6px 8px;background:var(--card);border-radius:3px;border:1px solid var(--b1);margin-bottom:3px;cursor:pointer;transition:all var(--d1);}
+.ev-item:hover{border-color:var(--ai1);}
+.ev-ico{width:24px;height:24px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+.ev-name{font-size:12px;font-weight:600;color:var(--t1);}
+.ev-info{font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;}
+.asn-blk{display:flex;align-items:center;gap:7px;padding:7px 9px;background:var(--card);border-radius:4px;border:1px solid var(--b1);}
+.asn-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:10px;font-weight:700;color:#1A1410;flex-shrink:0;}
+.asn-name{font-size:12.5px;font-weight:700;color:var(--t1);}
+.asn-sub{font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;}
+.dpf{padding:7px 13px;border-top:1px solid var(--b2);display:flex;gap:4px;flex-shrink:0;background:var(--surf);transition:background var(--d3),border-color var(--d3);}
+
+/* breach banner */
+#dpBreach{display:none;flex-shrink:0;padding:6px 13px;background:var(--red-s);border-bottom:1px solid var(--red-b);align-items:center;gap:6px;}
+
+/* ═══════════════════════
+   TRENDS VIEW
+═══════════════════════ */
+.trends-view{flex:1;display:none;overflow:hidden;flex-direction:column;}
+.trends-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:14px;}
+.trends-grid::-webkit-scrollbar{width:3px;}
+.tchart{background:var(--card);border:1px solid var(--b2);border-radius:8px;padding:14px;cursor:pointer;transition:all var(--d2);}
+.tchart:hover{border-color:var(--ai-gb);box-shadow:var(--sha-ai);}
+.tc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;}
+.tc-title{font-family:var(--f-display);font-size:12px;font-weight:700;color:var(--t1);}
+.tc-sub{font-family:var(--m);font-size:9.5px;color:var(--t3);margin-top:2px;}
+.tc-val{font-family:var(--f-display);font-size:20px;font-weight:800;color:var(--t1);line-height:1;}
+.tc-delta{font-family:var(--m);font-size:10px;font-weight:600;margin-top:2px;}
+.tc-up{color:var(--grn);}.tc-dn{color:var(--red);}
+.chart-svg{width:100%;display:block;overflow:visible;}
+.tc-span2{grid-column:span 2;}
+.tc-span3{grid-column:span 3;}
+.hbr{display:flex;align-items:center;gap:7px;margin-bottom:5px;cursor:pointer;transition:all var(--d1);}
+.hbr:hover .hbf{filter:brightness(1.15);}
+.hbl{font-family:var(--f);font-size:11px;color:var(--t2);width:54px;flex-shrink:0;}
+.hbt{flex:1;height:6px;background:var(--b2);border-radius:3px;overflow:hidden;}
+.hbf{height:100%;border-radius:3px;transition:width var(--d4) var(--e1);}
+.hbn{font-family:var(--m);font-size:10px;font-weight:600;color:var(--t1);width:26px;text-align:right;flex-shrink:0;}
+
+/* ═══════════════════════
+   HEAT MAP
+═══════════════════════ */
+.heatmap-wrap{padding:10px 0;}
+.hm-legend{display:flex;align-items:center;gap:6px;margin-bottom:8px;font-family:var(--m);font-size:9px;color:var(--t3);}
+.hm-leg-bar{display:flex;gap:2px;align-items:center;}
+.hm-lg{width:14px;height:8px;border-radius:1px;}
+.hm-grid{display:grid;grid-template-columns:40px repeat(7,1fr);gap:2px;}
+.hm-row-label{font-family:var(--m);font-size:9px;color:var(--t3);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;white-space:nowrap;}
+.hm-cell{
+  height:18px;border-radius:2px;cursor:pointer;transition:all var(--d1);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--m);font-size:8px;font-weight:600;
+  position:relative;
+}
+.hm-cell:hover{transform:scale(1.15);z-index:5;box-shadow:0 2px 8px rgba(0,0,0,.4);}
+.hm-cell:hover .hm-tooltip{display:block;}
+.hm-tooltip{
+  display:none;position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);
+  background:var(--raised);border:1px solid var(--b3);border-radius:4px;
+  padding:5px 8px;white-space:nowrap;z-index:100;
+  font-family:var(--f);font-size:10px;color:var(--t1);
+  box-shadow:var(--sha-md);
+}
+.hm-col-labels{display:grid;grid-template-columns:40px repeat(7,1fr);gap:2px;margin-bottom:3px;}
+.hm-col-lbl{font-family:var(--m);font-size:9px;color:var(--t3);text-align:center;}
+
+/* ═══════════════════════
+   RESIZE HANDLE
+═══════════════════════ */
+.rh{width:4px;background:var(--b2);cursor:col-resize;flex-shrink:0;display:none;transition:background var(--d1);}
+.rh.vis{display:block;}
+.rh:hover,.rh.drg{background:var(--ai1);}
+
+/* WORK PANEL */
+.work-panel{width:0;background:var(--surf);border-left:1px solid var(--b2);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0;transition:width var(--d4) var(--e1),background var(--d3),border-color var(--d3);}
+.work-panel.open{width:340px;}
+
+/* ═══════════════════════
+   BUTTONS
+═══════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:4px;border:1px solid transparent;border-radius:4px;font-family:var(--f);font-weight:600;font-size:12px;cursor:pointer;padding:5px 11px;transition:all var(--d1);white-space:nowrap;}
+.btn-ai{background:var(--ai-g);color:#1A1410;border:none;box-shadow:var(--sha-ai);}
+.btn-ai:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.btn-acc{background:var(--acc);color:#1A1410;border-color:var(--acc);}
+.btn-acc:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--t2);border-color:var(--b2);}
+.btn-ghost:hover{background:var(--b1);color:var(--t1);}
+.btn-success{background:var(--grn-s);color:var(--grn);border-color:var(--grn-b);}
+.btn-success:hover{background:var(--grn);color:#fff;}
+.btn-danger{background:var(--red-s);color:var(--red);border-color:var(--red-b);}
+.btn-danger:hover{background:var(--red);color:#fff;}
+.btn-warn{background:var(--amb-s);color:var(--amb);border-color:rgba(232,148,74,.22);}
+.btn-warn:hover{background:var(--amb);color:#fff;}
+.btn-sm{padding:3px 9px;font-size:11.5px;}
+.btn-xs{padding:2px 7px;font-size:11px;border-radius:3px;}
+.kbd{font-family:var(--m);font-size:9px;padding:0 4px;border:1px solid rgba(255,255,255,.2);border-radius:2px;}
+
+/* ═══════════════════════
+   CONTEXT MENU
+═══════════════════════ */
+.ctx-menu{position:fixed;z-index:900;background:var(--surf);border:1px solid var(--b3);border-radius:6px;box-shadow:var(--sha-lg);padding:4px;min-width:192px;display:none;animation:ctxIn .12s var(--e1);transition:background var(--d3),border-color var(--d3);}
+@keyframes ctxIn{from{opacity:0;transform:scale(.96) translateY(-4px);}to{opacity:1;transform:none;}}
+.ctx-menu.open{display:block;}
+.ctx-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:4px;font-family:var(--f);font-size:12px;color:var(--t1);cursor:pointer;transition:background var(--d1);}
+.ctx-item:hover{background:var(--ai-gs);}
+.ctx-item.danger{color:var(--red);}
+.ctx-item.danger:hover{background:var(--red-s);}
+.ctx-item.dis{opacity:.4;cursor:not-allowed;pointer-events:none;}
+.ctx-ico{font-size:13px;width:16px;text-align:center;flex-shrink:0;}
+.ctx-lbl{flex:1;}
+.ctx-key{font-family:var(--m);font-size:9.5px;color:var(--t3);}
+.ctx-div{height:1px;background:var(--b1);margin:3px 0;}
+.ctx-sec{padding:4px 10px 2px;font-family:var(--f-display);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);}
+
+/* ═══════════════════════
+   MAKER/CHECKER MODAL
+═══════════════════════ */
+.overlay{position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;animation:fdIn .18s var(--e1);backdrop-filter:blur(6px);}
+@keyframes fdIn{from{opacity:0;}to{opacity:1;}}
+.overlay.hidden{display:none;}
+.modal{background:var(--surf);border:1px solid var(--b3);border-radius:10px;box-shadow:var(--sha-xl);width:100%;max-width:540px;max-height:90vh;overflow:auto;animation:modIn .22s var(--e2);transition:background var(--d3),border-color var(--d3);}
+@keyframes modIn{from{opacity:0;transform:scale(.96) translateY(8px);}to{opacity:1;transform:none;}}
+.mod-bar{height:3px;background:var(--ai-g);border-radius:10px 10px 0 0;}
+.mod-hdr{padding:16px 18px 14px;border-bottom:1px solid var(--b2);display:flex;align-items:flex-start;gap:9px;}
+.mod-title{font-family:var(--f-display);font-size:17px;font-weight:700;color:var(--t1);}
+.mod-sub{font-family:var(--f);font-size:12px;color:var(--t2);margin-top:3px;}
+.mod-close{margin-left:auto;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t3);border-radius:4px;transition:all var(--d1);flex-shrink:0;}
+.mod-close:hover{background:var(--b1);color:var(--t1);}
+.mod-body{padding:18px;}
+.mod-foot{padding:12px 18px;border-top:1px solid var(--b2);display:flex;gap:7px;justify-content:flex-end;}
+.field{margin-bottom:12px;}
+.field-label{font-family:var(--f-display);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t2);margin-bottom:4px;display:block;}
+.fi,.fs,.ft{width:100%;background:var(--card);border:1px solid var(--b2);border-radius:5px;padding:7px 10px;font-family:var(--f);font-size:12.5px;color:var(--t1);outline:none;transition:all var(--d1);}
+.fi::placeholder,.ft::placeholder{color:var(--t3);}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--ai1);box-shadow:0 0 0 2px var(--ai-gs);}
+.ft{resize:vertical;min-height:80px;}
+.fs option{background:var(--card);}
+.impv{background:var(--card);border:1px solid var(--b1);border-radius:5px;padding:11px;margin-bottom:12px;}
+.impv-t{font-family:var(--f-display);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:7px;}
+.ip-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--b1);font-size:12px;}
+.ip-row:last-child{border-bottom:none;}
+.ipk{color:var(--t2);}
+.ipv{font-family:var(--m);font-weight:600;color:var(--t1);}
+.ipp{color:var(--grn);}.ipn{color:var(--red);}
+.mkbadge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:var(--grn-s);border:1px solid var(--grn-b);border-radius:3px;margin-bottom:11px;}
+.mkbadge span{font-family:var(--f);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--grn);}
+
+/* ═══════════════════════
+   APPROVALS OVERLAY
+═══════════════════════ */
+.appr-overlay{position:fixed;top:0;right:-520px;bottom:0;width:520px;background:var(--surf);border-left:1px solid var(--b3);box-shadow:var(--sha-xl);z-index:600;display:flex;flex-direction:column;transition:right var(--d4) var(--e1);}
+.appr-overlay.open{right:0;}
+.appr-dim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:599;display:none;backdrop-filter:blur(3px);}
+.appr-dim.on{display:block;}
+.apr-hdr{padding:14px 18px;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:9px;flex-shrink:0;}
+.apr-title{font-family:var(--f-display);font-size:17px;font-weight:700;color:var(--t1);}
+.apr-cnt{font-family:var(--m);font-size:11px;font-weight:700;padding:3px 9px;background:var(--amb-s);color:var(--amb);border-radius:10px;}
+.apr-body{flex:1;overflow-y:auto;padding:14px 18px;}
+.apr-sec{font-family:var(--f-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:8px;margin-top:14px;display:flex;align-items:center;gap:5px;}
+.apr-sec::after{content:'';flex:1;height:1px;background:var(--b1);}
+.apr-item{background:var(--card);border:1px solid var(--b2);border-radius:6px;padding:12px 14px;margin-bottom:6px;transition:all var(--d1);}
+.apr-item:hover{border-color:var(--ai-gb);}
+.apr-item.done{opacity:.55;}
+.apr-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.apr-id{font-family:var(--m);font-size:12px;font-weight:700;color:var(--acc);}
+.apr-time{font-family:var(--m);font-size:9.5px;color:var(--t3);margin-left:auto;}
+.apr-item-t{font-size:12.5px;color:var(--t1);margin-bottom:6px;}
+.apr-acts{display:flex;gap:5px;}
+
+/* ═══════════════════════
+   TOAST
+═══════════════════════ */
+.toast-area{position:fixed;bottom:16px;right:16px;z-index:1000;display:flex;flex-direction:column-reverse;gap:6px;pointer-events:none;}
+.toast{display:flex;align-items:flex-start;gap:8px;background:var(--raised);border:1px solid var(--b3);border-radius:6px;padding:10px 12px;box-shadow:var(--sha-lg);pointer-events:all;animation:toastIn .2s var(--e3);min-width:220px;max-width:320px;}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px) scale(.96);}to{opacity:1;transform:none;}}
+.t-ico{font-size:16px;flex-shrink:0;}
+.t-body{flex:1;}
+.t-title{font-family:var(--f-display);font-size:12px;font-weight:700;color:var(--t1);}
+.t-sub{font-family:var(--f);font-size:11px;color:var(--t2);margin-top:2px;}
+.tx{cursor:pointer;color:var(--t3);transition:color var(--d1);}
+.tx:hover{color:var(--t1);}
+.tp{border-left:3px solid var(--ai1);}
+.tg{border-left:3px solid var(--grn);}
+.tm{border-left:3px solid var(--amb);}
+.tr{border-left:3px solid var(--red);}
+.ta{border-left:3px solid var(--b3);}
+
+/* @pulse animation */
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
+<header class="header">
+  <div class="nexus-logo" onclick="toast('🏦','Meridian Suite','ExceptionIQ v5 · Premium Reconciliation Intelligence','tp')">
+    <div class="nexus-mark">M</div>
+    <div class="nexus-wordmark">
+      <div class="nexus-name">Meridian</div>
+      <div class="nexus-ver">ExceptionIQ v5 · Rec Intelligence</div>
+    </div>
+  </div>
+
+  <!-- AI Command Bar -->
+  <div class="ai-cmd-zone">
+    <div class="ai-cmd-bar" id="cmdBar" onclick="document.getElementById('cmdInput').focus()">
+      <div class="ai-icon">⟡</div>
+      <div class="ai-icon-pulse"></div>
+      <input class="ai-cmd-input" id="cmdInput" placeholder="Ask Meridian AI — 'Show critical FX breaks', 'Detect patterns'…" onfocus="onCmdFocus()" onblur="onCmdBlur()" oninput="cmdInput(this)" onkeydown="cmdKeydown(event)">
+      <span class="ai-cmd-kb">⌘K</span>
+    </div>
+    <div class="ai-sug-drop" id="cmdDrop">
+      <div class="asd-header"><span class="asd-title">Quick Commands</span></div>
+      <div class="asd-item" onclick="cmdSend('Show all SLA breached breaks not yet escalated')"><div class="asd-ico">🔴</div><div class="asd-text">Show SLA-breached, unescalated breaks</div><div class="asd-pill">SLA</div></div>
+      <div class="asd-item" onclick="cmdSend('Detect patterns across all current breaks')"><div class="asd-ico">🧠</div><div class="asd-text">Detect patterns across all breaks</div><div class="asd-pill">AI</div></div>
+      <div class="asd-item" onclick="cmdSend('Which FX breaks can be auto-resolved?')"><div class="asd-ico">⚡</div><div class="asd-text">AI-resolvable FX breaks</div><div class="asd-pill">Resolve</div></div>
+      <div class="asd-item" onclick="cmdSend('Show highest amount breaks today')"><div class="asd-ico">💰</div><div class="asd-text">Highest value open breaks</div><div class="asd-pill">Risk</div></div>
+      <div class="asd-div"></div>
+      <div class="asd-item" onclick="cmdSend('Summarize today reconciliation health')"><div class="asd-ico">📊</div><div class="asd-text">Today's reconciliation health summary</div><div class="asd-pill">Report</div></div>
+    </div>
+  </div>
+
+  <!-- KPI Strip -->
+  <div class="kpi-strip">
+    <div class="kpi-cell kc-a on" id="kc-all" onclick="kpiFilter('all',this)"><div class="kpi-n">2,847</div><div class="kpi-l">Open</div></div>
+    <div class="kpi-cell kc-r" id="kc-red" onclick="kpiFilter('red',this)"><div class="kpi-n">$284M</div><div class="kpi-l">Exposure</div></div>
+    <div class="kpi-cell kc-m" id="kc-amb" onclick="kpiFilter('amb',this)"><div class="kpi-n">142</div><div class="kpi-l">Critical</div></div>
+    <div class="kpi-cell kc-g" id="kc-grn" onclick="kpiFilter('grn',this)"><div class="kpi-n">87.4%</div><div class="kpi-l">SLA</div></div>
+    <div class="kpi-cell kc-p" id="kc-ai" onclick="cmdSend('Which FX breaks can be auto-resolved?')"><div class="kpi-n">63</div><div class="kpi-l">AI Ready</div></div>
+  </div>
+
+  <div class="hdr-right">
+    <span id="clockEl">--:--:-- UTC</span>
+    <div class="recon-pill"><div class="live-dot"></div>GOLDSTREAM-PRIME / T+2<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></div>
+    <div class="theme-row">
+      <div class="th-o on" id="tm" onclick="setTheme('meridian')" title="Meridian Dark">🌑</div>
+      <div class="th-o" id="tl" onclick="setTheme('meridian-light')" title="Meridian Light">☀️</div>
+      <div class="th-o" id="ts" onclick="setTheme('meridian-slate')" title="Meridian Slate">🌊</div>
+    </div>
+    <div class="hbtn" onclick="openAppr()" title="Pending Approvals (7)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><div class="hbtn-dot"></div></div>
+    <div class="hbtn" onclick="toast('🔔','3 SLA Alerts','B2108 ($12.4M) SLA breached 8h ago — unescalated','tr')" title="Alerts"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+    <div class="uav" title="Priya Mehta · Senior Analyst">PM</div>
+    <button class="btn btn-ai btn-sm" onclick="toast('✚','New Break','Manual break entry form opened','ta')">+ New Break</button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════
+     PATTERN STRIP
+═══════════════════════════════════ -->
+<div class="pattern-strip" id="patternStrip">
+  <span class="ps-icon">🧠</span>
+  <span class="ps-badge">⟡ Neural Pattern Detected</span>
+  <div class="ps-sep"></div>
+  <div class="ps-text">
+    <span class="ps-hi">11 Equity FX breaks share Pantheon custody source · Rate discrepancy 1.2248→1.2319 (EURUSD fixing)</span> · AI auto-resolution confidence 96% · Est. $18.2M exposure recoverable · 6.8h analyst time saved
+  </div>
+  <span class="ps-conf">96% CONF</span>
+  <div class="ps-acts">
+    <button class="btn btn-ai btn-xs" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ Resolve Cluster</button>
+    <button class="btn btn-ghost btn-xs" onclick="cmdSend('Explain why this pattern exists')">Explain</button>
+    <button class="btn btn-ghost btn-xs" onclick="document.getElementById('patternStrip').style.display='none'">Dismiss</button>
+  </div>
+  <div class="ps-vel">↑ <span id="velCnt">47</span> cleared today</div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="flabel">Filters:</span>
+  <div class="chip on" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--amb)"></div>Open <span class="chip-n">1,284</span></div>
+  <div class="chip on" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--acc)"></div>Investigating <span class="chip-n">642</span></div>
+  <div class="chip" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--teal)"></div>Pending Approval <span class="chip-n">148</span></div>
+  <div class="chip" onclick="chipTog(this)" style="animation:pulse 2.5s ease infinite;"><div class="chip-dot" style="background:var(--red)"></div>Escalated <span class="chip-n">56</span></div>
+  <div class="chip" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--red)"></div>SLA Breach <span class="chip-n">116</span></div>
+  <div class="chip" onclick="chipTog(this)">Equity FX</div>
+  <div class="chip" onclick="chipTog(this)">Fixed Income</div>
+  <div class="chip" onclick="chipTog(this)">Derivatives</div>
+  <div class="chip" onclick="chipTog(this)">Corporate Actions</div>
+  <div class="chip" onclick="chipTog(this)">High Value (&gt;$1M)</div>
+  <div class="chip ai-chip" onclick="chipTog(this)" style="border-color:var(--ai-gb);background:var(--ai-gs);color:var(--ai1);">⟡ AI-Ready</div>
+  <div class="fright">
+    <div id="activeTag" style="display:none;font-family:var(--m);font-size:10px;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:3px;padding:2px 8px;display:flex;align-items:center;gap:5px;cursor:pointer;" onclick="clearAIFilter()"></div>
+    <button class="btn btn-ghost btn-xs" onclick="resetFilters()">Reset</button>
+    <button class="btn btn-ghost btn-xs" onclick="toast('📤','Export','Exporting 2,847 records to CSV','ta')">Export</button>
+    <span class="result-p" id="resultPill">2,074 / 2,847</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     MAIN LAYOUT
+═══════════════════════════════════ -->
+<div class="main">
+
+  <!-- LEFT NAV -->
+  <div class="lnav">
+    <div class="ni active" id="ni-t" onclick="switchView('table')" title="Table (T)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+    <div class="ni" id="ni-i" onclick="switchView('inbox')" title="Inbox (I)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg><div class="ni-badge">56</div></div>
+    <div class="ni" id="ni-tr" onclick="switchView('trends')" title="Analytics (V)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="nsep"></div>
+    <div class="ni" onclick="openAppr()" title="Approvals (7 pending)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+    <div class="ni" onclick="toast('⚙','Settings','System settings & preferences','ta')" title="Settings"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+    <div class="nsp"></div>
+    <div class="ni" style="color:var(--ai1);" onclick="document.getElementById('cmdInput').focus()" title="AI Command (⌘K)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+  </div>
+
+  <!-- WORKSPACE -->
+  <div class="workspace">
+
+    <!-- ══ TABLE VIEW ══ -->
+    <div id="tableView" style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+      <div class="ws-bar">
+        <div class="ws-tabs">
+          <div class="wt on" onclick="wTab(this)">All Breaks</div>
+          <div class="wt" onclick="wTab(this)">Open</div>
+          <div class="wt" onclick="wTab(this)">Investigating</div>
+          <div class="wt" onclick="wTab(this)">Escalated</div>
+          <div class="wt" onclick="wTab(this)">Pending Approval</div>
+        </div>
+        <div class="ws-right">
+          <span class="rcount" id="rcount">2,074 / 2,847</span>
+          <button class="btn btn-ghost btn-sm" onclick="toast('🔽','Advanced Sort','Sort dialog opened','ta')">Sort</button>
+          <button class="btn btn-ghost btn-sm" onclick="openAppr()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Approvals <span style="font-family:var(--m);font-size:9px;background:var(--amb-s);color:var(--amb);border-radius:8px;padding:0 5px;">7</span></button>
+          <button class="btn btn-ai btn-sm" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ AI Resolve</button>
+        </div>
+      </div>
+
+      <div class="bulk-bar" id="bulkBar" style="display:none;">
+        <span class="bulk-n" id="bulkCnt">0 selected</span>
+        <span class="bulk-prev" id="bulkPrev">Select breaks to act</span>
+        <button class="btn btn-ai btn-sm" onclick="cmdSend('Resolve all selected breaks')">⚡ AI Resolve All</button>
+        <button class="btn btn-success btn-sm" onclick="openMaker('BULK',null)">✓ Resolve All</button>
+        <button class="btn btn-warn btn-sm" onclick="toast('▲','Escalated','Selected breaks escalated to supervisor','tm')">Escalate</button>
+        <button class="btn btn-ghost btn-sm" onclick="toast('👤','Assign','Assignment dialog opened','ta')">Assign</button>
+        <div style="flex:1"></div>
+        <button class="btn btn-ghost btn-xs" onclick="toast('↩','Undo','Action undone','ta')">↩ Undo</button>
+        <button class="btn btn-ghost btn-xs" onclick="clearBulk()">✕</button>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><div class="ck" id="selAll" onclick="selAll()"></div></th>
+              <th>Recon ID</th><th>Item ID</th><th>Break ID</th>
+              <th>Asset Class</th><th>Instrument</th><th>Date</th><th>Status</th>
+              <th class="right">Break Amount</th><th>Aging</th>
+              <th>SLA</th><th>Risk Score</th><th>AI Conf.</th><th>Analyst</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="tbl-foot">
+        <span class="pgi" id="pgInfo">Page 1 of 284 · 10 per page · 2,847 total</span>
+        <div class="pgb">
+          <div class="pb">‹</div><div class="pb on">1</div>
+          <div class="pb" onclick="toast('➡','Page 2','','ta')">2</div>
+          <div class="pb" onclick="toast('➡','Page 3','','ta')">3</div>
+          <div class="pb" style="pointer-events:none;">…</div>
+          <div class="pb" onclick="toast('➡','Page 284','','ta')">284</div>
+          <div class="pb">›</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ INBOX VIEW ══ -->
+    <div id="inboxView" class="inbox-view">
+      <div class="inbox-pane">
+        <div class="ib-hdr">
+          <div class="ib-title">Break Inbox</div>
+          <div class="ib-cnt">56</div>
+          <div class="rev-sw"><div class="ro on" id="ro-bulk" onclick="revMode('bulk')">Bulk</div><div class="ro" id="ro-focus" onclick="revMode('focus')">Review</div></div>
+        </div>
+        <div class="rev-prog" id="revProg">
+          <div class="rpbw"><div class="rpbf" id="rpFill" style="width:18%;"></div></div>
+          <span class="rpl" id="rpLabel">2 / 11</span>
+        </div>
+        <div class="ib-sort">
+          <span class="ib-sort-l">Sort:</span>
+          <div class="isb on" onclick="isort(this,'risk')">Risk ↓</div>
+          <div class="isb" onclick="isort(this,'age')">Aging</div>
+          <div class="isb" onclick="isort(this,'amt')">Amount</div>
+          <div class="isb" onclick="isort(this,'sla')">SLA</div>
+        </div>
+        <div class="ib-list" id="ibList"></div>
+      </div>
+      <div class="rh vis" id="ibRh"></div>
+      <div class="inbox-detail">
+        <div class="idn">
+          <div class="idnb dis" id="prevBrk" onclick="navBreak(-1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>Prev <span class="kbd">J</span></div>
+          <span class="idpg" id="brkProg">Break 1 of 11</span>
+          <div class="idnb" id="nextBrk" onclick="navBreak(1)">Next <span class="kbd">K</span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div style="margin-left:auto;display:flex;gap:4px;">
+            <button class="btn btn-ai btn-sm" onclick="cmdSend('Auto-resolve this break')">⚡ AI Resolve</button>
+            <button class="btn btn-success btn-sm" onclick="openMaker(activeId,null)">Resolve <span class="kbd">R</span></button>
+            <button class="btn btn-warn btn-sm" onclick="toast('▲','Escalated','Break escalated to supervisor','tm')">Escalate <span class="kbd">E</span></button>
+            <button class="btn btn-ghost btn-sm" onclick="navBreak(1)">Skip <span class="kbd">S</span></button>
+          </div>
+        </div>
+        <div id="ibDetail" style="flex:1;overflow-y:auto;padding:14px;">
+          <div style="padding:10px;background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:6px;font-family:var(--f);font-size:12px;color:var(--t2);">Select a break from the inbox to see details here.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TRENDS VIEW ══ -->
+    <div id="trendsView" class="trends-view">
+      <div class="trends-grid">
+
+        <!-- Open vs Resolved -->
+        <div class="tchart" onclick="cmdSend('Show me all open breaks')">
+          <div class="tc-head"><div><div class="tc-title">Open vs Resolved</div><div class="tc-sub">Last 7 business days · Goldstream Prime</div></div><div><div class="tc-val" style="color:var(--acc)">2,847</div><div class="tc-delta tc-dn">↑ 124 net today</div></div></div>
+          <svg class="chart-svg" height="70" viewBox="0 0 240 70" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--acc)" stop-opacity=".35"/><stop offset="100%" stop-color="var(--acc)" stop-opacity="0"/></linearGradient>
+              <linearGradient id="gG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--grn)" stop-opacity=".35"/><stop offset="100%" stop-color="var(--grn)" stop-opacity="0"/></linearGradient>
+            </defs>
+            <path d="M0,52 C30,48 60,40 90,32 S150,20 180,14 S220,8 240,5" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M0,52 C30,48 60,40 90,32 S150,20 180,14 S220,8 240,5 L240,70 L0,70Z" fill="url(#gA)"/>
+            <path d="M0,60 C40,56 70,52 100,48 S160,42 190,38 S225,35 240,33" fill="none" stroke="var(--grn)" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <path d="M0,60 C40,56 70,52 100,48 S160,42 190,38 S225,35 240,33 L240,70 L0,70Z" fill="url(#gG)"/>
+            <circle cx="240" cy="5" r="3" fill="var(--acc)"/>
+            <circle cx="240" cy="33" r="3" fill="var(--grn)"/>
+          </svg>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;font-family:var(--m);font-size:8.5px;color:var(--t3);"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Mon</span><span>Today</span></div>
+          <div style="display:flex;gap:10px;margin-top:6px;font-family:var(--m);font-size:9.5px;">
+            <span style="color:var(--acc);">— Open (2,847)</span>
+            <span style="color:var(--grn);">-- Resolved (4,122)</span>
+          </div>
+        </div>
+
+        <!-- SLA Status -->
+        <div class="tchart" onclick="cmdSend('Show SLA breached breaks not yet escalated')">
+          <div class="tc-head"><div><div class="tc-title">SLA Compliance</div><div class="tc-sub">Real-time · T+2 settlement window</div></div><div><div class="tc-val" style="color:var(--grn)">87.4%</div><div class="tc-delta tc-dn">↓ 2.1% vs yesterday</div></div></div>
+          <div style="margin:10px 0;">
+            <div class="hbr"><span class="hbl">✓ Within</span><div class="hbt"><div class="hbf" style="width:87%;background:var(--grn);"></div></div><span class="hbn">2,487</span></div>
+            <div class="hbr"><span class="hbl">⚠ At Risk</span><div class="hbt"><div class="hbf" style="width:9%;background:var(--amb);"></div></div><span class="hbn">244</span></div>
+            <div class="hbr"><span class="hbl">🔴 Breach</span><div class="hbt"><div class="hbf" style="width:4%;background:var(--red);"></div></div><span class="hbn">116</span></div>
+          </div>
+          <div style="font-family:var(--m);font-size:9px;color:var(--red);margin-top:6px;">⚠ 38 SLA-breached breaks not yet escalated</div>
+        </div>
+
+        <!-- Financial Exposure by Asset Class -->
+        <div class="tchart" onclick="cmdSend('Show highest amount breaks today')">
+          <div class="tc-head"><div><div class="tc-title">Exposure by Asset Class</div><div class="tc-sub">USD equivalent · All currencies</div></div><div><div class="tc-val" style="color:var(--red)">$284M</div><div class="tc-delta tc-dn">↑ $42M today</div></div></div>
+          <div style="margin:8px 0;">
+            <div class="hbr"><span class="hbl" style="width:72px;">Equity FX</span><div class="hbt"><div class="hbf" style="width:62%;background:var(--acc)"></div></div><span class="hbn" style="width:42px;">$176M</span></div>
+            <div class="hbr"><span class="hbl" style="width:72px;">Fixed Inc.</span><div class="hbt"><div class="hbf" style="width:24%;background:var(--ai1)"></div></div><span class="hbn" style="width:42px;">$68M</span></div>
+            <div class="hbr"><span class="hbl" style="width:72px;">Derivs.</span><div class="hbt"><div class="hbf" style="width:12%;background:var(--amb)"></div></div><span class="hbn" style="width:42px;">$32M</span></div>
+            <div class="hbr"><span class="hbl" style="width:72px;">Corp Actn</span><div class="hbt"><div class="hbf" style="width:3%;background:var(--red)"></div></div><span class="hbn" style="width:42px;">$8M</span></div>
+          </div>
+        </div>
+
+        <!-- Manual vs AI Resolution -->
+        <div class="tchart" onclick="cmdSend('Which FX breaks can be auto-resolved?')">
+          <div class="tc-head"><div><div class="tc-title">AI vs Manual Resolution</div><div class="tc-sub">Today · 312 total resolved</div></div><div><div class="tc-val" style="color:var(--ai1)">41%</div><div class="tc-delta tc-up">AI share ↑ 9%</div></div></div>
+          <svg class="chart-svg" height="60" viewBox="0 0 240 60" preserveAspectRatio="none">
+            <rect x="0" y="12" width="138" height="24" rx="3" fill="var(--acc-s)" stroke="var(--acc)" stroke-width="1"/>
+            <rect x="0" y="12" width="138" height="24" rx="3" fill="var(--acc)" opacity=".5"/>
+            <text x="69" y="28" font-size="9" fill="#EDE8DC" text-anchor="middle" font-family="Source Code Pro" font-weight="600">Manual: 184 (59%)</text>
+            <rect x="144" y="12" width="96" height="24" rx="3" fill="var(--ai-gs)" stroke="var(--ai1)" stroke-width="1"/>
+            <text x="192" y="28" font-size="9" fill="var(--ai1)" text-anchor="middle" font-family="Source Code Pro" font-weight="600">AI: 128 (41%)</text>
+            <text x="0" y="54" font-size="8.5" fill="var(--t3)" font-family="Source Sans 3">⟡ AI saves ~11.4 analyst-hours/day · $38K cost reduction</text>
+          </svg>
+        </div>
+
+        <!-- Aging Buckets -->
+        <div class="tchart" onclick="cmdSend('Show breaks older than 5 days')">
+          <div class="tc-head"><div><div class="tc-title">Aging Profile</div><div class="tc-sub">Click to filter table</div></div></div>
+          <div class="hbr"><span class="hbl">&lt;1d</span><div class="hbt"><div class="hbf" style="width:8%;background:var(--grn)"></div></div><span class="hbn">228</span></div>
+          <div class="hbr"><span class="hbl">1–2d</span><div class="hbt"><div class="hbf" style="width:18%;background:var(--grn)"></div></div><span class="hbn">512</span></div>
+          <div class="hbr"><span class="hbl">2–5d</span><div class="hbt"><div class="hbf" style="width:28%;background:var(--amb)"></div></div><span class="hbn">798</span></div>
+          <div class="hbr"><span class="hbl">5–10d</span><div class="hbt"><div class="hbf" style="width:22%;background:var(--amb)"></div></div><span class="hbn">626</span></div>
+          <div class="hbr"><span class="hbl">&gt;10d</span><div class="hbt"><div class="hbf" style="width:16%;background:var(--red)"></div></div><span class="hbn">455</span></div>
+          <div class="hbr"><span class="hbl">Breach</span><div class="hbt"><div class="hbf" style="width:8%;background:#8B2030;"></div></div><span class="hbn">228</span></div>
+        </div>
+
+        <!-- Volume Spike Detection - span 2 -->
+        <div class="tchart tc-span2" onclick="cmdSend('Detect patterns across all current breaks')">
+          <div class="tc-head"><div><div class="tc-title">Intraday Break Volume</div><div class="tc-sub">Today · Hourly · ⟡ AI Monitoring for spikes · Click bars to filter</div></div><div><div class="tc-val" style="color:var(--red)">↑ 09:00–11:00</div></div></div>
+          <svg class="chart-svg" height="84" viewBox="0 0 480 84" preserveAspectRatio="none">
+            <line x1="0" y1="64" x2="480" y2="64" stroke="var(--b2)" stroke-width="1"/>
+            <line x1="0" y1="44" x2="480" y2="44" stroke="var(--b1)" stroke-width=".5"/>
+            <line x1="0" y1="24" x2="480" y2="24" stroke="var(--b1)" stroke-width=".5"/>
+            <text x="0" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">07</text>
+            <!-- bars for each hour -->
+            <rect x="24" y="54" width="22" height="10" rx="2" fill="var(--acc)" opacity=".5"/>
+            <rect x="58" y="44" width="22" height="20" rx="2" fill="var(--acc)" opacity=".6"/>
+            <!-- spike zone -->
+            <rect x="92" y="14" width="22" height="50" rx="2" fill="var(--red)" opacity=".85"/>
+            <text x="103" y="10" font-size="8" fill="var(--red)" font-family="Source Code Pro" text-anchor="middle">⚠ Spike</text>
+            <rect x="126" y="18" width="22" height="46" rx="2" fill="var(--red)" opacity=".75"/>
+            <text x="126" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">09</text>
+            <text x="160" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">10</text>
+            <rect x="160" y="32" width="22" height="32" rx="2" fill="var(--amb)" opacity=".8"/>
+            <rect x="194" y="48" width="22" height="16" rx="2" fill="var(--acc)" opacity=".6"/>
+            <rect x="228" y="42" width="22" height="22" rx="2" fill="var(--acc)" opacity=".65"/>
+            <text x="228" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">12</text>
+            <rect x="262" y="38" width="22" height="26" rx="2" fill="var(--acc)" opacity=".7"/>
+            <rect x="296" y="46" width="22" height="18" rx="2" fill="var(--acc)" opacity=".6"/>
+            <text x="296" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">15</text>
+            <rect x="330" y="50" width="22" height="14" rx="2" fill="var(--acc)" opacity=".5"/>
+            <rect x="364" y="44" width="22" height="20" rx="2" fill="var(--acc)" opacity=".6"/>
+            <text x="364" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">17</text>
+            <rect x="398" y="52" width="22" height="12" rx="2" fill="var(--acc)" opacity=".45"/>
+            <rect x="432" y="56" width="30" height="8" rx="2" fill="var(--ai-gs)" stroke="var(--ai1)" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="447" y="70" font-size="8" fill="var(--t3)" font-family="Source Code Pro">Now</text>
+            <!-- Pantheon spike annotation -->
+            <line x1="103" y1="14" x2="200" y2="14" stroke="var(--red)" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/>
+            <text x="205" y="18" font-size="8" fill="var(--red)" font-family="Source Sans 3">Pantheon custody feed delay · 11 Equity FX breaks injected</text>
+          </svg>
+          <div style="display:flex;gap:12px;margin-top:4px;font-family:var(--m);font-size:9px;color:var(--t3);">
+            <span style="color:var(--red);">● Spike zone (confirmed)</span>
+            <span style="color:var(--amb);">● Elevated</span>
+            <span style="color:var(--acc);">● Normal</span>
+            <span style="border:1px dashed var(--ai1);padding:0 4px;border-radius:2px;color:var(--ai1);">◌ Forecast</span>
+          </div>
+        </div>
+
+        <!-- ══ HEAT MAP — Break Volume by Asset Class × Time ══ -->
+        <div class="tchart tc-span3" onclick="">
+          <div class="tc-head"><div><div class="tc-title">🔥 Break Volume Heatmap</div><div class="tc-sub">Asset Class × Day of Week (last 4 weeks avg) · Darker = more breaks · Hover for detail</div></div><div><div class="tc-val" style="color:var(--amb)">Pattern</div><div class="tc-delta tc-dn">Mon–Tue peak</div></div></div>
+          <div class="heatmap-wrap">
+            <div class="hm-legend">
+              <span>Volume:</span>
+              <div class="hm-leg-bar">
+                <div class="hm-lg" style="background:rgba(212,175,105,.08)"></div>
+                <div class="hm-lg" style="background:rgba(212,175,105,.22)"></div>
+                <div class="hm-lg" style="background:rgba(212,175,105,.40)"></div>
+                <div class="hm-lg" style="background:rgba(212,175,105,.60)"></div>
+                <div class="hm-lg" style="background:rgba(212,175,105,.80)"></div>
+                <div class="hm-lg" style="background:rgba(224,92,106,.70)"></div>
+                <div class="hm-lg" style="background:rgba(224,92,106,.90)"></div>
+              </div>
+              <span>Low → High → Critical</span>
+              <div style="margin-left:auto;font-family:var(--m);font-size:9px;color:var(--t3);">Click cell to filter table</div>
+            </div>
+            <div class="hm-col-labels">
+              <div class="hm-col-lbl"></div>
+              <div class="hm-col-lbl">Mon</div>
+              <div class="hm-col-lbl">Tue</div>
+              <div class="hm-col-lbl">Wed</div>
+              <div class="hm-col-lbl">Thu</div>
+              <div class="hm-col-lbl">Fri</div>
+              <div class="hm-col-lbl">Sat</div>
+              <div class="hm-col-lbl">Today</div>
+            </div>
+            <div class="hm-grid" id="heatmapGrid">
+              <!-- Rows injected by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Confidence Distribution -->
+        <div class="tchart tc-span3" onclick="cmdSend('Which FX breaks can be auto-resolved?')">
+          <div class="tc-head"><div><div class="tc-title">⟡ AI Confidence Distribution</div><div class="tc-sub">Higher score = stronger auto-resolution candidate · Click to filter · 63 breaks ready for auto-resolution</div></div><div><div class="tc-val" style="color:var(--ai1)">63 ready</div><div class="tc-delta tc-up">96% avg conf</div></div></div>
+          <svg class="chart-svg" height="50" viewBox="0 0 680 50" preserveAspectRatio="none">
+            <defs><linearGradient id="gAI" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="var(--ai1)"/><stop offset="100%" stop-color="var(--teal)"/></linearGradient></defs>
+            <rect x="0" y="30" width="70" height="15" rx="3" fill="var(--b1)" stroke="var(--b2)" stroke-width="1"/>
+            <text x="35" y="22" font-size="9" fill="var(--t3)" text-anchor="middle" font-family="Source Code Pro">&lt;50%</text>
+            <text x="35" y="43" font-size="8" fill="var(--t3)" text-anchor="middle" font-family="Source Code Pro">184</text>
+            <rect x="80" y="24" width="70" height="21" rx="3" fill="var(--amb-s)" stroke="var(--amb)" stroke-width="1"/>
+            <text x="115" y="18" font-size="9" fill="var(--amb)" text-anchor="middle" font-family="Source Code Pro">50–70%</text>
+            <text x="115" y="43" font-size="8" fill="var(--amb)" text-anchor="middle" font-family="Source Code Pro">342</text>
+            <rect x="160" y="15" width="80" height="30" rx="3" fill="var(--acc-s)" stroke="var(--acc)" stroke-width="1"/>
+            <text x="200" y="10" font-size="9" fill="var(--acc)" text-anchor="middle" font-family="Source Code Pro">70–85%</text>
+            <text x="200" y="43" font-size="8" fill="var(--acc)" text-anchor="middle" font-family="Source Code Pro">488</text>
+            <rect x="250" y="8" width="100" height="37" rx="3" fill="var(--ai-gs)" stroke="var(--ai1)" stroke-width="1.5"/>
+            <text x="300" y="4" font-size="9" fill="var(--ai1)" text-anchor="middle" font-family="Source Code Pro">85–95%</text>
+            <text x="300" y="43" font-size="8.5" fill="var(--ai1)" text-anchor="middle" font-family="Source Code Pro" font-weight="600">622</text>
+            <rect x="360" y="3" width="110" height="42" rx="3" fill="url(#gAI)" opacity=".25" stroke="var(--ai1)" stroke-width="2"/>
+            <text x="415" y="55" font-size="9" fill="var(--t1)" text-anchor="middle" font-family="Source Code Pro" font-weight="700">≥95% AUTO</text>
+            <text x="415" y="43" font-size="10" fill="var(--t1)" text-anchor="middle" font-family="Source Code Pro" font-weight="700">63 ⚡</text>
+          </svg>
+          <div style="margin-top:28px;display:flex;justify-content:flex-end;gap:6px;">
+            <button class="btn btn-ai btn-xs" onclick="event.stopPropagation();cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ Auto-Resolve 63 Breaks</button>
+          </div>
+        </div>
+
+        <!-- Analyst Workload -->
+        <div class="tchart" onclick="cmdSend('Show unassigned breaks')">
+          <div class="tc-head"><div><div class="tc-title">Analyst Workload</div><div class="tc-sub">Active queue · Recommended ≤40</div></div><div><div class="tc-val" style="color:var(--amb)">↑ Overloaded</div></div></div>
+          <div style="margin:6px 0;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--f);font-size:11px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#D4AF69,#4ECDC4);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#1A1410;">PM</div>
+              <span style="color:var(--t1);flex:1;">Priya M.</span>
+              <div style="width:80px;height:5px;background:var(--b2);border-radius:2px;overflow:hidden;"><div style="width:86%;height:100%;background:var(--red);border-radius:2px;"></div></div>
+              <span style="font-family:var(--m);font-size:9.5px;color:var(--red);">52</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--f);font-size:11px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#4ECDC4,#2A7B78);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">SK</div>
+              <span style="color:var(--t1);flex:1;">Sarah K.</span>
+              <div style="width:80px;height:5px;background:var(--b2);border-radius:2px;overflow:hidden;"><div style="width:72%;height:100%;background:var(--amb);border-radius:2px;"></div></div>
+              <span style="font-family:var(--m);font-size:9.5px;color:var(--amb);">44</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--f);font-size:11px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#E8944A,#D4AF69);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#1A1410;">AH</div>
+              <span style="color:var(--t1);flex:1;">Alex H.</span>
+              <div style="width:80px;height:5px;background:var(--b2);border-radius:2px;overflow:hidden;"><div style="width:48%;height:100%;background:var(--grn);border-radius:2px;"></div></div>
+              <span style="font-family:var(--m);font-size:9.5px;color:var(--grn);">29</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--f);font-size:11px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#E05C6A,#8B3048);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">RK</div>
+              <span style="color:var(--t1);flex:1;">Rahul K.</span>
+              <div style="width:80px;height:5px;background:var(--b2);border-radius:2px;overflow:hidden;"><div style="width:38%;height:100%;background:var(--grn);border-radius:2px;"></div></div>
+              <span style="font-family:var(--m);font-size:9.5px;color:var(--grn);">23</span>
+            </div>
+          </div>
+          <div style="font-family:var(--m);font-size:9px;color:var(--red);margin-top:6px;">⚠ 8 unassigned critical breaks · AI can auto-assign</div>
+        </div>
+
+        <!-- Settlement Currency Mix -->
+        <div class="tchart" onclick="cmdSend('Show INR breaks')">
+          <div class="tc-head"><div><div class="tc-title">Break Currency Mix</div><div class="tc-sub">By settlement currency</div></div><div><div class="tc-val">2,847</div></div></div>
+          <div class="hbr"><span class="hbl">USD</span><div class="hbt"><div class="hbf" style="width:52%;background:var(--acc)"></div></div><span class="hbn">1,480</span></div>
+          <div class="hbr"><span class="hbl">EUR</span><div class="hbt"><div class="hbf" style="width:28%;background:var(--grn)"></div></div><span class="hbn">797</span></div>
+          <div class="hbr"><span class="hbl">GBP</span><div class="hbt"><div class="hbf" style="width:11%;background:var(--ai1)"></div></div><span class="hbn">313</span></div>
+          <div class="hbr"><span class="hbl">JPY</span><div class="hbt"><div class="hbf" style="width:5%;background:var(--amb)"></div></div><span class="hbn">142</span></div>
+          <div class="hbr"><span class="hbl">Other</span><div class="hbt"><div class="hbf" style="width:4%;background:var(--t3)"></div></div><span class="hbn">115</span></div>
+        </div>
+
+        <!-- Counterparty Risk Concentration -->
+        <div class="tchart" onclick="cmdSend('Detect patterns across all current breaks')">
+          <div class="tc-head"><div><div class="tc-title">Counterparty Concentration</div><div class="tc-sub">Top 5 by open exposure</div></div><div><div class="tc-val" style="color:var(--red)">Pantheon</div><div class="tc-delta tc-dn">$84M ↑ top risk</div></div></div>
+          <div style="display:flex;flex-direction:column;gap:5px;margin-top:8px;font-size:11.5px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 6px;background:var(--red-s);border-radius:3px;border:1px solid var(--red-b);">
+              <span style="color:var(--t1);font-weight:600;">Pantheon Custody</span>
+              <span style="font-family:var(--m);color:var(--red);">$84.2M <span style="font-size:9px;">18 breaks</span></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 6px;background:var(--amb-s);border-radius:3px;">
+              <span style="color:var(--t1);">Olympus Prime</span>
+              <span style="font-family:var(--m);color:var(--amb);">$52.1M <span style="font-size:9px;">24 breaks</span></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 6px;background:var(--b1);border-radius:3px;">
+              <span style="color:var(--t1);">Murex T-Broker</span>
+              <span style="font-family:var(--m);color:var(--acc);">$38.7M <span style="font-size:9px;">31 breaks</span></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 6px;background:var(--b1);border-radius:3px;">
+              <span style="color:var(--t1);">Citadel SS</span>
+              <span style="font-family:var(--m);color:var(--acc);">$21.4M <span style="font-size:9px;">12 breaks</span></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 6px;background:var(--b1);border-radius:3px;">
+              <span style="color:var(--t1);">State Street</span>
+              <span style="font-family:var(--m);color:var(--grn);">$14.2M <span style="font-size:9px;">9 breaks</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end trends-grid -->
+    </div><!-- end trendsView -->
+
+  </div><!-- end workspace -->
+
+  <!-- AI PANEL -->
+  <div class="ai-panel" id="aiPanel">
+    <!-- Chat zone -->
+    <div class="aip-hdr">
+      <div class="aip-brain">⟡</div>
+      <div>
+        <div class="aip-title">Meridian AI</div>
+        <div class="aip-status"><div class="aip-status-dot"></div>Analyzing 2,847 breaks</div>
+      </div>
+      <div class="aip-controls">
+        <div class="apb" onclick="togglePanelWidth()" title="Expand panel">⤢</div>
+        <div class="apb" onclick="toggleDetailCollapse()" title="Toggle detail">⊟</div>
+      </div>
+    </div>
+    <div class="aip-chat-zone">
+      <div class="aip-messages" id="aiMsgs">
+        <div class="ai-welcome">
+          <div class="aiw-head"><div class="aip-brain" style="width:22px;height:22px;font-size:11px;">⟡</div><div class="aiw-title">Good morning, Priya</div></div>
+          <div class="aiw-body">GOLDSTREAM-PRIME has <strong style="color:var(--red)">$284M open exposure</strong> across 2,847 breaks. I've detected a Pantheon custody cluster with 96% auto-resolution confidence.</div>
+          <div class="aiw-examples">
+            <div class="aiw-eg" onclick="cmdSend('Detect patterns across all current breaks')">🧠 Detect patterns in open breaks</div>
+            <div class="aiw-eg" onclick="cmdSend('Show SLA breached breaks not yet escalated')">🔴 SLA breached, unescalated</div>
+            <div class="aiw-eg" onclick="cmdSend('Summarize today reconciliation health')">📊 Today's health summary</div>
+            <div class="aiw-eg" onclick="cmdSend('Show highest amount breaks today')">💰 Highest value breaks</div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-sugs">
+        <div class="aisug" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ AI Resolve</div>
+        <div class="aisug" onclick="cmdSend('Show SLA breached breaks not yet escalated')">🔴 SLA Breach</div>
+        <div class="aisug" onclick="cmdSend('Show breaks older than 10 days')">⏰ Aging &gt;10d</div>
+        <div class="aisug" onclick="cmdSend('Show unassigned breaks')">👤 Unassigned</div>
+        <div class="aisug" onclick="switchView('trends')">📊 Analytics</div>
+      </div>
+      <div class="ai-input-row">
+        <textarea class="ai-ta" id="aiInput" placeholder="Ask anything about your breaks…" rows="1" onkeydown="aiKeydown(event)" oninput="autoResize(this)"></textarea>
+        <button class="ai-send" onclick="aiSendFromInput()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      </div>
+    </div>
+
+    <div class="aip-divider"></div>
+
+    <!-- Detail pane -->
+    <div class="aip-detail" id="aipDetail">
+      <div id="dpBreach" style="display:none;flex-shrink:0;padding:6px 13px;background:var(--red-s);border-bottom:1px solid var(--red-b);align-items:center;gap:6px;">
+        <span style="font-size:11px;">🚨</span>
+        <span style="font-family:var(--f-display);font-size:11px;font-weight:700;color:var(--red);">SLA BREACH — Immediate action required</span>
+      </div>
+      <div class="dpx-hdr">
+        <div class="dpx-bid" id="dpxBid">B2108</div>
+        <span class="dpx-mode">Break Detail</span>
+        <div class="dpx-r">
+          <div class="xb" onclick="toast('📋','Copied','Break ID copied','ta')" title="Copy ID">⎘</div>
+          <div class="xb" onclick="toggleDetailCollapse()" title="Collapse">⊟</div>
+        </div>
+      </div>
+
+      <!-- Workflow steps -->
+      <div class="wft">
+        <div class="wfs"><div class="wfn dn">✓</div><div class="wflbl">Identified</div></div>
+        <div class="wfs"><div class="wfl dn"></div><div class="wfn dn">✓</div><div class="wflbl">Investigated</div></div>
+        <div class="wfs"><div class="wfl dn"></div><div class="wfn cu">3</div><div class="wflbl">Resolve</div></div>
+        <div class="wfs"><div class="wfl"></div><div class="wfn">4</div><div class="wflbl">Approve</div></div>
+        <div class="wfs"><div class="wfl"></div><div class="wfn">5</div><div class="wflbl">Closed</div></div>
+      </div>
+
+      <div class="dp-tabs">
+        <div class="dpt on" onclick="dpTab(this,'dp-sum')">Summary</div>
+        <div class="dpt" onclick="dpTab(this,'dp-ai')">⟡ AI <div class="dptn">96%</div></div>
+        <div class="dpt" onclick="dpTab(this,'dp-cmt')">Comments <div class="dptn">3</div></div>
+        <div class="dpt" onclick="dpTab(this,'dp-aud')">Audit Trail</div>
+        <div class="dpt" onclick="dpTab(this,'dp-evt')">Events</div>
+      </div>
+
+      <div class="dpb" id="dp-sum">
+        <div class="mss">
+          <div class="mst">Break Identification</div>
+          <div class="mg">
+            <div class="mi"><div class="mil">Break ID</div><div class="miv" style="color:var(--acc)">B2108</div></div>
+            <div class="mi"><div class="mil">Recon Run</div><div class="miv">GOLDSTREAM-T2</div></div>
+            <div class="mi"><div class="mil">Asset Class</div><div class="miv">Equity FX</div></div>
+            <div class="mi"><div class="mil">Instrument</div><div class="miv">MSFT US / EUR</div></div>
+            <div class="mi"><div class="mil">Trade Date</div><div class="miv">08-Apr-26</div></div>
+            <div class="mi"><div class="mil">Settlement</div><div class="miv">10-Apr-26</div></div>
+          </div>
+        </div>
+        <div class="mss">
+          <div class="mst">Financial Detail</div>
+          <div class="mg">
+            <div class="mi"><div class="mil">Break Amount</div><div class="miv" style="color:var(--red)">$12,480,000</div></div>
+            <div class="mi"><div class="mil">Currency</div><div class="miv">USD/EUR</div></div>
+            <div class="mi"><div class="mil">Our Rate</div><div class="miv">1.2248</div></div>
+            <div class="mi"><div class="mil">Cpty Rate</div><div class="miv" style="color:var(--red)">1.2319</div></div>
+            <div class="mi"><div class="mil">Rate Delta</div><div class="miv" style="color:var(--red)">+71 bps</div></div>
+            <div class="mi"><div class="mil">Exposure</div><div class="miv" style="color:var(--red)">$885K</div></div>
+          </div>
+        </div>
+        <div class="mss">
+          <div class="mst">Status & Risk</div>
+          <div class="mg">
+            <div class="mi"><div class="mil">Status</div><div class="miv"><span class="st se"><span class="std"></span>Escalated</span></div></div>
+            <div class="mi"><div class="mil">SLA Status</div><div class="miv"><span class="slax sla-b">BREACH</span></div></div>
+            <div class="mi"><div class="mil">Aging</div><div class="miv" style="color:var(--red)">12d ▲▲</div></div>
+            <div class="mi"><div class="mil">Risk Score</div><div class="miv" style="color:var(--red)">94/100</div></div>
+            <div class="mi"><div class="mil">Counterparty</div><div class="miv">Pantheon</div></div>
+            <div class="mi"><div class="mil">Analyst</div><div class="miv">Sarah K.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dpb" id="dp-ai" style="display:none;">
+        <div class="ai-card">
+          <div class="ai-card-t">⟡ AI Root Cause — 96% confidence</div>
+          <div class="ai-card-b">Pantheon custody system uses an 08:00 UTC EURUSD fixing snapshot (1.2248) while the agreed settlement rate is the 10:00 UTC ECB fixing (1.2319). The 71 bps delta creates a systematic mismatch across all USD/EUR equity positions settled via Pantheon on this recon run. Rule #18 (auto-rate-correct) was bypassed because source tag FX_RATE_SOURCE=ECB was misclassified as SPOT.</div>
+          <div class="ai-cr"><span class="ai-chip">96% CONF</span><span>Pattern matches 11 other breaks · Est. resolution: 8 minutes</span></div>
+        </div>
+        <div class="ai-chips">
+          <div class="aic g" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ AI Auto-Resolve</div>
+          <div class="aic a" onclick="openMaker('B2108',null)">✓ Manual Resolve</div>
+          <div class="aic" onclick="cmdSend('Explain why break B2108 exists')">🧠 Full Explanation</div>
+        </div>
+      </div>
+
+      <div class="dpb" id="dp-cmt" style="display:none;">
+        <div class="cmt">
+          <div class="cmav" style="background:linear-gradient(135deg,#D4AF69,#4ECDC4)">SK</div>
+          <div class="cmb">
+            <div class="cmt-top"><span class="cmn">Sarah K.</span><span class="cmt-time">Today 09:42</span></div>
+            <div class="cmt-txt">Confirmed Pantheon rate discrepancy. Contacted settlement desk — they are using 08:00 fix rather than 10:00 ECB. Escalated to operations head.</div>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="cmav" style="background:linear-gradient(135deg,#4ECDC4,#2A7B78)">MO</div>
+          <div class="cmb">
+            <div class="cmt-top"><span class="cmn">Mark O. (Ops Head)</span><span class="cmt-time">Today 10:15</span></div>
+            <div class="cmt-txt">Reviewing with Pantheon counterparty. Expect resolution by 14:00 UTC. AI resolution recommended pending counterparty confirmation.</div>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="cmav" style="background:var(--ai-g)">⟡</div>
+          <div class="cmb">
+            <div class="cmt-top"><span class="cmn" style="color:var(--ai1)">Meridian AI</span><span class="cmt-time">11:02</span></div>
+            <div class="cmt-txt">Pattern confirmed: 11 related breaks share identical rate source issue. Clustered resolution available — apply rate 1.2319 to all 11 breaks simultaneously.</div>
+          </div>
+        </div>
+        <textarea class="cmt-in" placeholder="Add a comment…"></textarea>
+      </div>
+
+      <div class="dpb" id="dp-aud" style="display:none;">
+        <div class="auid-item"><div class="auid-line"></div><div class="auid-ico" style="background:var(--red-s);">🚨</div><div><div class="auid-t">SLA breach triggered — escalation auto-sent</div><div class="auid-m">Today 09:00 UTC · System</div></div></div>
+        <div class="auid-item"><div class="auid-line"></div><div class="auid-ico" style="background:var(--amb-s);">▲</div><div><div class="auid-t">Escalated to Mark O. (Ops Head)</div><div class="auid-m">Today 09:45 UTC · Sarah K.</div></div></div>
+        <div class="auid-item"><div class="auid-line"></div><div class="auid-ico" style="background:var(--ai-gs);">⟡</div><div><div class="auid-t">AI pattern detected — Pantheon cluster (96% conf)</div><div class="auid-m">Today 11:02 UTC · Meridian AI</div></div></div>
+        <div class="auid-item"><div class="auid-line"></div><div class="auid-ico" style="background:var(--acc-s);">👁</div><div><div class="auid-t">Break assigned to Sarah K.</div><div class="auid-m">08-Apr-26 08:15 UTC · Auto-assignment</div></div></div>
+        <div class="auid-item"><div class="auid-ico" style="background:var(--b1);">✦</div><div><div class="auid-t">Break created — Pantheon feed injection</div><div class="auid-m">08-Apr-26 08:07 UTC · System</div></div></div>
+      </div>
+
+      <div class="dpb" id="dp-evt" style="display:none;">
+        <div class="ev-item"><div class="ev-ico" style="background:var(--grn-s);">💹</div><div><div class="ev-name">ECB EURUSD Fix 10:00</div><div class="ev-info">Rate: 1.2319 · Published 10:00 UTC · Ref for settlement</div></div></div>
+        <div class="ev-item"><div class="ev-ico" style="background:var(--red-s);">⚠</div><div><div class="ev-name">Pantheon Feed Timestamp</div><div class="ev-info">Rate: 1.2248 · Snapshot: 08:00 UTC · Source mismatch</div></div></div>
+        <div class="ev-item"><div class="ev-ico" style="background:var(--acc-s);">📋</div><div><div class="ev-name">Settlement Instruction Sent</div><div class="ev-info">08-Apr-26 17:30 UTC · T+2 · Pending confirmation</div></div></div>
+      </div>
+
+      <div class="dpf">
+        <button class="btn btn-ai btn-xs" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ AI Resolve</button>
+        <button class="btn btn-success btn-xs" onclick="openMaker('B2108',null)">✓ Resolve</button>
+        <button class="btn btn-warn btn-xs" onclick="toast('▲','Escalated','B2108 escalated','tm')">Escalate</button>
+        <button class="btn btn-ghost btn-xs" onclick="toast('👤','Assign','','ta')">Assign</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- APPROVALS OVERLAY -->
+<div class="appr-dim" id="apprDim" onclick="closeAppr()"></div>
+<div class="appr-overlay" id="apprOverlay">
+  <div class="apr-hdr">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ai1)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+    <div class="apr-title">Maker / Checker Approvals</div>
+    <div class="apr-cnt">7 pending</div>
+    <div style="margin-left:auto;cursor:pointer;color:var(--t3);" onclick="closeAppr()">✕</div>
+  </div>
+  <div class="apr-body">
+    <div class="apr-sec">Pending Your Approval</div>
+    <div class="apr-item">
+      <div class="apr-row"><span class="apr-id">B2103</span><span style="font-family:var(--m);font-size:9.5px;color:var(--red);">SLA BREACH</span><span class="apr-time">Submitted 18m ago</span></div>
+      <div class="apr-item-t">Equity FX · Pantheon · $18,200,000 USD · Rate discrepancy 71bps</div>
+      <div class="apr-acts">
+        <button class="btn btn-success btn-xs" onclick="toast('✅','Approved','B2103 resolution approved','tg')">Approve</button>
+        <button class="btn btn-danger btn-xs" onclick="toast('❌','Rejected','B2103 returned to analyst','tr')">Reject</button>
+        <button class="btn btn-ghost btn-xs" onclick="rowClick('B2103')">View Details</button>
+      </div>
+    </div>
+    <div class="apr-item">
+      <div class="apr-row"><span class="apr-id">B2091</span><span class="apr-time">Submitted 1h ago</span></div>
+      <div class="apr-item-t">Fixed Income · Olympus · $7,450,000 EUR · Coupon accrual mismatch</div>
+      <div class="apr-acts">
+        <button class="btn btn-success btn-xs" onclick="toast('✅','Approved','B2091 approved','tg')">Approve</button>
+        <button class="btn btn-danger btn-xs" onclick="toast('❌','Rejected','B2091 returned','tr')">Reject</button>
+        <button class="btn btn-ghost btn-xs" onclick="rowClick('B2091')">View Details</button>
+      </div>
+    </div>
+    <div class="apr-item">
+      <div class="apr-row"><span class="apr-id">B2087</span><span style="font-family:var(--m);font-size:9.5px;color:var(--ai1);">⟡ AI Resolved</span><span class="apr-time">Submitted 2h ago</span></div>
+      <div class="apr-item-t">Equity FX · Pantheon · $12,480,000 USD · AI: FX rate correction applied</div>
+      <div class="apr-acts">
+        <button class="btn btn-success btn-xs" onclick="toast('✅','Approved','B2087 AI resolution approved','tg')">Approve AI</button>
+        <button class="btn btn-danger btn-xs" onclick="toast('❌','Rejected','B2087 returned for review','tr')">Reject</button>
+      </div>
+    </div>
+    <div class="apr-sec">Recently Approved</div>
+    <div class="apr-item done"><div class="apr-row"><span class="apr-id">B2081</span><span class="apr-time">4h ago</span></div><div class="apr-item-t">✓ Approved — Corp Actions · $3,200,000 · Dividend reinvestment</div></div>
+    <div class="apr-item done"><div class="apr-row"><span class="apr-id">B2078</span><span class="apr-time">6h ago</span></div><div class="apr-item-t">✓ Approved — Derivatives · $1,875,000 · Mark-to-market discrepancy</div></div>
+    <div class="apr-item done"><div class="apr-row"><span class="apr-id">B2074</span><span class="apr-time">Yesterday</span></div><div class="apr-item-t">✓ Approved — Fixed Income · $24,600,000 · Bond price fixing resolved</div></div>
+  </div>
+</div>
+
+<!-- MAKER MODAL -->
+<div class="overlay hidden" id="makerOverlay">
+  <div class="modal">
+    <div class="mod-bar"></div>
+    <div class="mod-hdr">
+      <div>
+        <div class="mod-title">Resolve Break</div>
+        <div class="mod-sub" id="makerSub">Break B2108 · $12,480,000 · Equity FX</div>
+      </div>
+      <div class="mod-close" onclick="closeMaker()">✕</div>
+    </div>
+    <div class="mod-body">
+      <div class="mkbadge"><span>⟡ AI Recommended Resolution</span></div>
+      <div class="impv">
+        <div class="impv-t">Break Summary</div>
+        <div class="ip-row"><span class="ipk">Break ID</span><span class="ipv" id="impBid">B2108</span></div>
+        <div class="ip-row"><span class="ipk">Amount</span><span class="ipv ipn" id="impAmt">$12,480,000</span></div>
+        <div class="ip-row"><span class="ipk">Instrument</span><span class="ipv">MSFT US Equity · EURUSD</span></div>
+        <div class="ip-row"><span class="ipk">Root Cause</span><span class="ipv">FX Rate Discrepancy · Pantheon</span></div>
+        <div class="ip-row"><span class="ipk">Proposed Action</span><span class="ipv ipp">Apply ECB Rate 1.2319</span></div>
+      </div>
+      <div class="field"><label class="field-label">Resolution Type</label>
+        <select class="fs">
+          <option>FX Rate Correction (AI Recommended)</option>
+          <option>Counterparty Adjustment</option>
+          <option>Write-Off (requires senior approval)</option>
+          <option>Defer to Next Recon Run</option>
+          <option>Manual Match</option>
+        </select>
+      </div>
+      <div class="field"><label class="field-label">Reference Number</label>
+        <input class="fi" placeholder="e.g. TXN-2026-048291 or SWIFT-GENO-88742" value="TXN-2026-048291">
+      </div>
+      <div class="field"><label class="field-label">Resolution Narrative</label>
+        <textarea class="ft" rows="3">Applying ECB EURUSD 10:00 fixing rate 1.2319 to replace Pantheon snapshot rate 1.2248. Part of Pantheon cluster (11 breaks). All affected positions restated. Approval required from senior operations.</textarea>
+      </div>
+    </div>
+    <div class="mod-foot">
+      <button class="btn btn-ghost" onclick="closeMaker()">Cancel</button>
+      <button class="btn btn-ai" onclick="submitRes()">Submit for Approval →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTEXT MENU -->
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-sec">Actions for <span id="ctxBid" style="color:var(--acc)">B2108</span></div>
+  <div class="ctx-item" id="ctx-ai-resolve" onclick="ctxAct('airesolve')"><span class="ctx-ico">⚡</span><span class="ctx-lbl">AI Auto-Resolve</span><span class="ctx-key">⟡</span></div>
+  <div class="ctx-item" id="ctx-resolve" onclick="ctxAct('resolve')"><span class="ctx-ico">✅</span><span class="ctx-lbl">Resolve Break</span><span class="ctx-key">R</span></div>
+  <div class="ctx-item" id="ctx-esc" onclick="ctxAct('escalate')"><span class="ctx-ico">▲</span><span class="ctx-lbl">Escalate to Supervisor</span><span class="ctx-key">E</span></div>
+  <div class="ctx-item" onclick="ctxAct('assign')"><span class="ctx-ico">👤</span><span class="ctx-lbl">Assign Analyst</span><span class="ctx-key">A</span></div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item" onclick="ctxAct('match')"><span class="ctx-ico">🔗</span><span class="ctx-lbl">Match to Position</span><span class="ctx-key">M</span></div>
+  <div class="ctx-item" onclick="ctxAct('match-cmt')"><span class="ctx-ico">🔗💬</span><span class="ctx-lbl">Match with Commentary</span></div>
+  <div class="ctx-item" onclick="ctxAct('dematch')"><span class="ctx-ico">⛓️</span><span class="ctx-lbl">Remove Match</span><span class="ctx-key">D</span></div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item" onclick="ctxAct('panel')"><span class="ctx-ico">📋</span><span class="ctx-lbl">Open in Detail Panel</span><span class="ctx-key">↵</span></div>
+  <div class="ctx-item" onclick="ctxAct('history')"><span class="ctx-ico">🕐</span><span class="ctx-lbl">View Audit Trail</span><span class="ctx-key">H</span></div>
+  <div class="ctx-item" onclick="ctxAct('note')"><span class="ctx-ico">📝</span><span class="ctx-lbl">Add Note</span><span class="ctx-key">N</span></div>
+  <div class="ctx-item" onclick="ctxAct('copy')"><span class="ctx-ico">📋</span><span class="ctx-lbl">Copy Break ID</span><span class="ctx-key">C</span></div>
+  <div class="ctx-item" onclick="ctxAct('explain')"><span class="ctx-ico">🧠</span><span class="ctx-lbl">AI Explain Root Cause</span></div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item danger" onclick="ctxAct('suppress')"><span class="ctx-ico">🗑</span><span class="ctx-lbl">Suppress Break</span></div>
+</div>
+
+<!-- TOAST AREA -->
+<div class="toast-area" id="toastArea"></div>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ─── BREAK DATA ─── */
+const BREAKS=[
+  {id:'B2108',recon:'GOLDSTREAM-T2',item:'EQ-39263-MSFT',bid:'GSP-2026-048291',type:'Equity FX',instr:'MSFT US/EUR',date:'08-Apr-26',status:'esc',amount:12480000,aging:12,sla:'breach',risk:94,ai:96,owner:'SK',ownerName:'Sarah K.',og:'135deg,#D4AF69,#4ECDC4',breach:true,currency:'USD'},
+  {id:'B2109',recon:'GOLDSTREAM-T2',item:'EQ-39263-AAPL',bid:'GSP-2026-048292',type:'Equity FX',instr:'AAPL US/EUR',date:'08-Apr-26',status:'esc',amount:9840000,aging:12,sla:'breach',risk:92,ai:96,owner:'SK',ownerName:'Sarah K.',og:'135deg,#D4AF69,#4ECDC4',breach:true,currency:'USD'},
+  {id:'B2110',recon:'GOLDSTREAM-T2',item:'FI-00842-GILT',bid:'GSP-2026-048293',type:'Fixed Income',instr:'UK Gilt 2028',date:'09-Apr-26',status:'inv',amount:7450000,aging:3,sla:'ok',risk:38,ai:72,owner:'AH',ownerName:'Alex H.',og:'135deg,#4ECDC4,#2A7B78',breach:false,currency:'GBP'},
+  {id:'B2111',recon:'GOLDSTREAM-T2',item:'DRV-00291-SWAP',bid:'GSP-2026-048294',type:'Derivative',instr:'IR Swap EUR 5Y',date:'07-Apr-26',status:'open',amount:5200000,aging:5,sla:'near',risk:55,ai:61,owner:'PM',ownerName:'Priya M.',og:'135deg,#E8944A,#D4AF69',breach:false,currency:'EUR'},
+  {id:'B2112',recon:'GOLDSTREAM-T2',item:'CA-08823-DIVD',bid:'GSP-2026-048295',type:'Corp Action',instr:'HSBC Dividend',date:'10-Apr-26',status:'open',amount:3200000,aging:2,sla:'ok',risk:22,ai:88,owner:'RK',ownerName:'Rahul K.',og:'135deg,#4ECDC4,#2A7B78',breach:false,currency:'GBP'},
+  {id:'B2113',recon:'GOLDSTREAM-T2',item:'EQ-39264-AMZN',bid:'GSP-2026-048296',type:'Equity FX',instr:'AMZN US/EUR',date:'08-Apr-26',status:'esc',amount:8920000,aging:12,sla:'breach',risk:91,ai:96,owner:'SK',ownerName:'Sarah K.',og:'135deg,#D4AF69,#4ECDC4',breach:true,currency:'USD'},
+  {id:'B2114',recon:'GOLDSTREAM-T2',item:'FI-00843-BUND',bid:'GSP-2026-048297',type:'Fixed Income',instr:'Bund 2030 2.5%',date:'09-Apr-26',status:'pend',amount:4800000,aging:3,sla:'ok',risk:31,ai:79,owner:'AH',ownerName:'Alex H.',og:'135deg,#4ECDC4,#2A7B78',breach:false,currency:'EUR'},
+  {id:'B2115',recon:'GOLDSTREAM-T2',item:'EQ-39265-NVDA',bid:'GSP-2026-048298',type:'Equity FX',instr:'NVDA US/GBP',date:'10-Apr-26',status:'inv',amount:6340000,aging:2,sla:'ok',risk:28,ai:84,owner:'PM',ownerName:'Priya M.',og:'135deg,#E8944A,#D4AF69',breach:false,currency:'USD'},
+  {id:'B2116',recon:'GOLDSTREAM-T2',item:'DRV-00292-OPT',bid:'GSP-2026-048299',type:'Derivative',instr:'FTSE Put Q2',date:'07-Apr-26',status:'open',amount:1875000,aging:5,sla:'near',risk:47,ai:58,owner:'RK',ownerName:'Rahul K.',og:'135deg,#4ECDC4,#2A7B78',breach:false,currency:'GBP'},
+  {id:'B2117',recon:'GOLDSTREAM-T2',item:'CA-08824-BONU',bid:'GSP-2026-048300',type:'Corp Action',instr:'Vodafone Bonus',date:'10-Apr-26',status:'open',amount:890000,aging:2,sla:'ok',risk:18,ai:91,owner:'RK',ownerName:'Rahul K.',og:'135deg,#4ECDC4,#2A7B78',breach:false,currency:'GBP'},
+  {id:'B2118',recon:'GOLDSTREAM-T2',item:'EQ-39266-GOOG',bid:'GSP-2026-048301',type:'Equity FX',instr:'GOOGL US/EUR',date:'08-Apr-26',status:'esc',amount:11200000,aging:12,sla:'breach',risk:93,ai:96,owner:'SK',ownerName:'Sarah K.',og:'135deg,#D4AF69,#4ECDC4',breach:true,currency:'USD'},
+  {id:'B2119',recon:'GOLDSTREAM-T2',item:'FI-00844-TREA',bid:'GSP-2026-048302',type:'Fixed Income',instr:'UST 10Y 4.25%',date:'09-Apr-26',status:'inv',amount:24600000,aging:3,sla:'ok',risk:35,ai:76,owner:'AH',ownerName:'Alex H.',og:'135deg,#4ECDC4,#2A7B78',breach:false,currency:'USD'},
+];
+
+/* ─── STATE ─── */
+let theme='meridian', view='table', activeId='B2108';
+let selectedRows=new Set(['B2108','B2109']);
+let ctxTarget=null, isDragging=false, startX=0, startW=0;
+let inboxIdx=0, filteredBreaks=[...BREAKS], aiTypingTimer=null;
+
+/* ─── MAPS ─── */
+const SLM={open:'so',inv:'si',pend:'sp',esc:'se',res:'sr'};
+const SLT={open:'Open',inv:'Investigating',pend:'Pending Appr.',esc:'Escalated',res:'Resolved'};
+const SSM={open:'ss-open',inv:'ss-inv',pend:'ss-pend',esc:'ss-esc',res:'ss-res'};
+const SLAM={breach:'sla-b',near:'sla-n',ok:'sla-o'};
+const SLAT={breach:'BREACH',near:'Near SLA',ok:'Within SLA'};
+const AC=b=>b.aging>=10?'cr':b.aging>=4?'wa':'ok';
+const RM=b=>b.risk>=70?'rhi':b.risk>=40?'rmd':'rlo';
+const AMT=n=>'$'+n.toLocaleString();
+
+/* ─── INIT ─── */
+window.addEventListener('DOMContentLoaded',()=>{
+  renderTable(BREAKS);
+  renderInbox(BREAKS.filter(b=>b.status!=='res'));
+  renderHeatmap();
+  updateClock(); setInterval(updateClock,1000);
+  setTimeout(()=>toast('⟡','Meridian Active','Premium Reconciliation Intelligence · Monitoring 2,847 breaks','tp'),600);
+  setTimeout(()=>toast('⚠️','Cluster Detected','Pantheon Equity FX · 11 breaks · 96% confidence · $84M exposure','tp'),2200);
+});
+
+/* ─── CLOCK ─── */
+function updateClock(){
+  const n=new Date(),p=v=>String(v).padStart(2,'0');
+  const el=document.getElementById('clockEl');
+  if(el)el.textContent=`${p(n.getUTCHours())}:${p(n.getUTCMinutes())}:${p(n.getUTCSeconds())} UTC`;
+}
+
+/* ─── THEME ─── */
+function setTheme(t){
+  theme=t;document.documentElement.setAttribute('data-theme',t);
+  ['tm','tl','ts'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById(t==='meridian'?'tm':t==='meridian-light'?'tl':'ts').classList.add('on');
+  toast('🎨',`${t==='meridian'?'Meridian Dark':t==='meridian-light'?'Meridian Light':'Meridian Slate'}`,'','ta');
+}
+
+/* ─── HEAT MAP ─── */
+const HEATMAP_DATA = {
+  rows: ['Equity FX','Fixed Inc.','Derivatives','Corp Actions'],
+  days: ['Mon','Tue','Wed','Thu','Fri','Sat','Today'],
+  values: [
+    // Equity FX - peaks Mon/Tue after weekend settlement
+    [185, 210, 142, 128, 96, 12, 248],
+    // Fixed Income - steady midweek peak
+    [78,  88,  105, 92,  74, 8,  94],
+    // Derivatives - end of week expiry risk
+    [42,  58,  71,  88,  112, 24, 68],
+    // Corp Actions - event-driven, random spikes
+    [28,  18,  12,  44,  22,  4,  38],
+  ]
+};
+
+function getHeatColor(val, max, isCritical){
+  const ratio = val/max;
+  if(isCritical && ratio > 0.8) return `rgba(224,92,106,${0.5 + ratio*0.4})`;
+  if(ratio < 0.1) return 'rgba(212,175,105,0.06)';
+  if(ratio < 0.25) return 'rgba(212,175,105,0.18)';
+  if(ratio < 0.45) return 'rgba(212,175,105,0.35)';
+  if(ratio < 0.65) return 'rgba(212,175,105,0.52)';
+  if(ratio < 0.8) return 'rgba(212,175,105,0.72)';
+  return `rgba(224,92,106,${0.65 + ratio*0.25})`;
+}
+
+function getHeatTextColor(val, max){
+  const ratio = val/max;
+  return ratio > 0.45 ? 'rgba(255,255,255,0.9)' : 'rgba(212,175,105,0.5)';
+}
+
+function renderHeatmap(){
+  const grid = document.getElementById('heatmapGrid');
+  if(!grid) return;
+  const allVals = HEATMAP_DATA.values.flat();
+  const maxVal = Math.max(...allVals);
+
+  let html = '';
+  HEATMAP_DATA.rows.forEach((row, ri)=>{
+    html += `<div class="hm-row-label">${row}</div>`;
+    HEATMAP_DATA.days.forEach((day, di)=>{
+      const val = HEATMAP_DATA.values[ri][di];
+      const isToday = di === 6;
+      const isCritical = ri === 0; // Equity FX most critical
+      const bg = getHeatColor(val, maxVal, isCritical);
+      const tc = getHeatTextColor(val, maxVal);
+      const slaNote = val > 180 ? ' · SLA at risk' : '';
+      html += `<div class="hm-cell" 
+        style="background:${bg};color:${tc};${isToday?'border:1px solid rgba(212,175,105,0.4);':''}"
+        onclick="cmdSend('Show ${row} breaks from ${day}');toast('🔍','Filter Applied','${row} · ${day} · ${val} breaks','ta')"
+        title="${row} · ${day}: ${val} breaks">
+        ${val > 50 ? val : ''}
+        <div class="hm-tooltip">${row} · ${day}: <strong>${val} breaks</strong>${slaNote}</div>
+      </div>`;
+    });
+  });
+  grid.innerHTML = html;
+}
+
+/* ─── KEYBOARD ─── */
+document.addEventListener('keydown',e=>{
+  const focus=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName);
+  if(e.ctrlKey||e.metaKey){
+    if(e.key==='k'){e.preventDefault();document.getElementById('cmdInput').focus();}
+    if(e.key==='d'){e.preventDefault();setTheme('meridian');}
+    if(e.key==='l'){e.preventDefault();setTheme('meridian-light');}
+    if(e.key==='s'){e.preventDefault();setTheme('meridian-slate');}
+  }
+  if(e.key==='Escape'){
+    closeCtx();
+    if(!document.getElementById('makerOverlay').classList.contains('hidden')){closeMaker();return;}
+    if(document.getElementById('apprOverlay').classList.contains('open')){closeAppr();return;}
+    document.getElementById('cmdDrop').classList.remove('open');
+  }
+  if(focus)return;
+  if(e.key==='t'||e.key==='T')switchView('table');
+  if(e.key==='i'||e.key==='I')switchView('inbox');
+  if(e.key==='v'||e.key==='V')switchView('trends');
+  if(e.key==='r'||e.key==='R')openMaker(activeId,null);
+  if(e.key==='e'||e.key==='E')toast('▲','Escalated',`${activeId} escalated to supervisor`,'tm');
+  if(e.key==='j'&&view==='inbox')navBreak(1);
+  if(e.key==='k'&&view==='inbox')navBreak(-1);
+});
+
+/* ─── VIEW SWITCHING ─── */
+function switchView(v){
+  view=v;
+  ['tableView','inboxView','trendsView'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.style.display='none';
+  });
+  const vmap={table:'tableView',inbox:'inboxView',trends:'trendsView'};
+  const el=document.getElementById(vmap[v]);
+  if(el){el.style.display='flex';if(v==='trends')el.style.flexDirection='column';}
+  ['ni-t','ni-i','ni-tr'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('ni-'+v[0]+(v==='trends'?'r':'')).classList.add('active');
+  if(v==='inbox')toast('📥','Inbox Mode','J/K navigate · R resolve · E escalate','tp');
+  if(v==='trends'){toast('📊','Analytics View','Click any chart element to filter breaks','tp');renderHeatmap();}
+}
+
+/* ─── TABLE RENDER ─── */
+function renderTable(breaks){
+  const tb=document.getElementById('tbody');
+  tb.innerHTML=breaks.map(b=>{
+    const isSel=selectedRows.has(b.id),isAct=activeId===b.id;
+    return`<tr class="${isAct?'row-active':''} ${isSel?'row-chk':''}" data-id="${b.id}" onclick="rowClick('${b.id}',this)" oncontextmenu="showCtx(event,'${b.id}')">
+      <td style="position:relative;padding-left:16px;"><div class="ss ${SSM[b.status]}"></div><div class="ck ${isSel?'on':''}" id="ck-${b.id}" onclick="rowCk(event,'${b.id}',this)">${isSel?'✓':''}</div></td>
+      <td><span style="font-family:var(--m);font-size:10px;color:var(--t3)">${b.recon}</span></td>
+      <td><span class="iid">${b.item}</span></td>
+      <td><span class="bid">${b.bid}</span></td>
+      <td><span class="ty">${b.type}</span></td>
+      <td><span style="font-family:var(--m);font-size:10.5px;color:var(--t2)">${b.instr||'—'}</span></td>
+      <td><span style="font-family:var(--m);font-size:11px;color:var(--t2)">${b.date}</span></td>
+      <td><span class="st ${SLM[b.status]}"><span class="std"></span>${SLT[b.status]}</span></td>
+      <td style="text-align:right;"><span class="amt ${b.amount>5000000?'hi':''}">${AMT(b.amount)}</span></td>
+      <td><span class="age ${AC(b)}">${b.aging}d${b.aging>=10?' ▲▲':b.aging>=5?' ▲':''}</span></td>
+      <td><span class="slax ${SLAM[b.sla]}">${SLAT[b.sla]}</span></td>
+      <td><div class="rc ${RM(b)}"><div class="rn">${b.risk}</div><div class="rbw"><div class="rb" style="width:${b.risk}%"></div></div></div></td>
+      <td><div class="ais"><span class="ain">${b.ai}%</span><div class="aibw"><div class="aibf" style="width:${b.ai}%"></div></div></div></td>
+      <td>${b.owner?`<div class="own"><div class="oa" style="background:linear-gradient(${b.og})">${b.owner}</div><span style="font-size:11.5px;color:var(--t2);">${b.ownerName}</span></div>`:`<span style="font-size:11px;color:var(--t3);font-style:italic;">Unassigned</span>`}</td>
+      <div class="ga">
+        ${b.status!=='res'?`<button class="gab gr" onclick="openMaker('${b.id}',event)">Resolve</button>`:''}
+        ${b.status!=='esc'&&b.status!=='res'?`<button class="gab ge" onclick="toast('▲','Escalated','${b.id} escalated','tm')">Escalate</button>`:''}
+        <button class="gab gn" onclick="toast('👤','Assign','Assigning ${b.id}','ta')">Assign</button>
+      </div>
+    </tr>`;
+  }).join('');
+}
+
+/* ─── INBOX RENDER ─── */
+function renderInbox(breaks){
+  const el=document.getElementById('ibList');
+  el.innerHTML=breaks.map((b,i)=>{
+    const isAct=i===inboxIdx;
+    const ac=b.aging>=10?'var(--red)':b.aging>=4?'var(--amb)':'var(--grn)';
+    return`<div class="tc ${isAct?'tca':''}" onclick="selInbox(${i},'${b.id}')">
+      <div class="tc-str ${SSM[b.status]}"></div>
+      <div class="tc-r1"><span class="tc-id">${b.id}</span><span class="st ${SLM[b.status]}" style="font-size:9px;"><span class="std"></span>${SLT[b.status]}</span><span class="tc-t">${b.aging}d</span></div>
+      <div class="tc-r2"><span class="tc-amt">${AMT(b.amount)}</span><span class="tc-type">${b.type}</span></div>
+      <div class="tc-r3"><span class="tc-own">${b.ownerName}</span><span class="slax ${SLAM[b.sla]}" style="font-size:9px;">${SLAT[b.sla]}</span></div>
+      <div class="tc-ab" style="background:linear-gradient(90deg,${ac} ${Math.min(b.aging*8,100)}%,var(--b2) ${Math.min(b.aging*8,100)}%);"></div>
+      <div class="tc-acts">
+        <button class="btn btn-ai btn-xs" onclick="event.stopPropagation();cmdSend('Auto-resolve break ${b.id}')">⚡ AI</button>
+        <button class="btn btn-success btn-xs" onclick="event.stopPropagation();openMaker('${b.id}',null)">Resolve</button>
+        <button class="btn btn-ghost btn-xs" onclick="event.stopPropagation();navBreak(1)">Skip</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selInbox(idx,id){
+  inboxIdx=idx;activeId=id;
+  document.querySelectorAll('.tc').forEach((c,i)=>c.classList.toggle('tca',i===idx));
+  document.getElementById('brkProg').textContent=`Break ${idx+1} of ${BREAKS.filter(b=>b.status!=='res').length}`;
+  document.getElementById('prevBrk').classList.toggle('dis',idx===0);
+  document.getElementById('dpxBid').textContent=id;
+  updateRevProgress();
+  const b=BREAKS.find(x=>x.id===id);
+  document.getElementById('ibDetail').innerHTML=`
+    <div style="background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:7px;padding:12px;margin-bottom:10px;">
+      <div style="font-family:var(--f-display);font-size:12px;font-weight:700;color:var(--ai1);margin-bottom:6px;">⟡ AI Assessment — ${id}</div>
+      <div style="font-family:var(--f);font-size:12px;color:var(--t2);line-height:1.6;">
+        Confidence: <strong style="color:var(--ai1)">${b.ai}%</strong> · 
+        Pattern: <strong>${b.type==='Equity FX'?'FX_RATE_MISMATCH_PANTHEON':b.type==='Fixed Income'?'COUPON_ACCRUAL_DELTA':'MARK_DISCREPANCY'}</strong> · 
+        Recommended: <strong style="color:var(--grn)">${b.ai>=80?'Auto-resolve':'Investigate further'}</strong>
+      </div>
+      <div style="display:flex;gap:4px;margin-top:8px;">
+        <button class="btn btn-ai btn-xs" onclick="cmdSend('Auto-resolve break ${id}')">⚡ Apply Recommendation</button>
+        <button class="btn btn-ghost btn-xs" onclick="cmdSend('Explain why break ${id} exists')">🧠 Explain</button>
+      </div>
+    </div>
+    <div class="mg" style="margin-bottom:10px;">
+      <div class="mi"><div class="mil">Amount</div><div class="miv" style="color:${b.breach?'var(--red)':'var(--t1)'}">${AMT(b.amount)}</div></div>
+      <div class="mi"><div class="mil">Currency</div><div class="miv">${b.currency}</div></div>
+      <div class="mi"><div class="mil">Asset Class</div><div class="miv">${b.type}</div></div>
+      <div class="mi"><div class="mil">Aging</div><div class="miv" style="color:${b.aging>=10?'var(--red)':b.aging>=4?'var(--amb)':'var(--grn)'}">${b.aging}d</div></div>
+      <div class="mi"><div class="mil">Risk Score</div><div class="miv" style="color:${b.risk>=70?'var(--red)':b.risk>=40?'var(--amb)':'var(--grn)'}">${b.risk}/100</div></div>
+      <div class="mi"><div class="mil">Analyst</div><div class="miv">${b.ownerName}</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <button class="btn btn-ai" style="justify-content:center;width:100%;" onclick="cmdSend('Auto-resolve break ${id}')">⚡ AI Auto-Resolve</button>
+      <button class="btn btn-success" style="justify-content:center;width:100%;" onclick="openMaker('${id}',null)">✓ Resolve — Maker/Checker</button>
+      <button class="btn btn-warn" style="justify-content:center;width:100%;" onclick="toast('▲','Escalated','${id} escalated to supervisor','tm')">▲ Escalate to Supervisor</button>
+    </div>`;
+}
+
+function navBreak(dir){
+  const list=BREAKS.filter(b=>b.status!=='res');
+  const nIdx=Math.max(0,Math.min(list.length-1,inboxIdx+dir));
+  selInbox(nIdx,list[nIdx].id);
+  const cards=document.querySelectorAll('.tc');
+  if(cards[nIdx])cards[nIdx].scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function updateRevProgress(){
+  const total=BREAKS.filter(b=>b.status!=='res').length;
+  const pct=Math.round((inboxIdx/total)*100);
+  const f=document.getElementById('rpFill'),l=document.getElementById('rpLabel');
+  if(f)f.style.width=pct+'%';if(l)l.textContent=`${inboxIdx} / ${total}`;
+}
+
+function revMode(m){
+  ['ro-bulk','ro-focus'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById('ro-'+m).classList.add('on');
+  document.getElementById('revProg').style.display=m==='focus'?'flex':'none';
+  if(m==='focus')toast('🎯','Focus Mode','One break at a time · J/K navigate','tp');
+  else toast('☰','Bulk Mode','Multi-select and batch actions enabled','ta');
+}
+
+function isort(el,by){
+  document.querySelectorAll('.isb').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  toast('🔽',`Sort: ${by}`,'Inbox reordered','ta');
+}
+
+/* ─── ROW SELECTION ─── */
+function rowClick(id,tr){
+  activeId=id;
+  document.querySelectorAll('tbody tr').forEach(r=>r.classList.remove('row-active'));
+  if(tr)tr.classList.add('row-active');
+  document.getElementById('dpxBid').textContent=id;
+  const b=BREAKS.find(x=>x.id===id);
+  document.getElementById('dpBreach').style.display=b?.breach?'flex':'none';
+}
+function rowCk(e,id,el){
+  e.stopPropagation();
+  const on=el.classList.toggle('on');el.textContent=on?'✓':'';
+  if(on)selectedRows.add(id);else selectedRows.delete(id);
+  const tr=document.querySelector(`tr[data-id="${id}"]`);
+  if(tr)tr.classList.toggle('row-chk',on);
+  updateBulkBar();
+}
+function selAll(){
+  const all=document.querySelectorAll('tbody .ck');
+  const allOn=selectedRows.size===all.length;
+  selectedRows.clear();
+  all.forEach(ck=>{
+    const id=ck.id.replace('ck-','');
+    ck.classList.remove('on');ck.textContent='';
+    document.querySelector(`tr[data-id="${id}"]`)?.classList.remove('row-chk');
+    if(!allOn){ck.classList.add('on');ck.textContent='✓';selectedRows.add(id);document.querySelector(`tr[data-id="${id}"]`)?.classList.add('row-chk');}
+  });
+  updateBulkBar();
+}
+function clearBulk(){
+  selectedRows.clear();
+  document.querySelectorAll('tbody .ck').forEach(c=>{c.classList.remove('on');c.textContent='';});
+  document.querySelectorAll('tbody tr').forEach(r=>r.classList.remove('row-chk'));
+  updateBulkBar();
+}
+function updateBulkBar(){
+  const n=selectedRows.size,bar=document.getElementById('bulkBar');
+  bar.style.display=n>0?'flex':'none';
+  document.getElementById('bulkCnt').textContent=`${n} selected`;
+  document.getElementById('bulkPrev').textContent=n>0?`${n} break${n>1?'s':''} · AI ready to act`:'';
+}
+
+/* ─── PANEL ─── */
+function dpTab(el,id){
+  const par=el.parentElement;
+  par.querySelectorAll('.dpt').forEach(t=>t.classList.remove('on'));el.classList.add('on');
+  const pfx=id.split('-')[0]+'-';
+  document.querySelectorAll('[id^="'+pfx+'"]').forEach(t=>t.style.display='none');
+  const tab=document.getElementById(id);if(tab)tab.style.display='';
+}
+function toggleDetailCollapse(){document.getElementById('aipDetail').classList.toggle('collapsed');}
+function togglePanelWidth(){
+  const p=document.getElementById('aiPanel');
+  if(p.classList.contains('wide'))p.classList.remove('wide');
+  else p.classList.add('wide');
+}
+
+/* ─── FILTER / KPI ─── */
+function kpiFilter(type,el){
+  document.querySelectorAll('.kpi-cell').forEach(k=>k.classList.remove('on'));
+  if(el)el.classList.add('on');
+  let filtered=[...BREAKS];
+  if(type==='amb')filtered=BREAKS.filter(b=>b.risk>=70||b.aging>=5);
+  if(type==='red')filtered=BREAKS.filter(b=>b.sla==='breach');
+  if(type==='grn')filtered=BREAKS.filter(b=>b.sla==='ok');
+  renderTable(filtered);
+  document.getElementById('rcount').textContent=`${filtered.length} / ${BREAKS.length}`;
+  toast('🔍','KPI Filter',`Filtered: ${type}`,'ta');
+}
+function chipTog(el){if(el)el.classList.toggle('on');toast('🔧','Filter Updated','Results refreshed','ta');}
+function resetFilters(){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  clearAIFilter();renderTable(BREAKS);
+  document.getElementById('rcount').textContent=`${BREAKS.length} / ${BREAKS.length}`;
+  toast('🔁','Filters Reset','All breaks visible','ta');
+}
+function clearAIFilter(){const t=document.getElementById('activeTag');if(t)t.style.display='none';}
+function wTab(el){document.querySelectorAll('.wt').forEach(t=>t.classList.remove('on'));el.classList.add('on');}
+
+/* ─── APPROVALS ─── */
+function openAppr(){document.getElementById('apprOverlay').classList.add('open');document.getElementById('apprDim').classList.add('on');}
+function closeAppr(){document.getElementById('apprOverlay').classList.remove('open');document.getElementById('apprDim').classList.remove('on');}
+
+/* ─── MAKER MODAL ─── */
+function openMaker(id,e){
+  if(e)e.stopPropagation();
+  const b=id==='BULK'?null:BREAKS.find(x=>x.id===id);
+  document.getElementById('makerSub').textContent=id==='BULK'?`${selectedRows.size} breaks — Bulk Resolution`:`Break ${id} · ${b?AMT(b.amount):''} · ${b?.type||''}`;
+  document.getElementById('impBid').textContent=id==='BULK'?`${selectedRows.size} breaks`:id;
+  document.getElementById('impAmt').textContent=id==='BULK'?'$38.4M combined':(b?AMT(b.amount):'—');
+  document.getElementById('makerOverlay').classList.remove('hidden');
+}
+function closeMaker(){document.getElementById('makerOverlay').classList.add('hidden');}
+function submitRes(){
+  closeMaker();
+  const v=document.getElementById('velCnt');if(v)v.textContent=parseInt(v.textContent)+1;
+  toast('📋','Submitted for Approval','Resolution sent to checker · Status: Pending Approval','tg');
+}
+
+/* ─── CONTEXT MENU ─── */
+function showCtx(e,id){
+  e.preventDefault();ctxTarget=id;
+  const m=document.getElementById('ctxMenu');
+  document.getElementById('ctxBid').textContent=id;
+  const b=BREAKS.find(x=>x.id===id);
+  document.getElementById('ctx-resolve').classList.toggle('dis',b?.status==='res');
+  document.getElementById('ctx-esc').classList.toggle('dis',b?.status==='esc');
+  m.style.left=Math.min(e.clientX,window.innerWidth-200)+'px';
+  m.style.top=Math.min(e.clientY,window.innerHeight-320)+'px';
+  m.classList.add('open');
+}
+function closeCtx(){document.getElementById('ctxMenu').classList.remove('open');}
+document.addEventListener('click',closeCtx);
+function ctxAct(type){
+  closeCtx();
+  const acts={
+    airesolve:()=>cmdSend(`Auto-resolve break ${ctxTarget}`),
+    resolve:()=>openMaker(ctxTarget,null),
+    escalate:()=>toast('▲','Escalated',`${ctxTarget} escalated to supervisor`,'tm'),
+    assign:()=>toast('👤','Assign',`Assign ${ctxTarget} to analyst`,'ta'),
+    match:()=>toast('🔗','Match',`${ctxTarget} matched to position`,'tg'),
+    'match-cmt':()=>toast('🔗💬','Match + Commentary','Comment added and matched','ta'),
+    dematch:()=>toast('⛓️','Dematched',`${ctxTarget} match removed`,'tm'),
+    panel:()=>rowClick(ctxTarget),
+    history:()=>dpTab(document.querySelector('.dpt:nth-child(4)'),'dp-aud'),
+    note:()=>toast('📝','Note','Note editor opened','ta'),
+    copy:()=>toast('📋','Copied',`${ctxTarget} copied to clipboard`,'ta'),
+    explain:()=>cmdSend(`Explain why break ${ctxTarget} exists`),
+    suppress:()=>toast('🗑','Suppress','Suppression requires senior approval','tr'),
+  };
+  const fn=acts[type];if(typeof fn==='function')fn();
+}
+
+/* ─── AI COMMAND BAR ─── */
+function onCmdFocus(){
+  document.getElementById('cmdBar').classList.add('active');
+  if(document.getElementById('cmdInput').value.length<2)
+    document.getElementById('cmdDrop').classList.add('open');
+}
+function onCmdBlur(){
+  document.getElementById('cmdBar').classList.remove('active');
+  setTimeout(()=>document.getElementById('cmdDrop').classList.remove('open'),150);
+}
+function cmdInput(el){
+  if(el.value.length>=1)document.getElementById('cmdDrop').classList.add('open');
+  else document.getElementById('cmdDrop').classList.remove('open');
+}
+function cmdKeydown(e){
+  if(e.key==='Enter'){e.preventDefault();cmdSend(e.target.value.trim());e.target.value='';document.getElementById('cmdDrop').classList.remove('open');}
+  if(e.key==='Escape'){document.getElementById('cmdDrop').classList.remove('open');document.getElementById('cmdInput').blur();}
+}
+function cmdSend(q){
+  if(!q)return;
+  document.getElementById('cmdInput').value='';
+  document.getElementById('cmdDrop').classList.remove('open');
+  aiSend(q);
+}
+
+/* ─── AI CHAT ─── */
+function aiKeydown(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();aiSendFromInput();}}
+function aiSendFromInput(){const ta=document.getElementById('aiInput');const q=ta.value.trim();if(!q)return;aiSend(q);ta.value='';ta.style.height='';}
+function autoResize(el){el.style.height='';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+
+function aiSend(q){
+  const msgs=document.getElementById('aiMsgs');
+  const um=document.createElement('div');um.className='msg-u';um.textContent=q;msgs.appendChild(um);
+  const ti=document.createElement('div');ti.className='ai-typing';ti.innerHTML=`<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>`;msgs.appendChild(ti);
+  msgs.scrollTop=msgs.scrollHeight;
+  clearTimeout(aiTypingTimer);
+  aiTypingTimer=setTimeout(()=>{
+    ti.remove();
+    const resp=getAIResp(q);
+    const rm=document.createElement('div');rm.className='msg-ai';
+    rm.innerHTML=`<div class="msg-ai-hdr"><span class="msg-ai-ico">⟡</span><span class="msg-ai-from">Meridian AI</span><span class="msg-ai-ts">just now</span></div>${resp}`;
+    msgs.appendChild(rm);msgs.scrollTop=msgs.scrollHeight;
+  },Math.random()*600+700);
+}
+
+function getAIResp(q){
+  const ql=q.toLowerCase();
+
+  if(ql.includes('resolve all')||(ql.includes('resolve')&&ql.includes('screen'))){
+    const ready=BREAKS.filter(b=>b.ai>=80&&b.status!=='res');
+    setTimeout(()=>{
+      ready.slice(0,5).forEach((b,i)=>{
+        setTimeout(()=>{const tr=document.querySelector(`tr[data-id="${b.id}"]`);if(tr)tr.classList.add('ai-resolving');},i*300);
+      });
+      setTimeout(()=>toast('⚡','AI Bulk Resolve',`${ready.length} breaks auto-resolved · Submitted for approval`,'tg'),ready.length*300+400);
+    },600);
+    return`<div>Executing bulk AI resolution for <strong style="color:var(--ai1)">${ready.length} breaks</strong> with confidence ≥80%.</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Resolving Now</span><span class="ai-rc-cnt">${ready.length} breaks</span></div>
+    ${ready.map(b=>`<div class="ai-rc-row"><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span style="font-size:11px;">${b.type}</span><span class="ai-rcv">${AMT(b.amount)}</span><span style="color:var(--ai1);font-family:var(--m);font-size:10px;">${b.ai}%</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic g">✓ ${ready.length} submitted for approval</div><div class="aic a" onclick="openAppr()">View Approvals →</div></div>`;
+  }
+
+  if(ql.includes('pattern')||ql.includes('detect')){
+    return`<div style="margin-bottom:8px;">I've analyzed all 2,847 breaks and found <strong style="color:var(--ai1)">3 critical patterns</strong>:</div>
+    <div class="ai-rc" style="margin-bottom:7px;"><div class="ai-rc-hdr"><span class="ai-rc-title">Pattern 1 — Pantheon FX Cluster</span><span class="ai-rc-cnt">96% conf</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:6px;"><strong>11 Equity FX breaks</strong> share Pantheon custody source with identical rate discrepancy <strong>1.2248 → 1.2319 (EURUSD ECB fixing)</strong>. Systemic feed tag error — all resolvable simultaneously. Combined exposure: <strong style="color:var(--red)">$84.2M</strong>.</div>
+    <div class="ai-chips"><div class="aic" onclick="kpiFilter('red',document.getElementById('kc-red'))">🔍 Filter Cluster</div><div class="aic g" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ Resolve All 11</div></div></div>
+    <div class="ai-rc" style="margin-bottom:7px;"><div class="ai-rc-hdr"><span class="ai-rc-title">Pattern 2 — Morning Volume Spike</span><span class="ai-rc-cnt">Today</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:6px;"><strong>247% above average</strong> break creation 09:00–10:00 UTC. Root cause: Pantheon feed delivered settlement instructions 22 minutes late, triggering cascade. Murex T-Broker secondary feed also delayed.</div>
+    <div class="ai-chips"><div class="aic" onclick="switchView('trends')">📊 View Heatmap</div></div></div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Pattern 3 — Equity FX SLA Breach Cluster</span><span class="ai-rc-cnt">Urgent</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:6px;"><strong style="color:var(--red)">4 Equity FX breaks (B2108, B2109, B2113, B2118)</strong> are SLA-breached, escalated but unresolved for 12 days. Total exposure <strong style="color:var(--red)">$42.4M</strong>. Root cause is the same Pantheon cluster — resolution would close all 4.</div>
+    <div class="ai-chips"><div class="aic r" onclick="rowClick('B2108')">⚠️ Open B2108</div><div class="aic g" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ Resolve Cluster</div></div></div>`;
+  }
+
+  if(ql.includes('explain')){
+    const bid=ql.match(/B\d{4}/)?.[0];
+    return`<div style="margin-bottom:8px;">⟡ <strong>Root Cause Analysis</strong>${bid?' for '+bid:' — Pantheon Pattern'}:</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Why This Break Exists</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.7;">
+      <strong style="color:var(--ai1)">Root Cause:</strong> Pantheon custody system uses an 08:00 UTC EURUSD snapshot (1.2248) while the agreed settlement reference is the ECB 10:00 UTC fixing (1.2319). The 71 basis point delta creates a systematic mismatch across all USD/EUR equity positions settled via Pantheon.<br><br>
+      <strong style="color:var(--ai1)">Why automation failed:</strong> Rule #18 (FX Auto-Rate-Correct) was bypassed because the source feed tag <code>FX_RATE_SOURCE=ECB</code> was misclassified as <code>SPOT</code> by a Pantheon firmware update deployed Saturday.<br><br>
+      <strong style="color:var(--ai1)">Resolution path:</strong> Apply ECB reference rate 1.2319 to all 11 affected positions. Update feed tag classification. Re-run netting. All 11 breaks resolvable in one operation — ~8 minutes total.
+    </div></div>
+    <div class="ai-chips"><div class="aic g" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ Resolve Cluster</div><div class="aic a" onclick="switchView('trends')">📊 Heatmap View</div></div>`;
+  }
+
+  if(ql.includes('sla')&&(ql.includes('not escalat')||ql.includes('unescalat'))){
+    const bks=BREAKS.filter(b=>b.sla==='breach'&&b.status!=='esc');
+    applyTableFilter(bks,'SLA Breach · Unescalated');
+    return`<div>Found <strong style="color:var(--red)">${bks.length} SLA-breached breaks</strong> not yet escalated. <strong>Table updated.</strong></div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">SLA Breached · Not Escalated</span><span class="ai-rc-cnt">${bks.length}</span></div>
+    ${bks.map(b=>`<div class="ai-rc-row"><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span style="font-size:11px;">${b.type}</span><span class="ai-rcv">${AMT(b.amount)}</span><span style="color:var(--red);font-family:var(--m);font-size:10px;">${b.aging}d</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic r" onclick="toast('▲','Escalate All','${bks.length} breaks escalated','tm')">▲ Escalate All ${bks.length}</div><div class="aic" onclick="openAppr()">View Approvals →</div></div>`;
+  }
+
+  if(ql.includes('highest')||ql.includes('largest')||ql.includes('biggest')||ql.includes('high')){
+    const sorted=[...BREAKS].sort((a,b)=>b.amount-a.amount);
+    const top3=sorted.slice(0,3);
+    rowClick(top3[0].id);
+    return`<div style="margin-bottom:7px;">Top 3 breaks by financial exposure today:</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Highest Exposure Breaks</span><span class="ai-rc-cnt">Top 3</span></div>
+    ${top3.map((b,i)=>`<div class="ai-rc-row"><span style="font-family:var(--m);font-size:9px;color:var(--t3);">#${i+1}</span><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span style="font-size:11px;">${b.type}</span><span class="ai-rcv" style="color:${b.breach?'var(--red)':'var(--t1)'};">${AMT(b.amount)}</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic r" onclick="rowClick('${top3[0].id}')">📋 Open ${top3[0].id}</div><div class="aic g" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ AI Resolve</div></div>`;
+  }
+
+  if(ql.includes('unassign')){
+    const bks=BREAKS.filter(b=>!b.owner);
+    if(bks.length===0)return`<div>✓ All breaks are currently assigned. No unassigned breaks found.</div>`;
+    applyTableFilter(bks,'Unassigned');
+    return`<div>Found <strong style="color:var(--red)">${bks.length} unassigned break${bks.length!==1?'s':''}</strong>. <strong>Table updated.</strong></div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Unassigned Breaks</span><span class="ai-rc-cnt">${bks.length}</span></div>
+    ${bks.map(b=>`<div class="ai-rc-row"><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span>${b.type}</span><span class="ai-rcv">${AMT(b.amount)}</span><span style="color:var(--red);font-family:var(--m);font-size:10px;">Risk ${b.risk}</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic g" onclick="toast('👤','AI Auto-Assign','Breaks assigned based on analyst workload & expertise','tg')">⟡ AI Auto-Assign All</div><div class="aic" onclick="resetFilters()">✕ Clear</div></div>`;
+  }
+
+  if(ql.includes('health')||ql.includes('summar')||ql.includes('today')){
+    return`<div style="margin-bottom:7px;">📊 <strong>Reconciliation Health — GOLDSTREAM-PRIME</strong> (${new Date().toUTCString().slice(17,22)} UTC)</div>
+    <div class="ai-rc"><div style="display:flex;flex-direction:column;gap:4px;font-size:12px;">
+      <div class="ai-rc-row"><span class="ipk">Open Breaks</span><span class="ai-rcv" style="color:var(--acc)">2,847</span></div>
+      <div class="ai-rc-row"><span class="ipk">Financial Exposure</span><span class="ai-rcv" style="color:var(--red)">$284M ↑$42M today</span></div>
+      <div class="ai-rc-row"><span class="ipk">SLA Compliance</span><span class="ai-rcv" style="color:var(--amb)">87.4% ↓2.1%</span></div>
+      <div class="ai-rc-row"><span class="ipk">SLA Breach · Unescalated</span><span class="ai-rcv" style="color:var(--red)">38 breaks ⚠</span></div>
+      <div class="ai-rc-row"><span class="ipk">Resolved Today</span><span class="ai-rcv" style="color:var(--grn)">312 (+28%)</span></div>
+      <div class="ai-rc-row"><span class="ipk">AI Resolved</span><span class="ai-rcv" style="color:var(--ai1)">128 (41%)</span></div>
+      <div class="ai-rc-row"><span class="ipk">Analyst Hours Saved</span><span class="ai-rcv" style="color:var(--grn)">11.4h · $38K cost ↓</span></div>
+      <div class="ai-rc-row" style="border:none;"><span class="ipk">Top Risk</span><span class="ai-rcv" style="color:var(--red)">Pantheon cluster · $84M</span></div>
+    </div></div>
+    <div style="margin-top:7px;font-size:12px;color:var(--t2);">⚠ <strong style="color:var(--red)">Critical:</strong> Pantheon Equity FX cluster (11 breaks, $84M) — AI recommends immediate cluster resolution.</div>
+    <div class="ai-chips"><div class="aic r" onclick="rowClick('B2108')">⚠ Open B2108</div><div class="aic" onclick="switchView('trends')">📊 Full Analytics</div><div class="aic g" onclick="cmdSend('Resolve all AI-resolvable breaks on screen')">⚡ AI Resolve</div></div>`;
+  }
+
+  if(ql.includes('older than')||ql.includes('days')){
+    const n=parseInt(ql.match(/\d+/)?.[0])||10;
+    const bks=BREAKS.filter(b=>b.aging>=n);
+    applyTableFilter(bks,`Aging >${n}d`);
+    return`<div>Found <strong style="color:var(--acc)">${bks.length} breaks</strong> older than ${n} days. <strong>Table updated.</strong></div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Aging &gt;${n} days</span><span class="ai-rc-cnt">${bks.length} breaks</span></div>
+    ${bks.map(b=>`<div class="ai-rc-row"><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span style="font-size:11px;">${b.type}</span><span class="ai-rcv">${AMT(b.amount)}</span><span style="color:var(--red);font-family:var(--m);font-size:10px;">${b.aging}d</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic" onclick="resetFilters()">✕ Clear Filter</div><div class="aic r" onclick="toast('▲','Escalated','${bks.length} aging breaks escalated','tm')">▲ Escalate All</div></div>`;
+  }
+
+  if(ql.includes('inbox')||ql.includes('review')){
+    switchView('inbox');
+    return`<div>Switched to <strong style="color:var(--ai1)">Inbox Review Mode</strong>. You have <strong>${BREAKS.filter(b=>b.status!=='res').length} breaks</strong> in your queue — ${BREAKS.filter(b=>b.sla==='breach').length} are SLA-breached.</div>
+    <div class="ai-chips"><div class="aic" onclick="revMode('focus')">🎯 Focus Mode</div><div class="aic" onclick="switchView('trends')">📊 View Analytics</div></div>`;
+  }
+
+  return`<div>I understood <em>"${q}"</em>. Here's what I can help with:</div>
+  <div class="ai-rc"><div style="font-size:12px;color:var(--t2);line-height:1.7;">
+    ⚡ <strong>Actions:</strong> "Resolve all AI-resolvable" · "Escalate SLA breached"<br>
+    🔍 <strong>Filter:</strong> "Equity FX breaks" · "Breaks older than 10 days" · "Unassigned"<br>
+    🧠 <strong>Analyze:</strong> "Detect patterns" · "Explain break B2108" · "Root cause"<br>
+    💰 <strong>Risk:</strong> "Highest exposure" · "Counterparty concentration" · "Health summary"<br>
+    📊 <strong>Navigate:</strong> "Switch to inbox" · "Show analytics" · "Show heatmap"
+  </div></div>
+  <div class="ai-chips"><div class="aic" onclick="cmdSend('Detect patterns across all current breaks')">🧠 Detect Patterns</div><div class="aic" onclick="cmdSend('Summarize today reconciliation health')">📊 Health Summary</div></div>`;
+}
+
+function applyTableFilter(breaks,label){
+  renderTable(breaks);
+  document.getElementById('rcount').textContent=`${breaks.length} / ${BREAKS.length}`;
+  document.getElementById('resultPill').textContent=`${breaks.length} / ${BREAKS.length}`;
+  const t=document.getElementById('activeTag');
+  if(t){t.style.display='flex';t.innerHTML=`⟡ ${label}<span onclick="clearAIFilter();renderTable(BREAKS);document.getElementById('rcount').textContent='${BREAKS.length} / ${BREAKS.length}'" style="cursor:pointer;opacity:.6;font-size:9px;margin-left:4px;">✕</span>`;}
+  setTimeout(()=>{
+    document.querySelectorAll('tbody tr').forEach(tr=>tr.classList.add('ai-highlighted'));
+  },200);
+}
+
+/* ─── TOAST ─── */
+let tid=0;
+function toast(ico,title,sub,cls=''){
+  const area=document.getElementById('toastArea'),id=++tid;
+  const t=document.createElement('div');t.className=`toast ${cls}`;t.id='t'+id;
+  t.innerHTML=`<span class="t-ico">${ico}</span><div class="t-body"><div class="t-title">${title}</div>${sub?`<div class="t-sub">${sub}</div>`:''}</div><span class="tx" onclick="rmT(${id})">✕</span>`;
+  area.appendChild(t);setTimeout(()=>rmT(id),4000);
+}
+function rmT(id){const el=document.getElementById('t'+id);if(el){el.style.opacity='0';el.style.transform='translateY(5px)';el.style.transition='150ms';setTimeout(()=>el.remove(),150);}}
+</script>
+</body>
+</html>

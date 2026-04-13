@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExceptionIQ MERIDIAN — Precision Reconciliation Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   MERIDIAN — Precision Reconciliation Intelligence
+   ExceptionIQ · Meridian Edition
+   Fonts: Space Grotesk (display) + Plus Jakarta Sans (body) + IBM Plex Mono (data)
+   Design: Warm copper + teal · Cartographic precision
+   ══════════════════════════════════════════════════════════════ */
+
+:root{
+  --f-display:'Space Grotesk',sans-serif;
+  --f:'Plus Jakarta Sans',sans-serif;
+  --m:'IBM Plex Mono',monospace;
+  --e1:cubic-bezier(.4,0,.2,1);
+  --e2:cubic-bezier(.34,1.56,.64,1);
+  --e3:cubic-bezier(.16,1,.3,1);
+  --d1:80ms;--d2:160ms;--d3:280ms;--d4:420ms;
+}
+
+/* ── DARK (Obsidian Meridian) ── */
+[data-theme="dark"]{
+  --bg:#06080C;
+  --bg2:#080B12;
+  --surf:#0B0F18;
+  --card:#0F1520;
+  --raised:#141C2C;
+  --overlay:#1A2438;
+  --b0:rgba(200,140,80,.02);
+  --b1:rgba(200,160,100,.05);
+  --b2:rgba(200,160,100,.09);
+  --b3:rgba(200,160,100,.16);
+  --b4:rgba(200,160,100,.26);
+  --t1:#E8DED0;
+  --t2:#8A7A68;
+  --t3:#4A3E32;
+  --t4:#1E1810;
+  --ai1:#C87B3A;
+  --ai2:#2A9D8F;
+  --ai-g:linear-gradient(135deg,#C87B3A,#2A9D8F);
+  --ai-gs:rgba(200,123,58,.08);
+  --ai-gb:rgba(200,123,58,.18);
+  --acc:#3A8FD4;
+  --acc-s:rgba(58,143,212,.10);
+  --acc-b:rgba(58,143,212,.22);
+  --grn:#2A9D8F;
+  --grn-s:rgba(42,157,143,.08);
+  --grn-b:rgba(42,157,143,.20);
+  --amb:#E9A84C;
+  --amb-s:rgba(233,168,76,.08);
+  --red:#D45A5A;
+  --red-s:rgba(212,90,90,.08);
+  --red-b:rgba(212,90,90,.20);
+  --teal:#2A9D8F;
+  --teal-s:rgba(42,157,143,.08);
+  --sha-ai:0 0 32px rgba(200,123,58,.20),0 0 64px rgba(42,157,143,.08);
+  --sha-md:0 4px 24px rgba(0,0,0,.55);
+  --sha-lg:0 8px 48px rgba(0,0,0,.70);
+  --sha-xl:0 20px 80px rgba(0,0,0,.85);
+  --hm0:#0F1520;--hm1:#1A2D2A;--hm2:#2A5A48;--hm3:#3A8A64;--hm4:#50B880;--hm5:#70E898;
+}
+
+/* ── LIGHT (Parchment Meridian) ── */
+[data-theme="light"]{
+  --bg:#F2EDE6;
+  --bg2:#EAE4DA;
+  --surf:#FDFBF8;
+  --card:#F7F4EF;
+  --raised:#FDFBF8;
+  --overlay:#EDE8E0;
+  --b0:rgba(60,40,20,.02);
+  --b1:rgba(60,40,20,.05);
+  --b2:rgba(60,40,20,.09);
+  --b3:rgba(60,40,20,.16);
+  --b4:rgba(60,40,20,.26);
+  --t1:#1A1208;
+  --t2:#5A4A38;
+  --t3:#9A8A78;
+  --t4:#C8B8A8;
+  --ai1:#A86428;
+  --ai2:#1A7A6E;
+  --ai-g:linear-gradient(135deg,#A86428,#1A7A6E);
+  --ai-gs:rgba(168,100,40,.06);
+  --ai-gb:rgba(168,100,40,.16);
+  --acc:#2068B0;
+  --acc-s:rgba(32,104,176,.06);
+  --acc-b:rgba(32,104,176,.16);
+  --grn:#1A7A6E;
+  --grn-s:rgba(26,122,110,.06);
+  --grn-b:rgba(26,122,110,.16);
+  --amb:#B07020;
+  --amb-s:rgba(176,112,32,.06);
+  --red:#B03838;
+  --red-s:rgba(176,56,56,.06);
+  --red-b:rgba(176,56,56,.16);
+  --teal:#1A7A6E;
+  --teal-s:rgba(26,122,110,.06);
+  --sha-ai:0 0 24px rgba(168,100,40,.10);
+  --sha-md:0 4px 24px rgba(60,40,20,.08);
+  --sha-lg:0 8px 48px rgba(60,40,20,.12);
+  --sha-xl:0 20px 80px rgba(60,40,20,.18);
+  --hm0:#F7F4EF;--hm1:#E0EDE8;--hm2:#B8D8C8;--hm3:#80C0A0;--hm4:#48A878;--hm5:#209060;
+}
+
+/* ── EYE-COMFORT (Desert Meridian) ── */
+[data-theme="eye"]{
+  --bg:#E8E0D0;
+  --bg2:#E0D8C8;
+  --surf:#F0EADc;
+  --card:#F6F0E4;
+  --raised:#FAF6EE;
+  --overlay:#E4DCCC;
+  --b0:rgba(80,55,20,.04);
+  --b1:rgba(80,55,20,.07);
+  --b2:rgba(80,55,20,.12);
+  --b3:rgba(80,55,20,.20);
+  --b4:rgba(80,55,20,.30);
+  --t1:#2A1E08;
+  --t2:#5A4828;
+  --t3:#9A8460;
+  --t4:#C8B498;
+  --ai1:#8A5520;
+  --ai2:#2A6848;
+  --ai-g:linear-gradient(135deg,#8A5520,#2A6848);
+  --ai-gs:rgba(138,85,32,.08);
+  --ai-gb:rgba(138,85,32,.18);
+  --acc:#7A5818;
+  --acc-s:rgba(122,88,24,.08);
+  --acc-b:rgba(122,88,24,.18);
+  --grn:#2A6848;
+  --grn-s:rgba(42,104,72,.08);
+  --grn-b:rgba(42,104,72,.18);
+  --amb:#9A5A10;
+  --amb-s:rgba(154,90,16,.08);
+  --red:#8C3020;
+  --red-s:rgba(140,48,32,.08);
+  --red-b:rgba(140,48,32,.18);
+  --teal:#2A6848;
+  --teal-s:rgba(42,104,72,.08);
+  --sha-ai:0 0 24px rgba(138,85,32,.10);
+  --sha-md:0 4px 24px rgba(80,55,20,.10);
+  --sha-lg:0 8px 48px rgba(80,55,20,.14);
+  --sha-xl:0 20px 80px rgba(80,55,20,.20);
+  --hm0:#F6F0E4;--hm1:#D8E8D0;--hm2:#B0D0A8;--hm3:#80B080;--hm4:#509858;--hm5:#308038;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:13px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{
+  font-family:var(--f);background:var(--bg);color:var(--t1);
+  height:100vh;overflow:hidden;display:flex;flex-direction:column;
+  transition:background var(--d3) var(--e1),color var(--d3) var(--e1);
+}
+
+/* Meridian grid background */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(var(--b1) 1px,transparent 1px),
+    linear-gradient(90deg,var(--b1) 1px,transparent 1px);
+  background-size:48px 48px;opacity:.4;
+}
+
+::-webkit-scrollbar{width:3px;height:3px;}
+::-webkit-scrollbar-thumb{background:var(--b3);border-radius:2px;}
+::-webkit-scrollbar-track{background:transparent;}
+
+/* ═══════════════════════════════════════════════════
+   TOP COMMAND HEADER
+═══════════════════════════════════════════════════ */
+.header{
+  height:52px;background:var(--surf);border-bottom:1px solid var(--b2);
+  display:flex;align-items:center;padding:0 16px;gap:12px;
+  flex-shrink:0;z-index:200;position:relative;
+  transition:background var(--d3),border-color var(--d3);
+}
+.header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--ai1),var(--ai2),transparent);
+  opacity:.3;
+}
+
+.nexus-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;padding-right:16px;border-right:1px solid var(--b2);cursor:pointer;}
+.nexus-mark{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  background:var(--ai-g);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-display);font-size:13px;font-weight:700;color:#fff;
+  box-shadow:var(--sha-ai);transition:transform var(--e2) var(--d3);
+}
+.nexus-mark:hover{transform:scale(1.08) rotate(-4deg);}
+.nexus-wordmark{line-height:1;}
+.nexus-name{font-family:var(--f-display);font-size:14px;font-weight:700;color:var(--t1);letter-spacing:-.3px;}
+.nexus-ver{font-family:var(--m);font-size:8.5px;color:var(--t3);letter-spacing:.5px;margin-top:1px;}
+
+/* AI CMD BAR */
+.ai-cmd-zone{flex:1;max-width:580px;position:relative;}
+.ai-cmd-bar{
+  display:flex;align-items:center;gap:10px;height:36px;padding:0 14px;
+  background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:10px;
+  cursor:text;transition:all var(--d2);position:relative;overflow:hidden;
+}
+.ai-cmd-bar::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--ai-gs),transparent);animation:shimmer 3s ease infinite;opacity:0;transition:opacity var(--d3);}
+.ai-cmd-bar.active::before{opacity:1;}
+@keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.ai-cmd-bar:focus-within{background:var(--ai-gb);border-color:var(--ai1);box-shadow:0 0 0 3px var(--ai-gs),var(--sha-ai);}
+.ai-icon{width:20px;height:20px;border-radius:5px;flex-shrink:0;background:var(--ai-g);display:flex;align-items:center;justify-content:center;font-size:11px;}
+.ai-icon-pulse{width:7px;height:7px;border-radius:50%;background:var(--ai1);flex-shrink:0;animation:aipulse 2s ease infinite;}
+@keyframes aipulse{0%,100%{box-shadow:0 0 0 0 var(--ai-gb);opacity:1;}50%{box-shadow:0 0 0 4px var(--ai-gs);opacity:.7;}}
+.ai-cmd-input{flex:1;background:transparent;border:none;outline:none;font-family:var(--f);font-size:12.5px;color:var(--t1);}
+.ai-cmd-input::placeholder{color:var(--t2);}
+.ai-cmd-kb{font-family:var(--m);font-size:9px;color:var(--t3);border:1px solid var(--b3);border-radius:3px;padding:1px 5px;background:var(--b1);flex-shrink:0;}
+.ai-cmd-status{font-family:var(--m);font-size:9.5px;color:var(--ai1);flex-shrink:0;display:flex;align-items:center;gap:4px;}
+
+/* AI suggestion dropdown */
+.ai-sug-drop{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--surf);border:1px solid var(--ai-gb);border-radius:10px;box-shadow:var(--sha-lg);z-index:400;display:none;overflow:hidden;animation:dropIn .15s var(--e3);}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px) scale(.98);}to{opacity:1;transform:none;}}
+.ai-sug-drop.open{display:block;}
+.asd-header{padding:8px 14px 4px;display:flex;align-items:center;gap:6px;}
+.asd-title{font-family:var(--f-display);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--t3);}
+.asd-item{display:flex;align-items:center;gap:10px;padding:9px 14px;cursor:pointer;transition:background var(--d1);}
+.asd-item:hover{background:var(--ai-gs);}
+.asd-ico{width:28px;height:28px;border-radius:6px;background:var(--b1);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.asd-text{font-family:var(--f);font-size:12.5px;color:var(--t1);flex:1;}
+.asd-pill{font-family:var(--m);font-size:9px;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:3px;padding:1px 6px;flex-shrink:0;}
+.asd-div{height:1px;background:var(--b1);margin:3px 0;}
+
+/* KPI strip */
+.kpi-strip{display:flex;border:1px solid var(--b2);border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--card);}
+.kpi-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px 14px;cursor:pointer;border-right:1px solid var(--b2);transition:background var(--d1);}
+.kpi-cell:last-child{border-right:none;}
+.kpi-cell:hover{background:var(--b1);}
+.kpi-cell.on{background:var(--ai-gs);}
+.kpi-n{font-family:var(--f-display);font-size:15px;font-weight:700;letter-spacing:-.5px;line-height:1.1;}
+.kpi-l{font-family:var(--f);font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--t2);margin-top:1px;}
+.kc-a .kpi-n{color:var(--acc);}
+.kc-g .kpi-n{color:var(--grn);}
+.kc-m .kpi-n{color:var(--amb);}
+.kc-r .kpi-n{color:var(--red);}
+.kc-p .kpi-n{color:var(--ai1);}
+
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.recon-pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;background:var(--acc-s);border:1px solid var(--acc-b);border-radius:6px;font-family:var(--m);font-size:10px;font-weight:600;color:var(--acc);cursor:pointer;transition:all var(--d1);white-space:nowrap;}
+.recon-pill:hover{background:var(--acc-b);}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--grn);animation:lv 2s ease infinite;flex-shrink:0;}
+@keyframes lv{0%,100%{opacity:1;}50%{opacity:.3;}}
+.theme-row{display:flex;border:1px solid var(--b2);border-radius:6px;overflow:hidden;}
+.th-o{padding:4px 8px;font-family:var(--f);font-size:10.5px;color:var(--t3);cursor:pointer;border-right:1px solid var(--b2);transition:all var(--d1);}
+.th-o:last-child{border-right:none;}
+.th-o:hover{background:var(--b1);color:var(--t1);}
+.th-o.on{background:var(--ai-g);color:#fff;border-color:transparent;}
+.hbtn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:6px;background:transparent;cursor:pointer;color:var(--t2);transition:all var(--d1);position:relative;}
+.hbtn:hover{background:var(--b1);color:var(--t1);}
+.hbtn-dot{position:absolute;top:3px;right:3px;width:6px;height:6px;border-radius:50%;background:var(--red);border:1.5px solid var(--surf);}
+.uav{width:28px;height:28px;border-radius:50%;background:var(--ai-g);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:10px;font-weight:700;color:#fff;cursor:pointer;box-shadow:var(--sha-ai);}
+
+/* ═══════════════════════════════════════════════════
+   AI PATTERN ALERT STRIP
+═══════════════════════════════════════════════════ */
+.pattern-strip{
+  min-height:32px;background:linear-gradient(90deg,var(--ai-gs) 0%,var(--b0) 40%,transparent 80%);
+  border-bottom:1px solid var(--ai-gb);
+  display:flex;align-items:center;padding:4px 16px;gap:10px;flex-shrink:0;overflow:hidden;transition:all var(--d3);
+}
+.ps-icon{font-size:14px;flex-shrink:0;}
+.ps-badge{font-family:var(--f-display);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ai1);flex-shrink:0;}
+.ps-sep{width:1px;height:12px;background:var(--b2);flex-shrink:0;}
+.ps-text{font-family:var(--f);font-size:11.5px;color:var(--t2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ps-hi{color:var(--ai1);font-weight:600;}
+.ps-conf{font-family:var(--m);font-size:9px;font-weight:600;padding:2px 6px;border-radius:2px;background:var(--grn-s);color:var(--grn);border:1px solid var(--grn-b);flex-shrink:0;}
+.ps-acts{display:flex;gap:4px;flex-shrink:0;}
+.ps-vel{margin-left:auto;font-family:var(--m);font-size:10px;color:var(--grn);flex-shrink:0;}
+
+/* FILTER BAR */
+.filter-bar{height:32px;background:var(--card);border-bottom:1px solid var(--b1);display:flex;align-items:center;padding:0 16px;gap:4px;flex-shrink:0;overflow:hidden;transition:background var(--d3),border-color var(--d3);}
+.flabel{font-family:var(--f-display);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);flex-shrink:0;margin-right:2px;}
+.chip{display:inline-flex;align-items:center;gap:3px;height:20px;padding:0 8px;border:1px solid var(--b2);border-radius:10px;font-family:var(--f);font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;transition:all var(--d1);white-space:nowrap;}
+.chip:hover{border-color:var(--b3);background:var(--b1);color:var(--t1);}
+.chip.on{background:var(--ai-gs);border-color:var(--ai1);color:var(--ai1);font-weight:600;}
+.chip-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
+.chip-n{font-family:var(--m);font-size:9px;}
+.fright{margin-left:auto;display:flex;gap:4px;align-items:center;flex-shrink:0;}
+.result-p{font-family:var(--m);font-size:10px;color:var(--t3);padding:2px 7px;background:var(--b1);border-radius:2px;border:1px solid var(--b1);}
+
+/* ═══════════════════════════════════════════════════
+   MAIN LAYOUT
+═══════════════════════════════════════════════════ */
+.main{flex:1;display:flex;overflow:hidden;position:relative;z-index:1;}
+.lnav{width:44px;background:var(--surf);border-right:1px solid var(--b2);display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:1px;flex-shrink:0;transition:background var(--d3),border-color var(--d3);}
+.ni{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);transition:all var(--d2);position:relative;}
+.ni:hover{background:var(--b1);color:var(--t1);}
+.ni.active{background:var(--ai-gs);color:var(--ai1);}
+.ni.active::before{content:'';position:absolute;left:0;top:25%;bottom:25%;width:2px;border-radius:0 2px 2px 0;background:var(--ai-g);}
+.ni-badge{position:absolute;top:1px;right:1px;min-width:13px;height:13px;border-radius:7px;background:var(--red);font-family:var(--m);font-size:7px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;padding:0 3px;border:1.5px solid var(--surf);}
+.nsep{width:22px;height:1px;background:var(--b2);margin:5px 0;}
+.nsp{flex:1;}
+
+.workspace{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+.ws-bar{height:32px;display:flex;align-items:center;padding:0 14px;gap:6px;flex-shrink:0;background:var(--surf);border-bottom:1px solid var(--b2);transition:background var(--d3),border-color var(--d3);}
+.ws-tabs{display:flex;gap:0;border-right:1px solid var(--b2);padding-right:10px;margin-right:4px;}
+.wt{padding:5px 11px;font-family:var(--f);font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;border-bottom:2px solid transparent;transition:all var(--d1);white-space:nowrap;}
+.wt:hover{color:var(--t1);}
+.wt.on{color:var(--ai1);border-bottom-color:var(--ai1);font-weight:600;}
+.ws-right{margin-left:auto;display:flex;align-items:center;gap:4px;}
+.rcount{font-family:var(--m);font-size:10px;color:var(--t3);padding:2px 7px;background:var(--b1);border-radius:2px;border:1px solid var(--b1);}
+
+/* Bulk bar */
+.bulk-bar{padding:5px 14px;background:var(--ai-gs);border-bottom:1px solid var(--ai-gb);display:flex;align-items:center;gap:6px;flex-shrink:0;animation:slideDown .18s var(--e1);}
+@keyframes slideDown{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+.bulk-n{font-family:var(--m);font-size:11px;font-weight:700;color:var(--ai1);background:var(--ai-gb);border:1px solid var(--ai-gb);border-radius:3px;padding:1px 7px;}
+.bulk-prev{font-family:var(--f);font-size:11.5px;color:var(--t2);}
+
+/* Table */
+.tbl-wrap{flex:1;overflow:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead{position:sticky;top:0;z-index:10;}
+thead tr{background:var(--card);}
+th{padding:7px 11px;font-family:var(--f-display);font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);white-space:nowrap;border-bottom:1px solid var(--b2);cursor:pointer;user-select:none;transition:color var(--d1);text-align:left;}
+th:hover{color:var(--t1);}
+th:first-child{width:30px;padding:7px 8px;}
+th.right{text-align:right;}
+tbody tr{border-bottom:1px solid var(--b1);cursor:pointer;transition:background var(--d1),opacity .2s var(--e1);position:relative;}
+tbody tr:hover{background:var(--card);}
+tbody tr.row-active{background:var(--ai-gs);outline:1px solid var(--ai1);outline-offset:-1px;z-index:1;}
+tbody tr.row-chk{background:var(--acc-s);}
+tbody tr.ai-highlighted{animation:rowGlow .6s var(--e1);}
+@keyframes rowGlow{0%{background:var(--grn-s);}100%{background:transparent;}}
+tbody tr.ai-resolving{animation:rowResolve .8s var(--e1) forwards;}
+@keyframes rowResolve{0%{background:var(--grn-s);opacity:1;}80%{background:var(--grn-b);opacity:.5;}100%{background:var(--grn-s);opacity:.25;pointer-events:none;}}
+td{padding:7px 11px;color:var(--t2);vertical-align:middle;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+td:first-child{padding:7px 8px;}
+
+.ss{position:absolute;left:0;top:0;bottom:0;width:2.5px;border-radius:0 1.5px 1.5px 0;}
+.ss-open{background:var(--amb);}
+.ss-inv{background:var(--acc);}
+.ss-pend{background:var(--ai1);}
+.ss-esc{background:var(--red);animation:pulse 2s ease infinite;}
+.ss-res{background:var(--grn);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+.ck{width:13px;height:13px;border:1px solid var(--b3);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:7.5px;color:#fff;cursor:pointer;transition:all var(--d1);}
+.ck.on{background:var(--ai1);border-color:var(--ai1);}
+.bid{font-family:var(--m);font-size:11.5px;font-weight:600;color:var(--acc);}
+.iid{font-family:var(--m);font-size:10px;color:var(--t3);}
+.st{display:inline-flex;align-items:center;gap:3px;font-family:var(--f);font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+.std{width:4px;height:4px;border-radius:50%;flex-shrink:0;}
+.so{color:var(--amb);background:var(--amb-s);}.so .std{background:var(--amb);}
+.si{color:var(--acc);background:var(--acc-s);}.si .std{background:var(--acc);}
+.sp{color:var(--ai1);background:var(--ai-gs);}.sp .std{background:var(--ai1);}
+.se{color:var(--red);background:var(--red-s);animation:pulse 2.5s ease infinite;}.se .std{background:var(--red);}
+.sr{color:var(--grn);background:var(--grn-s);}.sr .std{background:var(--grn);}
+.ty{font-family:var(--f);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;padding:2px 6px;border-radius:3px;background:var(--b1);color:var(--t2);border:1px solid var(--b1);}
+.amt{font-family:var(--m);font-size:12px;font-weight:600;color:var(--t1);display:block;text-align:right;}
+.amt.hi{color:var(--acc);}
+.age{font-family:var(--m);font-size:11px;font-weight:600;}
+.age.cr{color:var(--red);}.age.wa{color:var(--amb);}.age.ok{color:var(--t2);}
+.rc{display:flex;flex-direction:column;gap:1.5px;}
+.rn{font-family:var(--m);font-size:11px;font-weight:700;}
+.rbw{width:34px;height:2px;background:var(--b2);border-radius:1px;overflow:hidden;}
+.rb{height:100%;border-radius:1px;}
+.rhi .rn{color:var(--red);}.rhi .rb{background:linear-gradient(90deg,var(--amb),var(--red));}
+.rmd .rn{color:var(--amb);}.rmd .rb{background:linear-gradient(90deg,var(--grn),var(--amb));}
+.rlo .rn{color:var(--grn);}.rlo .rb{background:var(--grn);}
+.own{display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.oa{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:7.5px;font-weight:700;color:#fff;flex-shrink:0;}
+.slax{font-family:var(--m);font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;white-space:nowrap;}
+.sla-b{background:var(--red-b);color:var(--red);border:1px solid var(--red);animation:pulse 2.5s ease infinite;}
+.sla-n{background:var(--amb-s);color:var(--amb);}
+.sla-o{background:var(--grn-s);color:var(--grn);}
+.ais{display:flex;align-items:center;gap:3px;}
+.ain{font-family:var(--m);font-size:11px;font-weight:700;color:var(--ai1);}
+.aibw{width:28px;height:2px;background:var(--b2);border-radius:1px;overflow:hidden;}
+.aibf{height:100%;border-radius:1px;background:var(--ai-g);}
+
+/* Ghost row actions */
+.ga{display:flex;align-items:center;gap:2px;opacity:0;transition:opacity .1s;position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:5;background:var(--surf);border:1px solid var(--b2);border-radius:4px;padding:2px;}
+tbody tr:hover .ga{opacity:1;}
+.gab{padding:2px 7px;border-radius:2px;font-family:var(--f);font-size:10px;font-weight:600;cursor:pointer;border:none;transition:all var(--d1);}
+.gr{background:var(--grn-s);color:var(--grn);}.gr:hover{background:var(--grn);color:#fff;}
+.ge{background:var(--amb-s);color:var(--amb);}.ge:hover{background:var(--amb);color:#000;}
+.gn{background:var(--acc-s);color:var(--acc);}.gn:hover{background:var(--acc);color:#fff;}
+
+/* Table footer */
+.tbl-foot{height:30px;display:flex;align-items:center;padding:0 14px;gap:6px;flex-shrink:0;border-top:1px solid var(--b1);background:var(--surf);transition:background var(--d3),border-color var(--d3);}
+.pgi{font-family:var(--m);font-size:10px;color:var(--t3);}
+.pgb{display:flex;gap:2px;margin-left:auto;}
+.pb{width:24px;height:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:3px;background:transparent;font-family:var(--m);font-size:11px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.pb:hover{background:var(--b1);color:var(--t1);}
+.pb.on{background:var(--ai-g);color:#fff;border-color:transparent;}
+
+/* ═══════════════════════════════════════════════════
+   INBOX VIEW
+═══════════════════════════════════════════════════ */
+.inbox-view{flex:1;display:none;overflow:hidden;}
+.inbox-pane{width:300px;flex-shrink:0;background:var(--surf);border-right:1px solid var(--b2);display:flex;flex-direction:column;overflow:hidden;transition:background var(--d3),border-color var(--d3);}
+.ib-hdr{padding:10px 14px;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.ib-title{font-family:var(--f-display);font-size:13px;font-weight:700;color:var(--t1);flex:1;}
+.ib-cnt{font-family:var(--m);font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:var(--red-s);color:var(--red);}
+.rev-sw{display:flex;border:1px solid var(--b2);border-radius:5px;overflow:hidden;}
+.ro{padding:3px 8px;font-family:var(--f);font-size:10px;color:var(--t3);cursor:pointer;border-right:1px solid var(--b2);transition:all var(--d1);}
+.ro:last-child{border-right:none;}
+.ro.on{background:var(--ai-g);color:#fff;}
+.ib-sort{padding:5px 14px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:4px;flex-shrink:0;}
+.ib-sort-l{font-family:var(--f);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);}
+.isb{padding:2px 7px;border:1px solid var(--b2);border-radius:3px;font-family:var(--f);font-size:10.5px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.isb:hover{background:var(--b1);color:var(--t1);}
+.isb.on{background:var(--ai-gs);border-color:var(--ai1);color:var(--ai1);}
+.rev-prog{padding:6px 14px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:7px;flex-shrink:0;display:none;}
+.rpbw{flex:1;height:3px;background:var(--b2);border-radius:2px;overflow:hidden;}
+.rpbf{height:100%;border-radius:2px;background:var(--ai-g);transition:width var(--d3);}
+.rpl{font-family:var(--m);font-size:10px;color:var(--t3);flex-shrink:0;}
+.ib-list{flex:1;overflow-y:auto;padding:4px;}
+.tc{padding:10px 12px;border:1px solid var(--b1);border-radius:7px;margin-bottom:3px;cursor:pointer;transition:all var(--d1);position:relative;overflow:hidden;}
+.tc:hover{border-color:var(--b3);background:var(--card);}
+.tc.tca{background:var(--ai-gs);border-color:var(--ai1);}
+.tc-str{position:absolute;left:0;top:0;bottom:0;width:3px;}
+.tc-r1{display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+.tc-id{font-family:var(--m);font-size:11px;font-weight:700;color:var(--acc);}
+.tc-t{font-family:var(--m);font-size:9.5px;color:var(--t3);margin-left:auto;}
+.tc-r2{display:flex;align-items:baseline;gap:6px;margin-bottom:3px;}
+.tc-amt{font-family:var(--m);font-size:13px;font-weight:700;color:var(--t1);}
+.tc-type{font-family:var(--f);font-size:10px;color:var(--t3);}
+.tc-r3{display:flex;align-items:center;gap:5px;}
+.tc-own{font-size:11px;color:var(--t2);flex:1;}
+.tc-ab{height:2px;border-radius:1px;margin-top:5px;}
+.tc-acts{display:flex;gap:3px;margin-top:6px;height:0;overflow:hidden;opacity:0;transition:all var(--d2);}
+.tc.tca .tc-acts,.tc:hover .tc-acts{height:auto;opacity:1;}
+.inbox-detail{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+.idn{height:30px;background:var(--surf);border-bottom:1px solid var(--b2);display:flex;align-items:center;padding:0 14px;gap:6px;flex-shrink:0;transition:background var(--d3),border-color var(--d3);}
+.idnb{display:flex;align-items:center;gap:4px;padding:3px 8px;border:1px solid var(--b2);border-radius:3px;font-family:var(--f);font-size:11px;color:var(--t2);cursor:pointer;transition:all var(--d1);}
+.idnb:hover{background:var(--b1);color:var(--t1);}
+.idnb.dis{opacity:.4;pointer-events:none;}
+.idpg{font-family:var(--m);font-size:10px;color:var(--t3);}
+
+/* ═══════════════════════════════════════════════════
+   AI COMPANION PANEL
+═══════════════════════════════════════════════════ */
+.ai-panel{width:360px;flex-shrink:0;background:var(--surf);border-left:1px solid var(--b2);display:flex;flex-direction:column;overflow:hidden;transition:background var(--d3),border-color var(--d3),width var(--d4) var(--e1);position:relative;}
+.ai-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ai-g);z-index:1;}
+.ai-panel.wide{width:480px;}
+.aip-hdr{height:44px;display:flex;align-items:center;padding:0 14px;gap:8px;flex-shrink:0;background:linear-gradient(180deg,var(--ai-gs) 0%,transparent 100%);border-bottom:1px solid var(--ai-gb);transition:all var(--d3);}
+.aip-brain{width:28px;height:28px;border-radius:8px;background:var(--ai-g);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;box-shadow:var(--sha-ai);}
+.aip-title{font-family:var(--f-display);font-size:13px;font-weight:700;color:var(--ai1);flex:1;}
+.aip-status{font-family:var(--m);font-size:9px;color:var(--t3);display:flex;align-items:center;gap:4px;}
+.aip-status-dot{width:5px;height:5px;border-radius:50%;background:var(--ai1);animation:aipulse 2s ease infinite;flex-shrink:0;}
+.aip-controls{display:flex;gap:3px;}
+.apb{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:4px;cursor:pointer;color:var(--t2);transition:all var(--d1);}
+.apb:hover{background:var(--b1);color:var(--t1);}
+.aip-chat-zone{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:280px;}
+.aip-messages{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+.aip-messages::-webkit-scrollbar{width:2px;}
+.ai-welcome{background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:10px;padding:12px 14px;}
+.aiw-head{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.aiw-title{font-family:var(--f-display);font-size:12px;font-weight:700;color:var(--ai1);}
+.aiw-body{font-family:var(--f);font-size:12px;color:var(--t2);line-height:1.6;}
+.aiw-examples{margin-top:8px;display:flex;flex-direction:column;gap:3px;}
+.aiw-eg{font-family:var(--m);font-size:10.5px;color:var(--t2);padding:4px 8px;background:var(--b1);border-radius:4px;cursor:pointer;transition:all var(--d1);border:1px solid transparent;}
+.aiw-eg:hover{background:var(--ai-gs);border-color:var(--ai-gb);color:var(--ai1);}
+.msg-u{align-self:flex-end;max-width:88%;background:var(--acc);color:#fff;border-radius:12px 12px 2px 12px;padding:8px 12px;font-family:var(--f);font-size:12.5px;line-height:1.4;}
+.msg-ai{align-self:flex-start;max-width:100%;background:var(--card);border:1px solid var(--b2);border-radius:2px 12px 12px 12px;padding:10px 12px;font-family:var(--f);font-size:12.5px;color:var(--t2);line-height:1.5;transition:background var(--d3),border-color var(--d3);}
+.msg-ai-hdr{display:flex;align-items:center;gap:5px;margin-bottom:6px;}
+.msg-ai-ico{font-size:12px;}
+.msg-ai-from{font-family:var(--f-display);font-size:9.5px;font-weight:700;color:var(--ai1);text-transform:uppercase;letter-spacing:.5px;}
+.msg-ai-ts{font-family:var(--m);font-size:9px;color:var(--t3);margin-left:auto;}
+.ai-rc{background:var(--raised);border:1px solid var(--b2);border-radius:7px;padding:9px 11px;margin-top:7px;cursor:pointer;transition:all var(--d1);}
+.ai-rc:hover{border-color:var(--ai1);}
+.ai-rc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;}
+.ai-rc-title{font-family:var(--f-display);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--t3);}
+.ai-rc-cnt{font-family:var(--m);font-size:10px;font-weight:700;color:var(--ai1);background:var(--ai-gs);border-radius:10px;padding:1px 7px;}
+.ai-rc-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--b1);font-size:11.5px;}
+.ai-rc-row:last-of-type{border-bottom:none;}
+.ai-rcid{font-family:var(--m);font-weight:600;color:var(--acc);cursor:pointer;}
+.ai-rcid:hover{text-decoration:underline;}
+.ai-rcv{font-family:var(--m);font-weight:600;color:var(--t1);}
+.ai-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;}
+.aic{display:inline-flex;align-items:center;gap:3px;padding:4px 9px;border:1px solid var(--ai-gb);border-radius:5px;background:var(--ai-gs);font-family:var(--f);font-size:11px;font-weight:600;color:var(--ai1);cursor:pointer;transition:all var(--d1);}
+.aic:hover{background:var(--ai1);color:#fff;border-color:var(--ai1);}
+.aic.g{border-color:var(--grn-b);background:var(--grn-s);color:var(--grn);}.aic.g:hover{background:var(--grn);color:#fff;}
+.aic.r{border-color:var(--red-b);background:var(--red-s);color:var(--red);}.aic.r:hover{background:var(--red);color:#fff;}
+.aic.a{border-color:var(--acc-b);background:var(--acc-s);color:var(--acc);}.aic.a:hover{background:var(--acc);color:#fff;}
+.ai-typing{display:flex;align-items:center;gap:4px;padding:8px 12px;background:var(--card);border:1px solid var(--b2);border-radius:2px 12px 12px 12px;align-self:flex-start;}
+.tdot{width:5px;height:5px;border-radius:50%;background:var(--ai1);animation:td 1.4s ease infinite;}
+.tdot:nth-child(2){animation-delay:.2s;}
+.tdot:nth-child(3){animation-delay:.4s;}
+@keyframes td{0%,80%,100%{transform:scale(.7);opacity:.4;}40%{transform:scale(1);opacity:1;}}
+.ai-sugs{flex-shrink:0;padding:6px 14px;border-top:1px solid var(--b1);display:flex;gap:4px;overflow-x:auto;}
+.ai-sugs::-webkit-scrollbar{display:none;}
+.aisug{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;padding:4px 9px;border:1px solid var(--b2);border-radius:5px;font-family:var(--f);font-size:11px;color:var(--t2);cursor:pointer;flex-shrink:0;transition:all var(--d1);}
+.aisug:hover{background:var(--b1);border-color:var(--b3);color:var(--t1);}
+.ai-input-row{flex-shrink:0;display:flex;align-items:flex-end;gap:6px;padding:8px 14px 10px;border-top:1px solid var(--b2);transition:border-color var(--d3);}
+.ai-ta{flex:1;background:var(--card);border:1px solid var(--b2);border-radius:8px;padding:8px 10px;font-family:var(--f);font-size:12.5px;color:var(--t1);outline:none;resize:none;min-height:36px;max-height:100px;transition:all var(--d1);line-height:1.4;}
+.ai-ta::placeholder{color:var(--t3);}
+.ai-ta:focus{border-color:var(--ai1);box-shadow:0 0 0 2px var(--ai-gs);}
+.ai-send{width:34px;height:34px;flex-shrink:0;border-radius:8px;background:var(--ai-g);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--d1);border:none;box-shadow:var(--sha-ai);}
+.ai-send:hover{transform:scale(1.05);box-shadow:var(--sha-ai),0 4px 12px rgba(200,123,58,.4);}
+.ai-send svg{color:#fff;}
+
+/* DIVIDER */
+.aip-divider{height:3px;background:var(--b1);flex-shrink:0;cursor:ns-resize;position:relative;display:flex;align-items:center;justify-content:center;transition:background var(--d1);}
+.aip-divider:hover{background:var(--ai-gb);}
+.aip-divider::before{content:'···';color:var(--t3);font-size:10px;letter-spacing:2px;}
+
+/* DETAIL PANE */
+.aip-detail{flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;border-top:1px solid var(--b2);height:320px;transition:height var(--d4) var(--e1),border-color var(--d3);}
+.aip-detail.collapsed{height:0;overflow:hidden;}
+.dpx-hdr{padding:8px 13px;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.dpx-bid{font-family:var(--m);font-size:12px;font-weight:700;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:3px;padding:2px 8px;}
+.dpx-mode{font-family:var(--f);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);}
+.dpx-r{margin-left:auto;display:flex;gap:3px;}
+.xb{width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--b2);border-radius:3px;cursor:pointer;color:var(--t2);transition:all var(--d1);}
+.xb:hover{background:var(--b1);color:var(--t1);}
+.wft{display:flex;align-items:center;padding:7px 13px 5px;flex-shrink:0;}
+.wfs{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;}
+.wfl{position:absolute;top:9px;left:50%;right:-50%;height:1.5px;background:var(--b2);}
+.wfl.dn{background:var(--acc);}
+.wfn{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--b3);background:var(--surf);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:var(--t3);z-index:1;transition:all var(--d3);}
+.wfn.dn{background:var(--acc);border-color:var(--acc);color:#fff;}
+.wfn.cu{border-color:var(--ai1);color:var(--ai1);box-shadow:0 0 0 3px var(--ai-gs);}
+.wflbl{font-family:var(--f);font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--t3);margin-top:3px;text-align:center;}
+.dp-tabs{display:flex;border-bottom:1px solid var(--b2);padding:0 13px;flex-shrink:0;overflow-x:auto;}
+.dp-tabs::-webkit-scrollbar{display:none;}
+.dpt{padding:6px 9px;font-family:var(--f);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all var(--d1);display:flex;align-items:center;gap:3px;}
+.dpt:hover{color:var(--t1);}
+.dpt.on{color:var(--ai1);border-bottom-color:var(--ai1);}
+.dptn{font-family:var(--m);font-size:8px;font-weight:700;padding:0 3px;border-radius:1px;background:var(--ai1);color:#fff;}
+.dpb{flex:1;overflow-y:auto;padding:10px 13px;}
+.dpb::-webkit-scrollbar{width:2px;}
+.mss{margin-bottom:11px;}
+.mst{font-family:var(--f-display);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:5px;display:flex;align-items:center;gap:5px;}
+.mst::after{content:'';flex:1;height:1px;background:var(--b1);}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.mi{background:var(--card);border-radius:4px;padding:6px 8px;border:1px solid var(--b1);}
+.mil{font-family:var(--f);font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:2px;}
+.miv{font-family:var(--m);font-size:11.5px;font-weight:600;color:var(--t1);}
+.mi.s2{grid-column:1/-1;}
+.asn-blk{display:flex;align-items:center;gap:7px;padding:7px 9px;background:var(--card);border-radius:4px;border:1px solid var(--b1);}
+.asn-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:10px;font-weight:700;color:#fff;flex-shrink:0;}
+.asn-name{font-size:12.5px;font-weight:700;color:var(--t1);}
+.asn-sub{font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;}
+.dpf{padding:7px 13px;border-top:1px solid var(--b2);display:flex;gap:4px;flex-shrink:0;background:var(--surf);}
+
+/* ═══════════════════════════════════════════════════
+   TRENDS VIEW + HEAT MAP
+═══════════════════════════════════════════════════ */
+.trends-view{flex:1;display:none;overflow:hidden;flex-direction:column;}
+.trends-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:14px;}
+.trends-grid::-webkit-scrollbar{width:3px;}
+.tchart{background:var(--card);border:1px solid var(--b2);border-radius:10px;padding:14px;cursor:pointer;transition:all var(--d2);}
+.tchart:hover{border-color:var(--ai-gb);box-shadow:var(--sha-ai);}
+.tc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;}
+.tc-title{font-family:var(--f-display);font-size:11px;font-weight:700;color:var(--t1);}
+.tc-sub{font-family:var(--m);font-size:9.5px;color:var(--t3);margin-top:2px;}
+.tc-val{font-family:var(--f-display);font-size:20px;font-weight:700;color:var(--t1);line-height:1;}
+.tc-delta{font-family:var(--m);font-size:10px;font-weight:600;margin-top:2px;}
+.tc-up{color:var(--grn);}.tc-dn{color:var(--red);}
+.chart-svg{width:100%;display:block;overflow:visible;}
+.tc-span2{grid-column:span 2;}
+.tc-span3{grid-column:span 3;}
+.hbr{display:flex;align-items:center;gap:7px;margin-bottom:5px;cursor:pointer;transition:all var(--d1);}
+.hbr:hover .hbf{filter:brightness(1.15);}
+.hbl{font-family:var(--f);font-size:11px;color:var(--t2);width:54px;flex-shrink:0;}
+.hbt{flex:1;height:6px;background:var(--b2);border-radius:3px;overflow:hidden;}
+.hbf{height:100%;border-radius:3px;transition:width var(--d4) var(--e1);}
+.hbn{font-family:var(--m);font-size:10px;font-weight:600;color:var(--t1);width:34px;text-align:right;flex-shrink:0;}
+
+/* HEAT MAP */
+.heatmap-grid{display:grid;grid-template-columns:44px repeat(7,1fr);gap:2px;font-family:var(--m);font-size:9px;}
+.hm-label{display:flex;align-items:center;justify-content:flex-end;padding-right:4px;color:var(--t3);font-size:8px;}
+.hm-col-label{text-align:center;color:var(--t3);font-size:8px;padding:2px 0;}
+.hm-cell{aspect-ratio:1.6;border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--t1);font-size:8.5px;font-weight:600;transition:all var(--d2);cursor:pointer;min-height:18px;}
+.hm-cell:hover{transform:scale(1.12);box-shadow:var(--sha-md);z-index:2;position:relative;}
+
+/* Resize handle */
+.rh{width:4px;background:var(--b2);cursor:col-resize;flex-shrink:0;display:none;transition:background var(--d1);}
+.rh.vis{display:block;}
+.rh:hover,.rh.drg{background:var(--ai1);}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:4px;border:1px solid transparent;border-radius:5px;font-family:var(--f);font-weight:500;font-size:12px;cursor:pointer;padding:5px 11px;transition:all var(--d1);white-space:nowrap;}
+.btn-ai{background:var(--ai-g);color:#fff;border:none;box-shadow:var(--sha-ai);}
+.btn-ai:hover{filter:brightness(1.12);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--t2);border-color:var(--b2);}
+.btn-ghost:hover{background:var(--b1);color:var(--t1);}
+.btn-success{background:var(--grn-s);color:var(--grn);border-color:var(--grn-b);}
+.btn-success:hover{background:var(--grn);color:#fff;}
+.btn-danger{background:var(--red-s);color:var(--red);border-color:var(--red-b);}
+.btn-danger:hover{background:var(--red);color:#fff;}
+.btn-warn{background:var(--amb-s);color:var(--amb);border-color:rgba(233,168,76,.22);}
+.btn-warn:hover{background:var(--amb);color:#000;}
+.btn-sm{padding:3px 9px;font-size:11.5px;}
+.btn-xs{padding:2px 7px;font-size:11px;border-radius:4px;}
+.btn-acc{background:var(--acc);color:#fff;border-color:var(--acc);}
+.btn-acc:hover{filter:brightness(1.1);}
+
+/* CONTEXT MENU */
+.ctx-menu{position:fixed;z-index:900;background:var(--surf);border:1px solid var(--b3);border-radius:8px;box-shadow:var(--sha-lg);padding:4px;min-width:192px;display:none;animation:ctxIn .12s var(--e1);}
+@keyframes ctxIn{from{opacity:0;transform:scale(.96) translateY(-4px);}to{opacity:1;transform:none;}}
+.ctx-menu.open{display:block;}
+.ctx-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:5px;font-family:var(--f);font-size:12px;color:var(--t1);cursor:pointer;transition:background var(--d1);}
+.ctx-item:hover{background:var(--ai-gs);}
+.ctx-item.danger{color:var(--red);}.ctx-item.danger:hover{background:var(--red-s);}
+.ctx-item.dis{opacity:.4;cursor:not-allowed;pointer-events:none;}
+.ctx-ico{font-size:13px;width:16px;text-align:center;flex-shrink:0;}
+.ctx-lbl{flex:1;}
+.ctx-key{font-family:var(--m);font-size:9.5px;color:var(--t3);}
+.ctx-div{height:1px;background:var(--b1);margin:3px 0;}
+.ctx-sec{padding:4px 10px 2px;font-family:var(--f-display);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;animation:fdIn .18s var(--e1);backdrop-filter:blur(6px);}
+@keyframes fdIn{from{opacity:0;}to{opacity:1;}}
+.overlay.hidden{display:none;}
+.modal{background:var(--surf);border:1px solid var(--b3);border-radius:12px;box-shadow:var(--sha-xl);width:100%;max-width:540px;max-height:90vh;overflow:auto;animation:modIn .22s var(--e2);}
+@keyframes modIn{from{opacity:0;transform:scale(.96) translateY(8px);}to{opacity:1;transform:none;}}
+.mod-bar{height:3px;background:var(--ai-g);border-radius:12px 12px 0 0;}
+.mod-hdr{padding:16px 18px 14px;border-bottom:1px solid var(--b2);display:flex;align-items:flex-start;gap:9px;}
+.mod-title{font-family:var(--f-display);font-size:16px;font-weight:700;color:var(--t1);}
+.mod-sub{font-family:var(--f);font-size:12px;color:var(--t2);margin-top:3px;}
+.mod-close{margin-left:auto;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t3);border-radius:4px;transition:all var(--d1);flex-shrink:0;}
+.mod-close:hover{background:var(--b1);color:var(--t1);}
+.mod-body{padding:18px;}
+.mod-foot{padding:12px 18px;border-top:1px solid var(--b2);display:flex;gap:7px;justify-content:flex-end;}
+.field{margin-bottom:12px;}
+.field-label{font-family:var(--f-display);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t2);margin-bottom:4px;display:block;}
+.fi,.fs,.ft{width:100%;background:var(--card);border:1px solid var(--b2);border-radius:6px;padding:7px 10px;font-family:var(--f);font-size:12.5px;color:var(--t1);outline:none;transition:all var(--d1);}
+.fi::placeholder,.ft::placeholder{color:var(--t3);}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--ai1);box-shadow:0 0 0 2px var(--ai-gs);}
+.ft{resize:vertical;min-height:80px;}
+.impv{background:var(--card);border:1px solid var(--b1);border-radius:6px;padding:11px;margin-bottom:12px;}
+.impv-t{font-family:var(--f-display);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);margin-bottom:7px;}
+.ip-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--b1);font-size:12px;}
+.ip-row:last-child{border-bottom:none;}
+.ipk{color:var(--t2);}
+.ipv{font-family:var(--m);font-weight:600;color:var(--t1);}
+
+/* APPROVALS */
+.appr-overlay{position:fixed;top:0;right:-520px;bottom:0;width:520px;background:var(--surf);border-left:1px solid var(--b3);box-shadow:var(--sha-xl);z-index:600;display:flex;flex-direction:column;transition:right var(--d4) var(--e1);}
+.appr-overlay.open{right:0;}
+.appr-dim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:599;display:none;backdrop-filter:blur(3px);}
+.appr-dim.on{display:block;}
+.apr-hdr{padding:14px 18px;border-bottom:1px solid var(--b2);display:flex;align-items:center;gap:9px;flex-shrink:0;}
+.apr-title{font-family:var(--f-display);font-size:16px;font-weight:700;color:var(--t1);}
+.apr-cnt{font-family:var(--m);font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--red-s);color:var(--red);}
+.apr-body{flex:1;overflow-y:auto;padding:13px;}
+.apr-sec{font-family:var(--f-display);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:7px;padding:0 2px;}
+.apr-item{background:var(--card);border:1px solid var(--b1);border-radius:7px;padding:11px 13px;margin-bottom:5px;cursor:pointer;transition:all var(--d1);position:relative;}
+.apr-item:hover{border-color:var(--ai-gb);}
+.apr-item.urg{border-left:3px solid var(--red);}
+.apr-item.pnd{border-left:3px solid var(--ai1);}
+.apr-item.done{border-left:3px solid var(--grn);opacity:.6;}
+.apr-row{display:flex;align-items:center;gap:7px;margin-bottom:4px;}
+.apr-id{font-family:var(--m);font-size:12px;font-weight:600;color:var(--acc);}
+.apr-time{font-family:var(--m);font-size:10px;color:var(--t3);margin-left:auto;}
+.apr-item-t{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:2px;}
+.apr-item-s{font-size:12px;color:var(--t2);}
+.apr-acts{display:flex;gap:4px;margin-top:8px;}
+
+/* STATUS BAR */
+.status-bar{height:22px;background:var(--bg);border-top:1px solid var(--b2);display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;transition:background var(--d3),border-color var(--d3);}
+.sb-item{display:flex;align-items:center;gap:4px;font-family:var(--m);font-size:9.5px;color:var(--t3);white-space:nowrap;}
+.sb-item span{color:var(--t2);}
+.sb-ai{color:var(--ai1)!important;animation:aipulse 3s ease infinite;}
+.sb-right{margin-left:auto;display:flex;gap:10px;}
+.kbd{border:1px solid var(--b3);background:var(--b1);border-radius:2px;padding:0 4px;font-family:var(--m);font-size:9px;color:var(--t2);}
+
+/* TOAST */
+.toast-area{position:fixed;bottom:34px;right:380px;z-index:9999;display:flex;flex-direction:column;gap:4px;pointer-events:none;}
+.toast{background:var(--raised);border:1px solid var(--b3);border-radius:7px;padding:8px 12px;box-shadow:var(--sha-lg);display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--t1);pointer-events:all;max-width:286px;animation:toastIn .22s var(--e2);}
+@keyframes toastIn{from{opacity:0;transform:translateY(7px) scale(.96);}to{opacity:1;transform:none;}}
+.toast.ta{border-left:3px solid var(--acc);}
+.toast.tg{border-left:3px solid var(--grn);}
+.toast.tr{border-left:3px solid var(--red);}
+.toast.tm{border-left:3px solid var(--amb);}
+.toast.tp{border-left:3px solid var(--ai1);}
+.t-ico{font-size:14px;flex-shrink:0;}
+.t-body{flex:1;}
+.t-title{font-family:var(--f);font-weight:700;font-size:12.5px;line-height:1.2;}
+.t-sub{font-size:10.5px;color:var(--t3);margin-top:2px;font-family:var(--m);}
+.tx{color:var(--t3);cursor:pointer;font-size:11px;margin-left:3px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="nexus-logo">
+    <div class="nexus-mark" onclick="toast('◈','MERIDIAN','Precision Reconciliation Intelligence','tp')">M</div>
+    <div class="nexus-wordmark">
+      <div class="nexus-name">MERIDIAN</div>
+      <div class="nexus-ver">EXCEPTIONIQ · MERIDIAN</div>
+    </div>
+  </div>
+
+  <div class="ai-cmd-zone">
+    <div class="ai-cmd-bar" id="cmdBar">
+      <div class="ai-icon">◈</div>
+      <div class="ai-icon-pulse"></div>
+      <input class="ai-cmd-input" id="cmdInput" type="text"
+        placeholder='Ask Meridian… "show counterparty exposure by region" or "resolve high-confidence breaks"'
+        autocomplete="off"
+        onfocus="onCmdFocus()" onblur="onCmdBlur()"
+        onkeydown="cmdKeydown(event)" oninput="cmdInputHandler(this)">
+      <span class="ai-cmd-status" id="cmdStatus">
+        <span style="width:5px;height:5px;border-radius:50%;background:var(--grn);display:inline-block;animation:lv 2s ease infinite;"></span>
+        Monitoring 2,847 exceptions
+      </span>
+      <span class="ai-cmd-kb">⌘K</span>
+    </div>
+    <div class="ai-sug-drop" id="cmdDrop">
+      <div class="asd-header"><span class="asd-title">Meridian Intelligence</span></div>
+      <div class="asd-item" onmousedown="cmdSend('Resolve all high-confidence exceptions')"><div class="asd-ico">⚡</div><span class="asd-text">Resolve all high-confidence exceptions</span><span class="asd-pill">Action</span></div>
+      <div class="asd-item" onmousedown="cmdSend('Show counterparty exposure by region')"><div class="asd-ico">🌍</div><span class="asd-text">Show counterparty exposure by region</span><span class="asd-pill">Query</span></div>
+      <div class="asd-item" onmousedown="cmdSend('Show SLA breached items not yet escalated')"><div class="asd-ico">⚠️</div><span class="asd-text">Show SLA breached — not escalated</span><span class="asd-pill">Alert</span></div>
+      <div class="asd-item" onmousedown="cmdSend('What is the largest nostro break today?')"><div class="asd-ico">💰</div><span class="asd-text">What is the largest nostro break today?</span><span class="asd-pill">Query</span></div>
+      <div class="asd-item" onmousedown="cmdSend('Detect patterns across all current exceptions')"><div class="asd-ico">🧠</div><span class="asd-text">Detect patterns across current exceptions</span><span class="asd-pill">AI Analysis</span></div>
+      <div class="asd-div"></div>
+      <div class="asd-item" onmousedown="cmdSend('Summarize today\'s reconciliation health')"><div class="asd-ico">📊</div><span class="asd-text">Summarize reconciliation health</span><span class="asd-pill">Summary</span></div>
+      <div class="asd-item" onmousedown="cmdSend('Switch to Inbox review mode')"><div class="asd-ico">📥</div><span class="asd-text">Switch to Inbox review mode</span><span class="asd-pill">Navigate</span></div>
+    </div>
+  </div>
+
+  <div class="kpi-strip">
+    <div class="kpi-cell kc-a on" id="kc-all" onclick="kpiFilter('all',this)"><div class="kpi-n">2,847</div><div class="kpi-l">Open</div></div>
+    <div class="kpi-cell kc-g" id="kc-grn" onclick="kpiFilter('grn',this)"><div class="kpi-n">$142M</div><div class="kpi-l">Exposure</div></div>
+    <div class="kpi-cell kc-m" id="kc-amb" onclick="kpiFilter('amb',this)"><div class="kpi-n">384</div><div class="kpi-l">Critical</div></div>
+    <div class="kpi-cell kc-r" id="kc-red" onclick="kpiFilter('red',this)"><div class="kpi-n">91</div><div class="kpi-l">Breach</div></div>
+    <div class="kpi-cell kc-p" id="kc-ai" onclick="cmdSend('Which exceptions can be auto-resolved?')"><div class="kpi-n">63</div><div class="kpi-l">AI Ready</div></div>
+  </div>
+
+  <div class="hdr-right">
+    <div class="recon-pill"><div class="live-dot"></div>NAB-NOSTRO-7291<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></div>
+    <div class="theme-row">
+      <div class="th-o on" id="td" onclick="setTheme('dark')" title="Ctrl+D">🌑</div>
+      <div class="th-o" id="tl" onclick="setTheme('light')" title="Ctrl+L">☀️</div>
+      <div class="th-o" id="te" onclick="setTheme('eye')" title="Ctrl+E">🌿</div>
+    </div>
+    <div class="hbtn" onclick="openAppr()" title="Approvals"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><div class="hbtn-dot"></div></div>
+    <div class="hbtn" onclick="toast('🔔','Notifications','3 new SLA alerts','tr')" title="Notifications"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+    <div class="uav" title="Ravi Menon">RM</div>
+    <button class="btn btn-ai btn-sm" onclick="toast('✚','New Exception','Creation form opened','ta')">+ New Exception</button>
+  </div>
+</header>
+
+<!-- AI PATTERN STRIP -->
+<div class="pattern-strip" id="patternStrip">
+  <span class="ps-icon">🧠</span>
+  <span class="ps-badge">◈ Pattern Detected</span>
+  <div class="ps-sep"></div>
+  <div class="ps-text">
+    <span class="ps-hi">12 nostro breaks share counterparty Deutsche Bank AG · Settlement timing mismatch T+2 vs T+1</span> · Auto-resolution confidence 96% · Est. $18.4M exposure clearable
+  </div>
+  <span class="ps-conf">96% CONF</span>
+  <div class="ps-acts">
+    <button class="btn btn-ai btn-xs" onclick="cmdSend('Resolve all high-confidence exceptions')">⚡ Resolve Cluster</button>
+    <button class="btn btn-ghost btn-xs" onclick="cmdSend('Explain why this pattern exists')">Explain Pattern</button>
+    <button class="btn btn-ghost btn-xs" onclick="document.getElementById('patternStrip').style.display='none'">Dismiss</button>
+  </div>
+  <div class="ps-vel">↑ <span id="velCnt">28</span> cleared today</div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="flabel">Filters:</span>
+  <div class="chip on" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--amb)"></div>Open <span class="chip-n">892</span></div>
+  <div class="chip on" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--acc)"></div>Investigating <span class="chip-n">614</span></div>
+  <div class="chip" onclick="chipTog(this)"><div class="chip-dot" style="background:var(--ai1)"></div>Pending <span class="chip-n">128</span></div>
+  <div class="chip" onclick="chipTog(this)" style="animation:pulse 2.5s ease infinite;"><div class="chip-dot" style="background:var(--red)"></div>Escalated <span class="chip-n">47</span></div>
+  <div class="chip" onclick="chipTog(this)">Nostro</div>
+  <div class="chip" onclick="chipTog(this)">FX</div>
+  <div class="chip" onclick="chipTog(this)">Cash</div>
+  <div class="chip" onclick="chipTog(this)">Sec Lending</div>
+  <div class="chip" style="border-color:var(--ai-gb);background:var(--ai-gs);color:var(--ai1);" onclick="chipTog(this)">◈ AI-Ready</div>
+  <div class="fright">
+    <div id="activeTag" style="display:none;font-family:var(--m);font-size:10px;color:var(--ai1);background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:3px;padding:2px 8px;display:flex;align-items:center;gap:5px;cursor:pointer;" onclick="clearAIFilter()"></div>
+    <button class="btn btn-ghost btn-xs" onclick="resetFilters()">Reset</button>
+    <button class="btn btn-ghost btn-xs" onclick="toast('📤','Export','Exporting 2,847 records…','ta')">Export</button>
+    <span class="result-p" id="resultPill">1,506 / 2,847</span>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main">
+  <div class="lnav">
+    <div class="ni active" id="ni-t" onclick="switchView('table')" title="Table (T)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+    <div class="ni" id="ni-i" onclick="switchView('inbox')" title="Inbox (I)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg><div class="ni-badge">47</div></div>
+    <div class="ni" id="ni-tr" onclick="switchView('trends')" title="Trends (V)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="nsep"></div>
+    <div class="ni" onclick="openAppr()" title="Approvals"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+    <div class="ni" onclick="toast('⚙','Settings','System settings','ta')" title="Settings"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+    <div class="nsp"></div>
+    <div class="ni" style="color:var(--ai1);" onclick="document.getElementById('cmdInput').focus()" title="AI Command (⌘K)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+  </div>
+
+  <div class="workspace">
+    <!-- TABLE VIEW -->
+    <div id="tableView" style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+      <div class="ws-bar">
+        <div class="ws-tabs">
+          <div class="wt on" onclick="wTab(this)">All Exceptions</div>
+          <div class="wt" onclick="wTab(this)">Nostro</div>
+          <div class="wt" onclick="wTab(this)">FX Mismatch</div>
+          <div class="wt" onclick="wTab(this)">Sec Lending</div>
+          <div class="wt" onclick="wTab(this)">Cash Breaks</div>
+        </div>
+        <div class="ws-right">
+          <span class="rcount" id="rcount">1,506 / 2,847</span>
+          <button class="btn btn-ghost btn-sm" onclick="toast('🔽','Sort','Sort dialog','ta')">Sort</button>
+          <button class="btn btn-ghost btn-sm" onclick="openAppr()"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Approvals</button>
+        </div>
+      </div>
+
+      <div class="bulk-bar" id="bulkBar" style="display:none;">
+        <span class="bulk-n" id="bulkCnt">0 selected</span>
+        <span class="bulk-prev" id="bulkPrev">Select exceptions to act</span>
+        <button class="btn btn-ai btn-sm" onclick="cmdSend('Resolve all selected exceptions')">⚡ AI Resolve All</button>
+        <button class="btn btn-success btn-sm" onclick="openMaker('BULK',null)">✓ Resolve All</button>
+        <button class="btn btn-warn btn-sm" onclick="toast('▲','Escalated','Exceptions escalated','tm')">Escalate</button>
+        <div style="flex:1"></div>
+        <button class="btn btn-ghost btn-xs" onclick="clearBulk()">✕</button>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><div class="ck" id="selAll" onclick="selAll()"></div></th>
+              <th>Recon ID</th><th>Item ID</th><th>Exception ID</th>
+              <th>Type</th><th>Counterparty</th><th>Status</th>
+              <th class="right">Amount</th><th>Aging</th>
+              <th>SLA</th><th>Risk</th><th>AI Score</th><th>Owner</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="tbl-foot">
+        <span class="pgi" id="pgInfo">Page 1 of 237 · 12 per page</span>
+        <div class="pgb">
+          <div class="pb">‹</div><div class="pb on">1</div>
+          <div class="pb" onclick="toast('➡','Page 2','','ta')">2</div>
+          <div class="pb" onclick="toast('➡','Page 3','','ta')">3</div>
+          <div class="pb" style="pointer-events:none;">…</div>
+          <div class="pb" onclick="toast('➡','Page 237','','ta')">237</div>
+          <div class="pb">›</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INBOX VIEW -->
+    <div id="inboxView" class="inbox-view">
+      <div class="inbox-pane">
+        <div class="ib-hdr">
+          <div class="ib-title">Exception Inbox</div>
+          <div class="ib-cnt">47</div>
+          <div class="rev-sw"><div class="ro on" id="ro-bulk" onclick="revMode('bulk')">Bulk</div><div class="ro" id="ro-focus" onclick="revMode('focus')">Review</div></div>
+        </div>
+        <div class="rev-prog" id="revProg">
+          <div class="rpbw"><div class="rpbf" id="rpFill" style="width:18%;"></div></div>
+          <span class="rpl" id="rpLabel">2 / 11</span>
+        </div>
+        <div class="ib-sort">
+          <span class="ib-sort-l">Sort:</span>
+          <div class="isb on" onclick="isort(this,'risk')">Risk ↓</div>
+          <div class="isb" onclick="isort(this,'amount')">Amount</div>
+          <div class="isb" onclick="isort(this,'aging')">Aging</div>
+          <div class="isb" onclick="isort(this,'sla')">SLA</div>
+        </div>
+        <div class="ib-list" id="ibList"></div>
+      </div>
+      <div class="rh vis" id="ibRh"></div>
+      <div class="inbox-detail">
+        <div class="idn">
+          <div class="idnb dis" id="prevBrk" onclick="navBreak(-1)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>Prev <span class="kbd">J</span></div>
+          <span class="idpg" id="brkProg">Exception 1 of 11</span>
+          <div class="idnb" id="nextBrk" onclick="navBreak(1)">Next <span class="kbd">K</span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div style="margin-left:auto;display:flex;gap:4px;">
+            <button class="btn btn-ai btn-sm" onclick="cmdSend('Auto-resolve this exception')">⚡ AI Resolve</button>
+            <button class="btn btn-success btn-sm" onclick="openMaker(activeId,null)">Resolve <span class="kbd">R</span></button>
+            <button class="btn btn-warn btn-sm" onclick="toast('▲','Escalated','Escalated','tm')">Escalate <span class="kbd">E</span></button>
+          </div>
+        </div>
+        <div id="ibDetail" style="flex:1;overflow-y:auto;padding:14px;">
+          <div style="padding:10px;background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:8px;font-family:var(--f);font-size:12px;color:var(--t2);">Select an exception from the inbox to see details here.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRENDS VIEW with HEAT MAP -->
+    <div id="trendsView" class="trends-view">
+      <div class="trends-grid">
+
+        <!-- Net Exposure by Region -->
+        <div class="tchart" onclick="cmdSend('Show counterparty exposure by region')">
+          <div class="tc-head"><div><div class="tc-title">Net Exposure by Region</div><div class="tc-sub">Open exceptions · all currencies</div></div><div><div class="tc-val" style="color:var(--red)">$142M</div><div class="tc-delta tc-dn">↑ $18M today</div></div></div>
+          <div class="hbr"><span class="hbl">APAC</span><div class="hbt"><div class="hbf" style="width:42%;background:var(--ai1);"></div></div><span class="hbn">$59.7M</span></div>
+          <div class="hbr"><span class="hbl">EMEA</span><div class="hbt"><div class="hbf" style="width:32%;background:var(--teal);"></div></div><span class="hbn">$45.4M</span></div>
+          <div class="hbr"><span class="hbl">Americas</span><div class="hbt"><div class="hbf" style="width:22%;background:var(--acc);"></div></div><span class="hbn">$31.2M</span></div>
+          <div class="hbr"><span class="hbl">LatAm</span><div class="hbt"><div class="hbf" style="width:4%;background:var(--amb);"></div></div><span class="hbn">$5.7M</span></div>
+        </div>
+
+        <!-- SLA Performance -->
+        <div class="tchart" onclick="cmdSend('Show SLA breached items not yet escalated')">
+          <div class="tc-head"><div><div class="tc-title">SLA Compliance</div><div class="tc-sub">Real-time · target 97%</div></div><div><div class="tc-val" style="color:var(--grn)">96.8%</div><div class="tc-delta tc-up">↑ 0.4%</div></div></div>
+          <div style="margin:10px 0;">
+            <div class="hbr"><span class="hbl">✓ Within</span><div class="hbt"><div class="hbf" style="width:97%;background:var(--grn);"></div></div><span class="hbn">2,756</span></div>
+            <div class="hbr"><span class="hbl">⚠ At Risk</span><div class="hbt"><div class="hbf" style="width:14%;background:var(--amb);"></div></div><span class="hbn">384</span></div>
+            <div class="hbr"><span class="hbl">🔴 Breach</span><div class="hbt"><div class="hbf" style="width:3%;background:var(--red);"></div></div><span class="hbn">91</span></div>
+          </div>
+        </div>
+
+        <!-- Top Counterparty Exposure -->
+        <div class="tchart" onclick="cmdSend('Show breaks for Deutsche Bank')">
+          <div class="tc-head"><div><div class="tc-title">Top Counterparty Exposure</div><div class="tc-sub">Open balance</div></div></div>
+          <div class="hbr"><span class="hbl" style="width:80px;">Deutsche Bk</span><div class="hbt"><div class="hbf" style="width:55%;background:var(--red);"></div></div><span class="hbn">$28.4M</span></div>
+          <div class="hbr"><span class="hbl" style="width:80px;">JP Morgan</span><div class="hbt"><div class="hbf" style="width:38%;background:var(--amb);"></div></div><span class="hbn">$19.6M</span></div>
+          <div class="hbr"><span class="hbl" style="width:80px;">HSBC</span><div class="hbt"><div class="hbf" style="width:30%;background:var(--ai1);"></div></div><span class="hbn">$15.2M</span></div>
+          <div class="hbr"><span class="hbl" style="width:80px;">Barclays</span><div class="hbt"><div class="hbf" style="width:22%;background:var(--teal);"></div></div><span class="hbn">$11.1M</span></div>
+          <div class="hbr"><span class="hbl" style="width:80px;">BNP Paribas</span><div class="hbt"><div class="hbf" style="width:15%;background:var(--acc);"></div></div><span class="hbn">$7.8M</span></div>
+        </div>
+
+        <!-- HEAT MAP — Exception Volume by Hour × Day -->
+        <div class="tchart tc-span2" id="heatmapChart">
+          <div class="tc-head"><div><div class="tc-title">◈ Exception Heat Map — Volume by Hour × Day</div><div class="tc-sub">Last 7 days · hover for details · darker = higher volume</div></div><div><div class="tc-val" style="color:var(--ai1)">Peak 11:00</div><div class="tc-delta tc-dn">APAC open ↑ 34%</div></div></div>
+          <div class="heatmap-grid" id="heatmapGrid">
+            <!-- Populated by JS -->
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;font-family:var(--m);font-size:8.5px;color:var(--t3);">
+            <span>Low</span>
+            <div style="display:flex;gap:2px;">
+              <div style="width:14px;height:8px;border-radius:2px;background:var(--hm0);border:1px solid var(--b2);"></div>
+              <div style="width:14px;height:8px;border-radius:2px;background:var(--hm1);"></div>
+              <div style="width:14px;height:8px;border-radius:2px;background:var(--hm2);"></div>
+              <div style="width:14px;height:8px;border-radius:2px;background:var(--hm3);"></div>
+              <div style="width:14px;height:8px;border-radius:2px;background:var(--hm4);"></div>
+              <div style="width:14px;height:8px;border-radius:2px;background:var(--hm5);"></div>
+            </div>
+            <span>High</span>
+            <span style="margin-left:12px;">◈ AI monitors for anomalous spikes</span>
+          </div>
+        </div>
+
+        <!-- Manual vs AI Resolution -->
+        <div class="tchart" onclick="cmdSend('Which exceptions can be auto-resolved?')">
+          <div class="tc-head"><div><div class="tc-title">Resolution Method</div><div class="tc-sub">Today · 312 resolved</div></div><div><div class="tc-val" style="color:var(--ai1)">41%</div><div class="tc-delta tc-up">AI ↑ 8%</div></div></div>
+          <svg class="chart-svg" height="60" viewBox="0 0 240 60" preserveAspectRatio="none">
+            <rect x="0" y="12" width="142" height="24" rx="4" fill="var(--acc-s)" stroke="var(--acc)" stroke-width="1"/>
+            <rect x="0" y="12" width="142" height="24" rx="4" fill="var(--acc)" opacity=".55"/>
+            <text x="71" y="28" font-size="9" fill="#fff" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">Manual: 184 (59%)</text>
+            <rect x="148" y="12" width="92" height="24" rx="4" fill="var(--ai-gs)" stroke="var(--ai1)" stroke-width="1"/>
+            <text x="194" y="28" font-size="9" fill="var(--ai1)" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">AI: 128 (41%)</text>
+            <text x="0" y="55" font-size="8.5" fill="var(--t3)" font-family="Plus Jakarta Sans">◈ AI saves ~8.6 analyst hours/day at current rate</text>
+          </svg>
+        </div>
+
+        <!-- Aging Buckets -->
+        <div class="tchart" onclick="cmdSend('Show exceptions older than 5 days')">
+          <div class="tc-head"><div><div class="tc-title">Aging Buckets</div><div class="tc-sub">Clickable → filter</div></div></div>
+          <div class="hbr"><span class="hbl">&lt;1d</span><div class="hbt"><div class="hbf" style="width:8%;background:var(--grn)"></div></div><span class="hbn">218</span></div>
+          <div class="hbr"><span class="hbl">1-3d</span><div class="hbt"><div class="hbf" style="width:16%;background:var(--grn)"></div></div><span class="hbn">456</span></div>
+          <div class="hbr"><span class="hbl">3-5d</span><div class="hbt"><div class="hbf" style="width:24%;background:var(--amb)"></div></div><span class="hbn">682</span></div>
+          <div class="hbr"><span class="hbl">5-7d</span><div class="hbt"><div class="hbf" style="width:20%;background:var(--amb)"></div></div><span class="hbn">568</span></div>
+          <div class="hbr"><span class="hbl">&gt;7d</span><div class="hbt"><div class="hbf" style="width:14%;background:var(--red)"></div></div><span class="hbn">392</span></div>
+          <div class="hbr"><span class="hbl">Breach</span><div class="hbt"><div class="hbf" style="width:3%;background:#990000;"></div></div><span class="hbn">91</span></div>
+        </div>
+
+        <!-- Exception Types -->
+        <div class="tchart" onclick="cmdSend('Show all Nostro exceptions')">
+          <div class="tc-head"><div><div class="tc-title">Exception Types</div></div><div><div class="tc-val">2,847</div></div></div>
+          <div class="hbr"><span class="hbl">Nostro</span><div class="hbt"><div class="hbf" style="width:38%;background:var(--ai1)"></div></div><span class="hbn">1,082</span></div>
+          <div class="hbr"><span class="hbl">FX</span><div class="hbt"><div class="hbf" style="width:28%;background:var(--teal)"></div></div><span class="hbn">797</span></div>
+          <div class="hbr"><span class="hbl">Cash</span><div class="hbt"><div class="hbf" style="width:20%;background:var(--acc)"></div></div><span class="hbn">570</span></div>
+          <div class="hbr"><span class="hbl">Sec Lend</span><div class="hbt"><div class="hbf" style="width:10%;background:var(--amb)"></div></div><span class="hbn">284</span></div>
+          <div class="hbr"><span class="hbl">Fees</span><div class="hbt"><div class="hbf" style="width:4%;background:var(--t3)"></div></div><span class="hbn">114</span></div>
+        </div>
+
+        <!-- Volume Spike Detection -->
+        <div class="tchart tc-span3" onclick="cmdSend('Detect patterns across all current exceptions')">
+          <div class="tc-head"><div><div class="tc-title">Daily Exception Volume — 14-Day Trend</div><div class="tc-sub">Click any bar to filter · ◈ AI anomaly detection active</div></div><div><div class="tc-val" style="color:var(--red)">↑ Today</div></div></div>
+          <svg class="chart-svg" height="80" viewBox="0 0 680 80" preserveAspectRatio="none">
+            <line x1="0" y1="65" x2="680" y2="65" stroke="var(--b2)" stroke-width="1"/>
+            <line x1="0" y1="40" x2="680" y2="40" stroke="var(--b1)" stroke-width=".5"/>
+            <line x1="0" y1="20" x2="680" y2="20" stroke="var(--b1)" stroke-width=".5"/>
+            <rect x="4" y="48" width="38" height="17" rx="2" fill="var(--ai1)" opacity=".5"/>
+            <rect x="50" y="42" width="38" height="23" rx="2" fill="var(--ai1)" opacity=".55"/>
+            <rect x="96" y="44" width="38" height="21" rx="2" fill="var(--ai1)" opacity=".5"/>
+            <rect x="142" y="35" width="38" height="30" rx="2" fill="var(--ai1)" opacity=".65"/>
+            <rect x="188" y="40" width="38" height="25" rx="2" fill="var(--ai1)" opacity=".6"/>
+            <rect x="234" y="28" width="38" height="37" rx="2" fill="var(--amb)" opacity=".8"/>
+            <text x="253" y="23" font-size="8" fill="var(--amb)" font-family="IBM Plex Mono" text-anchor="middle">↑Spike</text>
+            <rect x="280" y="46" width="38" height="19" rx="2" fill="var(--ai1)" opacity=".5"/>
+            <rect x="326" y="38" width="38" height="27" rx="2" fill="var(--ai1)" opacity=".6"/>
+            <rect x="372" y="32" width="38" height="33" rx="2" fill="var(--ai1)" opacity=".7"/>
+            <rect x="418" y="44" width="38" height="21" rx="2" fill="var(--ai1)" opacity=".55"/>
+            <rect x="464" y="36" width="38" height="29" rx="2" fill="var(--ai1)" opacity=".65"/>
+            <rect x="510" y="20" width="38" height="45" rx="2" fill="var(--red)" opacity=".85"/>
+            <text x="529" y="15" font-size="8" fill="var(--red)" font-family="IBM Plex Mono" text-anchor="middle">⚠ Today</text>
+            <rect x="556" y="42" width="38" height="23" rx="2" fill="var(--ai1)" opacity=".5"/>
+            <rect x="602" y="48" width="38" height="17" rx="2" fill="var(--ai-gs)" stroke="var(--ai1)" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="652" y="55" font-size="8" fill="var(--t3)" font-family="IBM Plex Mono">Forecast</text>
+          </svg>
+          <div style="display:flex;gap:8px;margin-top:6px;font-family:var(--m);font-size:9px;color:var(--t3);">
+            <span>29-Mar</span><span>30</span><span>31</span><span>01-Apr</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09 (Today)</span><span>10</span><span>11 (est)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="rh vis" id="wsRh"></div>
+  </div>
+
+  <!-- AI COMPANION PANEL -->
+  <div class="ai-panel" id="aiPanel">
+    <div class="aip-hdr">
+      <div class="aip-brain">◈</div>
+      <div>
+        <div class="aip-title">Meridian Intelligence</div>
+        <div class="aip-status"><div class="aip-status-dot"></div>Active · Monitoring 2,847 exceptions</div>
+      </div>
+      <div class="aip-controls">
+        <div class="apb" onclick="togglePanelWidth()" title="Toggle width"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+      </div>
+    </div>
+
+    <div class="aip-chat-zone">
+      <div class="aip-messages" id="aiMsgs">
+        <div class="ai-welcome">
+          <div class="aiw-head">
+            <span style="font-size:16px;">◈</span>
+            <span class="aiw-title">Meridian AI — Ready</span>
+          </div>
+          <div class="aiw-body">
+            Full context on <strong>NAB-NOSTRO-7291</strong> recon. I can filter, resolve, detect patterns, and explain anomalies across 2,847 live exceptions. Try:
+          </div>
+          <div class="aiw-examples">
+            <div class="aiw-eg" onclick="cmdSend('Resolve all high-confidence exceptions')">⚡ "Resolve all high-confidence exceptions"</div>
+            <div class="aiw-eg" onclick="cmdSend('Show counterparty exposure by region')">🌍 "Show counterparty exposure by region"</div>
+            <div class="aiw-eg" onclick="cmdSend('Detect patterns across all current exceptions')">🧠 "Detect patterns across current exceptions"</div>
+            <div class="aiw-eg" onclick="cmdSend('What is the largest nostro break today?')">💰 "What is the largest nostro break today?"</div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-sugs">
+        <div class="aisug" onclick="cmdSend('Show SLA breached items not yet escalated')">⚠️ Breach, unescalated</div>
+        <div class="aisug" onclick="cmdSend('What is the largest nostro break today?')">💰 Largest break</div>
+        <div class="aisug" onclick="cmdSend('Show exceptions older than 8 days')">📅 Aging &gt;8d</div>
+        <div class="aisug" onclick="cmdSend('Detect patterns across all current exceptions')">🧠 Find patterns</div>
+        <div class="aisug" onclick="cmdSend('Resolve all high-confidence exceptions')">⚡ AI Resolve all</div>
+        <div class="aisug" onclick="cmdSend('Summarize today reconciliation health')">📊 Health summary</div>
+      </div>
+      <div class="ai-input-row">
+        <textarea class="ai-ta" id="aiInput" placeholder="Ask anything or give a command…" rows="1" onkeydown="aiKeydown(event)" oninput="autoResize(this)"></textarea>
+        <div class="ai-send" onclick="aiSendFromInput()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+      </div>
+    </div>
+
+    <div class="aip-divider" id="splitDivider"></div>
+
+    <div class="aip-detail" id="aipDetail">
+      <div class="dpx-hdr">
+        <div class="dpx-bid" id="dpxBid">EX-7201</div>
+        <div class="dpx-mode" id="dpxMode">Single Record</div>
+        <div class="dpx-r">
+          <div class="xb" onclick="toggleDetailCollapse()" title="Toggle detail"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></div>
+        </div>
+      </div>
+      <div class="wft">
+        <div class="wfs"><div class="wfl dn"></div><div class="wfn dn">✓</div><div class="wflbl">Created</div></div>
+        <div class="wfs"><div class="wfl dn"></div><div class="wfn dn">✓</div><div class="wflbl">Assigned</div></div>
+        <div class="wfs"><div class="wfl"></div><div class="wfn cu">→</div><div class="wflbl">Invest.</div></div>
+        <div class="wfs"><div class="wfl"></div><div class="wfn">4</div><div class="wflbl">Approval</div></div>
+        <div class="wfs"><div class="wfn">5</div><div class="wflbl">Resolved</div></div>
+      </div>
+      <div class="dp-tabs">
+        <div class="dpt on" onclick="dpTab(this,'dp-sum')">Summary</div>
+        <div class="dpt" onclick="dpTab(this,'dp-wfl')">Workflow</div>
+        <div class="dpt" onclick="dpTab(this,'dp-ev')">Evidence <span class="dptn">4</span></div>
+        <div class="dpt" onclick="dpTab(this,'dp-ai')">◈ AI</div>
+      </div>
+      <div class="dpb">
+        <div id="dp-sum">
+          <div class="mss"><div class="mst">Exception Details</div>
+            <div class="mg">
+              <div class="mi"><div class="mil">Exception ID</div><div class="miv" style="color:var(--ai1)">EX-7201</div></div>
+              <div class="mi"><div class="mil">Recon ID</div><div class="miv">NAB-7291</div></div>
+              <div class="mi"><div class="mil">Amount</div><div class="miv" style="color:var(--red)">$12,450,000</div></div>
+              <div class="mi"><div class="mil">Currency</div><div class="miv">USD</div></div>
+              <div class="mi"><div class="mil">Type</div><div class="miv">Nostro Break</div></div>
+              <div class="mi"><div class="mil">Aging</div><div class="miv" style="color:var(--red)">7 Days ▲</div></div>
+              <div class="mi"><div class="mil">Counterparty</div><div class="miv">Deutsche Bank AG</div></div>
+              <div class="mi"><div class="mil">AI Score</div><div class="miv" style="color:var(--ai1)">96%</div></div>
+              <div class="mi s2"><div class="mil">Description</div><div style="font-size:11.5px;color:var(--t2);margin-top:3px;line-height:1.5;">Nostro cash position mismatch — Deutsche Bank London branch reported T+1 settlement, internal books show T+2. Delta of $12.45M on 3 SWIFT MT940 entries misaligned with ledger posting dates.</div></div>
+            </div>
+          </div>
+          <div class="mss"><div class="mst">Assigned To</div>
+            <div class="asn-blk"><div class="asn-av" style="background:linear-gradient(135deg,#C87B3A,#2A9D8F)">RM</div><div><div class="asn-name">Ravi Menon</div><div class="asn-sub">Senior Recon Analyst · APAC Desk</div></div><button class="btn btn-ghost btn-xs" style="margin-left:auto;" onclick="toast('👤','Reassign','Dialog opened','ta')">Reassign</button></div>
+          </div>
+        </div>
+        <div id="dp-wfl" style="display:none;">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <button class="btn btn-ai" style="justify-content:center;width:100%;" onclick="cmdSend('Auto-resolve exception EX-7201')">◈ AI Auto-Resolve (96% conf)</button>
+            <button class="btn btn-success" style="justify-content:center;width:100%;" onclick="openMaker('EX-7201',null)">✓ Resolve — Maker/Checker</button>
+            <button class="btn btn-warn" style="justify-content:center;width:100%;" onclick="toast('▲','Escalated','EX-7201 escalated','tm')">Escalate to Supervisor</button>
+            <button class="btn btn-ghost" style="justify-content:center;width:100%;" onclick="toast('🔗','Match','Match flow opened','ta')">Manual Match / Dematch</button>
+          </div>
+        </div>
+        <div id="dp-ev" style="display:none;">
+          <div style="display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--t2);">
+            <div style="background:var(--card);padding:8px;border-radius:4px;border:1px solid var(--b1);display:flex;align-items:center;gap:8px;cursor:pointer;transition:all var(--d1);">
+              <span style="font-size:16px;">📄</span>
+              <div><div style="font-weight:600;color:var(--t1);">MT940_DB_London_20260407.swift</div><div style="font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;">SWIFT statement · 847 KB · 07-Apr-2026</div></div>
+            </div>
+            <div style="background:var(--card);padding:8px;border-radius:4px;border:1px solid var(--b1);display:flex;align-items:center;gap:8px;cursor:pointer;">
+              <span style="font-size:16px;">📊</span>
+              <div><div style="font-weight:600;color:var(--t1);">GL_Posting_NAB7291_Apr.xlsx</div><div style="font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;">Ledger extract · 2.1 MB · 08-Apr-2026</div></div>
+            </div>
+            <div style="background:var(--card);padding:8px;border-radius:4px;border:1px solid var(--b1);display:flex;align-items:center;gap:8px;cursor:pointer;">
+              <span style="font-size:16px;">📧</span>
+              <div><div style="font-weight:600;color:var(--t1);">DB_Confirmation_Ref_8847291.eml</div><div style="font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;">Email confirmation · 312 KB · 07-Apr-2026</div></div>
+            </div>
+            <div style="background:var(--card);padding:8px;border-radius:4px;border:1px solid var(--b1);display:flex;align-items:center;gap:8px;cursor:pointer;">
+              <span style="font-size:16px;">🧠</span>
+              <div><div style="font-weight:600;color:var(--ai1);">AI Root Cause Analysis</div><div style="font-family:var(--m);font-size:9px;color:var(--t3);margin-top:1px;">Auto-generated · 96% confidence</div></div>
+            </div>
+          </div>
+        </div>
+        <div id="dp-ai" style="display:none;">
+          <div style="background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:6px;padding:10px 12px;margin-bottom:8px;">
+            <div style="font-family:var(--f-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ai1);margin-bottom:4px;">◈ AI Root Cause Analysis</div>
+            <div style="font-size:12px;color:var(--t2);line-height:1.6;">
+              <strong>Pattern Match:</strong> NOSTRO_SETTLEMENT_TIMING<br>
+              <strong>Root Cause:</strong> Deutsche Bank London settlement engine applied T+1 CLS convention while NAB internal systems expected T+2. The 3 MT940 entries (refs: 884729100-102) have value dates of 05-Apr but were booked internally on 07-Apr.<br>
+              <strong>Recommendation:</strong> Apply value date correction. Align with DB London's CLS settlement calendar. 96% confidence auto-resolvable.
+            </div>
+            <div style="display:flex;gap:4px;margin-top:8px;">
+              <button class="btn btn-ai btn-xs" onclick="cmdSend('Auto-resolve exception EX-7201')">⚡ Apply AI Resolution</button>
+              <button class="btn btn-ghost btn-xs" onclick="cmdSend('Explain why exception EX-7201 exists')">Explain Further</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dpf" id="dpBreach" style="display:flex;">
+        <button class="btn btn-ai btn-xs" onclick="cmdSend('Auto-resolve exception EX-7201')">⚡ AI Resolve (96%)</button>
+        <button class="btn btn-success btn-xs" onclick="openMaker('EX-7201',null)">✓ Resolve</button>
+        <button class="btn btn-warn btn-xs" onclick="toast('▲','Escalated','EX-7201 escalated','tm')">Escalate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="sb-item"><span class="sb-ai">◈ AI Active</span></div>
+  <div class="sb-item">Recon: <span>NAB-NOSTRO-7291</span></div>
+  <div class="sb-item">UTC <span id="clockEl">--:--:--</span></div>
+  <div class="sb-item">Latency: <span style="color:var(--grn)">24ms</span></div>
+  <div class="sb-right">
+    <div class="sb-item"><span class="kbd">T</span> Table</div>
+    <div class="sb-item"><span class="kbd">I</span> Inbox</div>
+    <div class="sb-item"><span class="kbd">V</span> Trends</div>
+    <div class="sb-item"><span class="kbd">⌘K</span> AI</div>
+  </div>
+</div>
+
+<!-- MAKER/CHECKER MODAL -->
+<div class="overlay hidden" id="makerOverlay" onclick="closeMaker()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="mod-bar"></div>
+    <div class="mod-hdr">
+      <div><div class="mod-title">Resolve Exception</div><div class="mod-sub">Maker/Checker — dual approval workflow</div></div>
+      <div class="mod-close" onclick="closeMaker()">✕</div>
+    </div>
+    <div class="mod-body">
+      <div class="impv">
+        <div class="impv-t">Exception Impact Summary</div>
+        <div class="ip-row"><span class="ipk">Net Exposure Impact</span><span class="ipv" style="color:var(--red)">-$12,450,000</span></div>
+        <div class="ip-row"><span class="ipk">Counterparty</span><span class="ipv">Deutsche Bank AG</span></div>
+        <div class="ip-row"><span class="ipk">Settlement Date Variance</span><span class="ipv">2 business days</span></div>
+        <div class="ip-row"><span class="ipk">AI Confidence</span><span class="ipv" style="color:var(--ai1)">96%</span></div>
+        <div class="ip-row"><span class="ipk">P&L Impact</span><span class="ipv" style="color:var(--grn)">+$0 (timing only)</span></div>
+      </div>
+      <div class="field"><label class="field-label">Resolution Category</label><select class="fs"><option>Settlement Date Correction</option><option>Value Date Realignment</option><option>Counterparty Confirmation</option><option>Write-off</option></select></div>
+      <div class="field"><label class="field-label">Adjusted Value Date</label><input class="fi" type="date" value="2026-04-05"></div>
+      <div class="field"><label class="field-label">Comments / Justification</label><textarea class="ft" placeholder="Describe resolution rationale, link to supporting evidence…">Applying T+1 settlement date per DB London CLS convention. MT940 refs 884729100-102 confirmed via SWIFT. Value date correction from 07-Apr to 05-Apr. No P&L impact — timing mismatch only.</textarea></div>
+    </div>
+    <div class="mod-foot">
+      <button class="btn btn-ghost" onclick="closeMaker()">Cancel</button>
+      <button class="btn btn-ai" onclick="submitRes()">⚡ Submit for Approval</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPROVALS -->
+<div class="appr-dim" id="apprDim" onclick="closeAppr()"></div>
+<div class="appr-overlay" id="apprOverlay">
+  <div class="apr-hdr">
+    <div><div class="apr-title">Approvals Queue</div><div style="font-size:11px;color:var(--t2);margin-top:2px;">Pending maker-checker reviews</div></div>
+    <div class="apr-cnt">7 pending</div>
+    <div class="xb" onclick="closeAppr()" style="margin-left:auto;width:24px;height:24px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+  </div>
+  <div class="apr-body">
+    <div class="apr-sec">Awaiting Your Approval</div>
+    <div class="apr-item urg"><div class="apr-row"><span class="apr-id">EX-7201</span><span class="st se" style="font-size:10px;"><span class="std"></span>Escalated</span><span class="apr-time">2h ago</span></div><div class="apr-item-t">Nostro Break — $12,450,000 · Deutsche Bank AG</div><div class="apr-item-s">Ravi Menon · SLA Breach · Settlement timing mismatch</div><div class="apr-acts"><button class="btn btn-success btn-xs" onclick="toast('✅','Approved','EX-7201 approved','tg')">Approve</button><button class="btn btn-danger btn-xs" onclick="toast('❌','Rejected','Feedback sent','tr')">Reject</button><button class="btn btn-ghost btn-xs">Review →</button></div></div>
+    <div class="apr-item pnd"><div class="apr-row"><span class="apr-id">EX-7208</span><span class="st sp" style="font-size:10px;"><span class="std"></span>Pending</span><span class="apr-time">5h ago</span></div><div class="apr-item-t">Sec Lending — $23,100,000 · JP Morgan</div><div class="apr-item-s">Ananya K. · Collateral value dispute</div><div class="apr-acts"><button class="btn btn-success btn-xs" onclick="toast('✅','Approved','Approved','tg')">Approve</button><button class="btn btn-danger btn-xs" onclick="toast('❌','Rejected','Rejected','tr')">Reject</button></div></div>
+    <div class="apr-item pnd"><div class="apr-row"><span class="apr-id">EX-7203</span><span class="st sp" style="font-size:10px;"><span class="std"></span>Pending</span><span class="apr-time">1d ago</span></div><div class="apr-item-t">FX Mismatch — €4,800,000 · HSBC London</div><div class="apr-item-s">Chetan V. · Rate source discrepancy</div><div class="apr-acts"><button class="btn btn-success btn-xs" onclick="toast('✅','Approved','Approved','tg')">Approve</button><button class="btn btn-danger btn-xs" onclick="toast('❌','Rejected','Rejected','tr')">Reject</button></div></div>
+    <div style="height:11px;"></div>
+    <div class="apr-sec">Recently Completed</div>
+    <div class="apr-item done"><div class="apr-row"><span class="apr-id">EX-7195</span><span class="apr-time">2d ago</span></div><div class="apr-item-t">✓ Approved — Cash Break $2,140,000 · Barclays</div></div>
+    <div class="apr-item done"><div class="apr-row"><span class="apr-id">EX-7189</span><span class="apr-time">3d ago</span></div><div class="apr-item-t">✓ Approved — FX £1,800,000 · BNP Paribas</div></div>
+  </div>
+</div>
+
+<!-- CONTEXT MENU -->
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-sec">Actions for <span id="ctxBid" style="color:var(--acc)">EX-7201</span></div>
+  <div class="ctx-item" id="ctx-ai-resolve" onclick="ctxAct('airesolve')"><span class="ctx-ico">⚡</span><span class="ctx-lbl">AI Auto-Resolve</span><span class="ctx-key">◈</span></div>
+  <div class="ctx-item" id="ctx-resolve" onclick="ctxAct('resolve')"><span class="ctx-ico">✅</span><span class="ctx-lbl">Resolve Exception</span><span class="ctx-key">R</span></div>
+  <div class="ctx-item" id="ctx-esc" onclick="ctxAct('escalate')"><span class="ctx-ico">▲</span><span class="ctx-lbl">Escalate</span><span class="ctx-key">E</span></div>
+  <div class="ctx-item" onclick="ctxAct('assign')"><span class="ctx-ico">👤</span><span class="ctx-lbl">Assign To…</span><span class="ctx-key">A</span></div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item" onclick="ctxAct('match')"><span class="ctx-ico">🔗</span><span class="ctx-lbl">Match Items</span><span class="ctx-key">M</span></div>
+  <div class="ctx-item" onclick="ctxAct('panel')"><span class="ctx-ico">📋</span><span class="ctx-lbl">Open in Detail Panel</span><span class="ctx-key">↵</span></div>
+  <div class="ctx-item" onclick="ctxAct('explain')"><span class="ctx-ico">🧠</span><span class="ctx-lbl">AI Explain This Exception</span></div>
+  <div class="ctx-div"></div>
+  <div class="ctx-item danger" onclick="ctxAct('suppress')"><span class="ctx-ico">🗑</span><span class="ctx-lbl">Suppress</span></div>
+</div>
+
+<!-- TOAST AREA -->
+<div class="toast-area" id="toastArea"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ─── DATA — More meaningful business data ─── */
+const BREAKS=[
+  {id:'EX-7201',recon:'NAB-7291',item:'MT940-884729100',bid:'NOSTRO-DB-LDN-001',type:'Nostro',cpty:'Deutsche Bank AG',date:'02-Apr-26',status:'inv',amount:12450000,aging:7,sla:'breach',risk:94,ai:96,owner:'RM',ownerName:'Ravi M.',og:'135deg,#C87B3A,#2A9D8F',breach:true,currency:'USD',region:'EMEA'},
+  {id:'EX-7202',recon:'NAB-7291',item:'SWIFT-JP-449201',bid:'NOSTRO-JPM-NY-002',type:'Cash',cpty:'JP Morgan Chase',date:'05-Apr-26',status:'open',amount:3200000,aging:4,sla:'ok',risk:38,ai:72,owner:'AK',ownerName:'Ananya K.',og:'135deg,#2A9D8F,#3A8FD4',breach:false,currency:'USD',region:'Americas'},
+  {id:'EX-7203',recon:'FX-8104',item:'FX-SPOT-EUR-0407',bid:'FX-HSBC-LDN-003',type:'FX',cpty:'HSBC London',date:'07-Apr-26',status:'esc',amount:4800000,aging:2,sla:'near',risk:68,ai:84,owner:'CV',ownerName:'Chetan V.',og:'135deg,#D45A5A,#E9A84C',breach:false,currency:'EUR',region:'EMEA'},
+  {id:'EX-7204',recon:'NAB-7291',item:'MT940-884729103',bid:'NOSTRO-DB-LDN-004',type:'Nostro',cpty:'Deutsche Bank AG',date:'02-Apr-26',status:'inv',amount:8600000,aging:7,sla:'breach',risk:91,ai:96,owner:'RM',ownerName:'Ravi M.',og:'135deg,#C87B3A,#2A9D8F',breach:true,currency:'USD',region:'EMEA'},
+  {id:'EX-7205',recon:'SL-4402',item:'SL-BRC-COL-0405',bid:'SECLEND-BRC-005',type:'Sec Lend',cpty:'Barclays Capital',date:'05-Apr-26',status:'pend',amount:6700000,aging:4,sla:'ok',risk:52,ai:65,owner:'PT',ownerName:'Priya T.',og:'135deg,#3A8FD4,#2A9D8F',breach:false,currency:'GBP',region:'EMEA'},
+  {id:'EX-7206',recon:'NAB-7291',item:'CASH-SGD-0406',bid:'CASH-DBS-SG-006',type:'Cash',cpty:'DBS Singapore',date:'06-Apr-26',status:'open',amount:1850000,aging:3,sla:'ok',risk:28,ai:88,owner:'DK',ownerName:'Durai K.',og:'135deg,#E9A84C,#C87B3A',breach:false,currency:'SGD',region:'APAC'},
+  {id:'EX-7207',recon:'FX-8104',item:'FX-FWD-JPY-0404',bid:'FX-MUFG-TKY-007',type:'FX',cpty:'MUFG Tokyo',date:'04-Apr-26',status:'open',amount:980000000,aging:5,sla:'near',risk:76,ai:42,owner:'YS',ownerName:'Yuki S.',og:'135deg,#2A9D8F,#C87B3A',breach:false,currency:'JPY',region:'APAC'},
+  {id:'EX-7208',recon:'SL-4402',item:'SL-JPM-COL-0403',bid:'SECLEND-JPM-008',type:'Sec Lend',cpty:'JP Morgan Chase',date:'03-Apr-26',status:'esc',amount:23100000,aging:6,sla:'breach',risk:88,ai:31,owner:null,ownerName:'Unassigned',og:null,breach:true,currency:'USD',region:'Americas'},
+  {id:'EX-7209',recon:'NAB-7291',item:'MT940-BNP-FR-109',bid:'NOSTRO-BNP-PAR-009',type:'Nostro',cpty:'BNP Paribas',date:'07-Apr-26',status:'inv',amount:2340000,aging:2,sla:'ok',risk:35,ai:91,owner:'CV',ownerName:'Chetan V.',og:'135deg,#D45A5A,#E9A84C',breach:false,currency:'EUR',region:'EMEA'},
+  {id:'EX-7210',recon:'FX-8104',item:'FX-SPOT-INR-0406',bid:'FX-ICICI-MUM-010',type:'FX',cpty:'ICICI Bank',date:'06-Apr-26',status:'pend',amount:145000000,aging:3,sla:'ok',risk:42,ai:78,owner:'DK',ownerName:'Durai K.',og:'135deg,#E9A84C,#C87B3A',breach:false,currency:'INR',region:'APAC'},
+  {id:'EX-7211',recon:'CASH-2201',item:'CASH-USD-0407',bid:'CASH-CITI-NY-011',type:'Cash',cpty:'Citibank NY',date:'07-Apr-26',status:'res',amount:890000,aging:1,sla:'ok',risk:12,ai:100,owner:'AK',ownerName:'Ananya K.',og:'135deg,#2A9D8F,#3A8FD4',breach:false,currency:'USD',region:'Americas'},
+  {id:'EX-7212',recon:'NAB-7291',item:'FEE-CUST-0405',bid:'FEE-DB-LDN-012',type:'Fees',cpty:'Deutsche Bank AG',date:'05-Apr-26',status:'open',amount:42000,aging:4,sla:'ok',risk:15,ai:95,owner:'PT',ownerName:'Priya T.',og:'135deg,#3A8FD4,#2A9D8F',breach:false,currency:'USD',region:'EMEA'},
+];
+
+/* ─── STATE ─── */
+let theme='dark',view='table',activeId='EX-7201';
+let selectedRows=new Set(['EX-7201','EX-7204']);
+let ctxTarget=null,isDragging=false,startX=0,startW=0;
+let inboxIdx=0,filteredBreaks=[...BREAKS],aiTypingTimer=null;
+
+/* ─── MAPS ─── */
+const SLM={open:'so',inv:'si',pend:'sp',esc:'se',res:'sr'};
+const SLT={open:'Open',inv:'Investigating',pend:'Pending',esc:'Escalated',res:'Resolved'};
+const SSM={open:'ss-open',inv:'ss-inv',pend:'ss-pend',esc:'ss-esc',res:'ss-res'};
+const SLAM={breach:'sla-b',near:'sla-n',ok:'sla-o'};
+const SLAT={breach:'BREACH',near:'Near',ok:'OK'};
+const AC=b=>b.aging>=7?'cr':b.aging>=4?'wa':'ok';
+const RM=b=>b.risk>=70?'rhi':b.risk>=40?'rmd':'rlo';
+const AMT=(n,c)=>{
+  if(c==='JPY') return '¥'+n.toLocaleString();
+  if(c==='EUR') return '€'+n.toLocaleString();
+  if(c==='GBP') return '£'+n.toLocaleString();
+  if(c==='INR') return '₹'+n.toLocaleString();
+  if(c==='SGD') return 'S$'+n.toLocaleString();
+  return '$'+n.toLocaleString();
+};
+const AMTS=b=>AMT(b.amount,b.currency);
+
+/* ─── HEAT MAP DATA ─── */
+const HEATMAP_DATA={
+  hours:['06:00','08:00','10:00','12:00','14:00','16:00','18:00'],
+  days:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+  values:[
+    [3,18,42,28,35,22,8],
+    [5,24,38,31,42,18,6],
+    [2,15,35,26,28,14,4],
+    [4,28,56,34,38,20,7],
+    [6,22,48,30,32,16,5],
+    [8,32,68,42,45,24,12],
+    [4,26,52,38,40,20,9]
+  ]
+};
+
+function buildHeatMap(){
+  const grid=document.getElementById('heatmapGrid');
+  const max=Math.max(...HEATMAP_DATA.values.flat());
+  let html='<div class="hm-label"></div>';
+  HEATMAP_DATA.days.forEach(d=>{html+=`<div class="hm-col-label">${d}</div>`;});
+  HEATMAP_DATA.hours.forEach((h,hi)=>{
+    html+=`<div class="hm-label">${h}</div>`;
+    HEATMAP_DATA.days.forEach((d,di)=>{
+      const v=HEATMAP_DATA.values[di][hi];
+      const ratio=v/max;
+      const level=ratio<.15?0:ratio<.3?1:ratio<.5?2:ratio<.7?3:ratio<.85?4:5;
+      const color=`var(--hm${level})`;
+      const textColor=level>=3?'#fff':'var(--t2)';
+      html+=`<div class="hm-cell" style="background:${color};color:${textColor};" title="${d} ${h}: ${v} exceptions" onclick="toast('🔍','Heat Map','${d} ${h}: ${v} exceptions created','ta')">${v}</div>`;
+    });
+  });
+  grid.innerHTML=html;
+}
+
+/* ─── INIT ─── */
+window.addEventListener('DOMContentLoaded',()=>{
+  renderTable(BREAKS);
+  renderInbox(BREAKS.filter(b=>b.status!=='res'));
+  buildHeatMap();
+  updateClock();setInterval(updateClock,1000);
+  setTimeout(()=>toast('◈','MERIDIAN Online','Precision Reconciliation Intelligence active · 2,847 exceptions','tp'),600);
+  setTimeout(()=>toast('⚠️','Pattern Detected','Nostro cluster — 12 breaks share Deutsche Bank AG · 96% confidence','tp'),2000);
+});
+
+/* ─── CLOCK ─── */
+function updateClock(){const n=new Date(),p=v=>String(v).padStart(2,'0'),el=document.getElementById('clockEl');if(el)el.textContent=`${p(n.getUTCHours())}:${p(n.getUTCMinutes())}:${p(n.getUTCSeconds())} UTC`;}
+
+/* ─── THEME ─── */
+function setTheme(t){
+  theme=t;document.documentElement.setAttribute('data-theme',t);
+  ['td','tl','te'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById(t==='dark'?'td':t==='light'?'tl':'te').classList.add('on');
+  toast('🎨',`${t==='dark'?'Dark':t==='light'?'Light':'Eye-Comfort'} Mode`,'','ta');
+}
+
+/* ─── KEYBOARD ─── */
+document.addEventListener('keydown',e=>{
+  const focus=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName);
+  if(e.ctrlKey||e.metaKey){
+    if(e.key==='d'){e.preventDefault();setTheme('dark');}
+    if(e.key==='l'){e.preventDefault();setTheme('light');}
+    if(e.key==='e'){e.preventDefault();setTheme('eye');}
+    if(e.key==='k'){e.preventDefault();document.getElementById('cmdInput').focus();}
+  }
+  if(e.key==='Escape'){
+    closeCtx();
+    if(!document.getElementById('makerOverlay').classList.contains('hidden')){closeMaker();return;}
+    if(document.getElementById('apprOverlay').classList.contains('open')){closeAppr();return;}
+    document.getElementById('cmdDrop').classList.remove('open');
+  }
+  if(focus)return;
+  if(e.key==='t'||e.key==='T')switchView('table');
+  if(e.key==='i'||e.key==='I')switchView('inbox');
+  if(e.key==='v'||e.key==='V')switchView('trends');
+  if(e.key==='r'||e.key==='R')openMaker(activeId,null);
+  if(e.key==='e'||e.key==='E')toast('▲','Escalated',`${activeId} escalated to supervisor`,'tm');
+});
+
+/* ─── VIEW SWITCHING ─── */
+function switchView(v){
+  view=v;
+  ['tableView','inboxView','trendsView'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});
+  const vmap={table:'tableView',inbox:'inboxView',trends:'trendsView'};
+  const el=document.getElementById(vmap[v]);if(el){el.style.display='flex';if(v==='trends')el.style.flexDirection='column';}
+  ['ni-t','ni-i','ni-tr'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('ni-'+v[0]+(v==='trends'?'r':'')).classList.add('active');
+  if(v==='inbox')toast('📥','Inbox Mode','J/K navigate · R resolve · E escalate','tp');
+  if(v==='trends')toast('📊','Analytics View','Click any chart to filter · Heat map active','tp');
+}
+
+/* ─── TABLE RENDER ─── */
+function renderTable(breaks){
+  const tb=document.getElementById('tbody');
+  tb.innerHTML=breaks.map(b=>{
+    const isSel=selectedRows.has(b.id),isAct=activeId===b.id;
+    return`<tr class="${isAct?'row-active':''} ${isSel?'row-chk':''}" data-id="${b.id}" onclick="rowClick('${b.id}',this)" oncontextmenu="showCtx(event,'${b.id}')">
+      <td style="position:relative;"><div class="ss ${SSM[b.status]}"></div><div class="ck ${isSel?'on':''}" id="ck-${b.id}" onclick="rowCk(event,'${b.id}',this)">${isSel?'✓':''}</div></td>
+      <td><span style="font-family:var(--m);font-size:10.5px;color:var(--t3)">${b.recon}</span></td>
+      <td><span class="iid">${b.item}</span></td>
+      <td><span class="bid">${b.id}</span></td>
+      <td><span class="ty">${b.type}</span></td>
+      <td><span style="font-family:var(--f);font-size:11px;color:var(--t2)">${b.cpty}</span></td>
+      <td><span class="st ${SLM[b.status]}"><span class="std"></span>${SLT[b.status]}</span></td>
+      <td><span class="amt ${b.amount>5000000?'hi':''}">${AMTS(b)}</span></td>
+      <td><span class="age ${AC(b)}">${b.aging}d${b.aging>=5?' ▲':''}</span></td>
+      <td><span class="slax ${SLAM[b.sla]}">${SLAT[b.sla]}</span></td>
+      <td><div class="rc ${RM(b)}"><div class="rn">${b.risk}</div><div class="rbw"><div class="rb" style="width:${b.risk}%"></div></div></div></td>
+      <td><div class="ais"><span class="ain">${b.ai}</span><div class="aibw"><div class="aibf" style="width:${b.ai}%"></div></div></div></td>
+      <td>${b.owner?`<div class="own"><div class="oa" style="background:linear-gradient(${b.og})">${b.owner}</div><span style="font-size:11.5px;color:var(--t2);">${b.ownerName}</span></div>`:`<span style="font-size:11px;color:var(--t3);font-style:italic;">Unassigned</span>`}</td>
+      <div class="ga">
+        ${b.status!=='res'?`<button class="gab gr" onclick="openMaker('${b.id}',event)">Resolve</button>`:''}
+        ${b.status!=='esc'&&b.status!=='res'?`<button class="gab ge" onclick="toast('▲','Escalated','${b.id} escalated','tm')">Escalate</button>`:''}
+        <button class="gab gn" onclick="toast('👤','Assign','','ta')">Assign</button>
+      </div>
+    </tr>`;
+  }).join('');
+}
+
+/* ─── INBOX RENDER ─── */
+function renderInbox(breaks){
+  const el=document.getElementById('ibList');
+  el.innerHTML=breaks.map((b,i)=>{
+    const isAct=i===inboxIdx;
+    const ac=b.aging>=7?'var(--red)':b.aging>=4?'var(--amb)':'var(--grn)';
+    return`<div class="tc ${isAct?'tca':''}" onclick="selInbox(${i},'${b.id}')">
+      <div class="tc-str ${SSM[b.status]}"></div>
+      <div class="tc-r1"><span class="tc-id">${b.id}</span><span class="st ${SLM[b.status]}" style="font-size:9px;"><span class="std"></span>${SLT[b.status]}</span><span class="tc-t">${b.aging}d</span></div>
+      <div class="tc-r2"><span class="tc-amt">${AMTS(b)}</span><span class="tc-type">${b.type} · ${b.cpty}</span></div>
+      <div class="tc-r3"><span class="tc-own">${b.ownerName}</span><span class="slax ${SLAM[b.sla]}" style="font-size:9px;">${SLAT[b.sla]}</span></div>
+      <div class="tc-ab" style="background:linear-gradient(90deg,${ac} ${Math.min(b.aging*10,100)}%,var(--b2) ${Math.min(b.aging*10,100)}%);"></div>
+      <div class="tc-acts">
+        <button class="btn btn-ai btn-xs" onclick="event.stopPropagation();cmdSend('Auto-resolve exception ${b.id}')">⚡ AI</button>
+        <button class="btn btn-success btn-xs" onclick="event.stopPropagation();openMaker('${b.id}',null)">Resolve</button>
+        <button class="btn btn-ghost btn-xs" onclick="event.stopPropagation();navBreak(1)">Skip</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selInbox(idx,id){
+  inboxIdx=idx;activeId=id;
+  document.querySelectorAll('.tc').forEach((c,i)=>c.classList.toggle('tca',i===idx));
+  document.getElementById('brkProg').textContent=`Exception ${idx+1} of ${BREAKS.filter(b=>b.status!=='res').length}`;
+  document.getElementById('prevBrk').classList.toggle('dis',idx===0);
+  document.getElementById('dpxBid').textContent=id;
+  const b=BREAKS.find(x=>x.id===id);
+  document.getElementById('ibDetail').innerHTML=`
+    <div style="background:var(--ai-gs);border:1px solid var(--ai-gb);border-radius:8px;padding:12px;margin-bottom:10px;">
+      <div style="font-family:var(--f-display);font-size:11px;font-weight:700;color:var(--ai1);margin-bottom:6px;">◈ AI Assessment for ${id}</div>
+      <div style="font-family:var(--f);font-size:12px;color:var(--t2);line-height:1.6;">
+        Confidence: <strong style="color:var(--ai1)">${b.ai}%</strong> · 
+        Counterparty: <strong>${b.cpty}</strong> · 
+        Region: <strong>${b.region}</strong>
+      </div>
+      <div style="display:flex;gap:4px;margin-top:8px;">
+        <button class="btn btn-ai btn-xs" onclick="cmdSend('Auto-resolve exception ${id}')">⚡ Apply AI Recommendation</button>
+        <button class="btn btn-ghost btn-xs" onclick="cmdSend('Explain why exception ${id} exists')">🧠 Explain</button>
+      </div>
+    </div>
+    <div class="mg" style="margin-bottom:10px;">
+      <div class="mi"><div class="mil">Amount</div><div class="miv" style="color:${b.breach?'var(--red)':'var(--t1)'}">${AMTS(b)}</div></div>
+      <div class="mi"><div class="mil">Currency</div><div class="miv">${b.currency}</div></div>
+      <div class="mi"><div class="mil">Aging</div><div class="miv" style="color:${b.aging>=7?'var(--red)':b.aging>=4?'var(--amb)':'var(--grn)'}">${b.aging}d</div></div>
+      <div class="mi"><div class="mil">Risk</div><div class="miv" style="color:${b.risk>=70?'var(--red)':b.risk>=40?'var(--amb)':'var(--grn)'}">${b.risk}/100</div></div>
+      <div class="mi"><div class="mil">SLA</div><div class="miv"><span class="slax ${SLAM[b.sla]}">${SLAT[b.sla]}</span></div></div>
+      <div class="mi"><div class="mil">Owner</div><div class="miv">${b.ownerName}</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <button class="btn btn-ai" style="justify-content:center;width:100%;" onclick="cmdSend('Auto-resolve exception ${id}')">⚡ AI Auto-Resolve</button>
+      <button class="btn btn-success" style="justify-content:center;width:100%;" onclick="openMaker('${id}',null)">✓ Resolve — Maker/Checker</button>
+      <button class="btn btn-warn" style="justify-content:center;width:100%;" onclick="toast('▲','Escalated','${id} escalated','tm')">Escalate</button>
+    </div>`;
+}
+
+function navBreak(dir){
+  const list=BREAKS.filter(b=>b.status!=='res');
+  const nIdx=Math.max(0,Math.min(list.length-1,inboxIdx+dir));
+  selInbox(nIdx,list[nIdx].id);
+  const cards=document.querySelectorAll('.tc');
+  if(cards[nIdx])cards[nIdx].scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function revMode(m){
+  ['ro-bulk','ro-focus'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById('ro-'+m).classList.add('on');
+  document.getElementById('revProg').style.display=m==='focus'?'flex':'none';
+  if(m==='focus')toast('🎯','Focus Mode','One exception at a time','tp');
+}
+
+function isort(el,by){document.querySelectorAll('.isb').forEach(b=>b.classList.remove('on'));el.classList.add('on');toast('🔽',`Sort: ${by}`,'Inbox reordered','ta');}
+
+/* ─── ROW SELECTION ─── */
+function rowClick(id,tr){
+  activeId=id;
+  document.querySelectorAll('tbody tr').forEach(r=>r.classList.remove('row-active'));
+  if(tr)tr.classList.add('row-active');
+  document.getElementById('dpxBid').textContent=id;
+  const b=BREAKS.find(x=>x.id===id);
+  document.getElementById('dpBreach').style.display=b?.breach?'flex':'none';
+}
+function rowCk(e,id,el){
+  e.stopPropagation();
+  const on=el.classList.toggle('on');el.textContent=on?'✓':'';
+  if(on)selectedRows.add(id);else selectedRows.delete(id);
+  const tr=document.querySelector(`tr[data-id="${id}"]`);
+  if(tr)tr.classList.toggle('row-chk',on);
+  updateBulkBar();
+}
+function selAll(){
+  const all=document.querySelectorAll('tbody .ck');
+  const allOn=selectedRows.size===all.length;
+  selectedRows.clear();
+  all.forEach(ck=>{
+    const id=ck.id.replace('ck-','');
+    ck.classList.remove('on');ck.textContent='';
+    document.querySelector(`tr[data-id="${id}"]`)?.classList.remove('row-chk');
+    if(!allOn){ck.classList.add('on');ck.textContent='✓';selectedRows.add(id);document.querySelector(`tr[data-id="${id}"]`)?.classList.add('row-chk');}
+  });
+  updateBulkBar();
+}
+function clearBulk(){
+  selectedRows.clear();
+  document.querySelectorAll('tbody .ck').forEach(c=>{c.classList.remove('on');c.textContent='';});
+  document.querySelectorAll('tbody tr').forEach(r=>r.classList.remove('row-chk'));
+  updateBulkBar();
+}
+function updateBulkBar(){
+  const n=selectedRows.size,bar=document.getElementById('bulkBar');
+  bar.style.display=n>0?'flex':'none';
+  document.getElementById('bulkCnt').textContent=`${n} selected`;
+  document.getElementById('bulkPrev').textContent=n>0?`${n} exception${n>1?'s':''} · AI ready to act`:'';
+}
+
+/* ─── PANEL ─── */
+function dpTab(el,id){
+  const par=el.parentElement;
+  par.querySelectorAll('.dpt').forEach(t=>t.classList.remove('on'));el.classList.add('on');
+  const pfx=id.split('-')[0]+'-';
+  document.querySelectorAll('[id^="'+pfx+'"]').forEach(t=>t.style.display='none');
+  const tab=document.getElementById(id);if(tab)tab.style.display='';
+}
+function toggleDetailCollapse(){document.getElementById('aipDetail').classList.toggle('collapsed');}
+function togglePanelWidth(){const p=document.getElementById('aiPanel');p.classList.toggle('wide');}
+
+/* ─── FILTER / KPI ─── */
+function kpiFilter(type,el){
+  document.querySelectorAll('.kpi-cell').forEach(k=>k.classList.remove('on'));
+  if(el)el.classList.add('on');
+  let filtered=[...BREAKS];
+  if(type==='amb')filtered=BREAKS.filter(b=>b.risk>=70||b.aging>=5);
+  if(type==='red')filtered=BREAKS.filter(b=>b.sla==='breach');
+  if(type==='grn')filtered=BREAKS.filter(b=>b.status==='res');
+  renderTable(filtered);
+  document.getElementById('rcount').textContent=`${filtered.length} / ${BREAKS.length}`;
+  toast('🔍','KPI Filter',`Filtered by ${type}`,'ta');
+}
+function chipTog(el){if(el)el.classList.toggle('on');toast('🔧','Filter Updated','Results refreshed','ta');}
+function resetFilters(){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  clearAIFilter();renderTable(BREAKS);
+  document.getElementById('rcount').textContent=`${BREAKS.length} / ${BREAKS.length}`;
+  toast('🔁','Filters Reset','','ta');
+}
+function clearAIFilter(){const t=document.getElementById('activeTag');if(t){t.style.display='none';t.innerHTML='';}}
+function wTab(el){el.parentElement.querySelectorAll('.wt').forEach(t=>t.classList.remove('on'));el.classList.add('on');toast('🔧','Tab Filter','','ta');}
+
+/* ─── MAKER/CHECKER ─── */
+function openMaker(id,e){if(e)e.stopPropagation();document.getElementById('makerOverlay').classList.remove('hidden');}
+function closeMaker(){document.getElementById('makerOverlay').classList.add('hidden');}
+function submitRes(){
+  closeMaker();
+  const v=document.getElementById('velCnt');if(v)v.textContent=parseInt(v.textContent)+1;
+  toast('📋','Submitted for Approval','Resolution sent to checker · Status: Pending Approval','tg');
+}
+
+/* ─── APPROVALS ─── */
+function openAppr(){document.getElementById('apprOverlay').classList.add('open');document.getElementById('apprDim').classList.add('on');}
+function closeAppr(){document.getElementById('apprOverlay').classList.remove('open');document.getElementById('apprDim').classList.remove('on');}
+
+/* ─── CONTEXT MENU ─── */
+function showCtx(e,id){
+  e.preventDefault();ctxTarget=id;
+  const m=document.getElementById('ctxMenu');
+  document.getElementById('ctxBid').textContent=id;
+  const b=BREAKS.find(x=>x.id===id);
+  document.getElementById('ctx-resolve').classList.toggle('dis',b?.status==='res');
+  document.getElementById('ctx-esc').classList.toggle('dis',b?.status==='esc');
+  m.style.left=Math.min(e.clientX,window.innerWidth-200)+'px';
+  m.style.top=Math.min(e.clientY,window.innerHeight-320)+'px';
+  m.classList.add('open');
+}
+function closeCtx(){document.getElementById('ctxMenu').classList.remove('open');}
+document.addEventListener('click',closeCtx);
+function ctxAct(type){
+  closeCtx();
+  const acts={
+    airesolve:()=>cmdSend(`Auto-resolve exception ${ctxTarget}`),
+    resolve:()=>openMaker(ctxTarget,null),
+    escalate:()=>toast('▲','Escalated',`${ctxTarget} escalated to supervisor`,'tm'),
+    assign:()=>toast('👤','Assign',`Assign ${ctxTarget}`,'ta'),
+    match:()=>toast('🔗','Match',`Exception ${ctxTarget} matched`,'tg'),
+    panel:()=>{rowClick(ctxTarget);},
+    explain:()=>cmdSend(`Explain why exception ${ctxTarget} exists`),
+    suppress:()=>toast('🗑','Suppress','Suppression requires senior approval','tr'),
+  };
+  const fn=acts[type];if(typeof fn==='function')fn();
+}
+
+/* ─── AI COMMAND BAR ─── */
+function onCmdFocus(){
+  document.getElementById('cmdBar').classList.add('active');
+  if(document.getElementById('cmdInput').value.length<2)
+    document.getElementById('cmdDrop').classList.add('open');
+}
+function onCmdBlur(){
+  document.getElementById('cmdBar').classList.remove('active');
+  setTimeout(()=>document.getElementById('cmdDrop').classList.remove('open'),150);
+}
+function cmdInputHandler(el){
+  if(el.value.length>=1)document.getElementById('cmdDrop').classList.add('open');
+  else document.getElementById('cmdDrop').classList.remove('open');
+}
+function cmdKeydown(e){
+  if(e.key==='Enter'){e.preventDefault();cmdSend(e.target.value.trim());e.target.value='';document.getElementById('cmdDrop').classList.remove('open');}
+  if(e.key==='Escape'){document.getElementById('cmdDrop').classList.remove('open');document.getElementById('cmdInput').blur();}
+}
+function cmdSend(q){
+  if(!q)return;
+  document.getElementById('cmdInput').value='';
+  document.getElementById('cmdDrop').classList.remove('open');
+  aiSend(q);
+}
+
+/* ─── AI CHAT ─── */
+function aiKeydown(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();aiSendFromInput();}}
+function aiSendFromInput(){const ta=document.getElementById('aiInput');const q=ta.value.trim();if(!q)return;aiSend(q);ta.value='';ta.style.height='';}
+function autoResize(el){el.style.height='';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+
+function aiSend(q){
+  const msgs=document.getElementById('aiMsgs');
+  const um=document.createElement('div');um.className='msg-u';um.textContent=q;msgs.appendChild(um);
+  const ti=document.createElement('div');ti.className='ai-typing';ti.innerHTML=`<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>`;msgs.appendChild(ti);
+  msgs.scrollTop=msgs.scrollHeight;
+  clearTimeout(aiTypingTimer);
+  aiTypingTimer=setTimeout(()=>{
+    ti.remove();
+    const resp=getAIResp(q);
+    const rm=document.createElement('div');rm.className='msg-ai';
+    rm.innerHTML=`<div class="msg-ai-hdr"><span class="msg-ai-ico">◈</span><span class="msg-ai-from">MERIDIAN AI</span><span class="msg-ai-ts">just now</span></div>${resp}`;
+    msgs.appendChild(rm);msgs.scrollTop=msgs.scrollHeight;
+  },Math.random()*600+700);
+}
+
+function getAIResp(q){
+  const ql=q.toLowerCase();
+
+  if(ql.includes('resolve all')||(ql.includes('resolve')&&ql.includes('high'))){
+    const ready=BREAKS.filter(b=>b.ai>=80&&b.status!=='res');
+    setTimeout(()=>{
+      ready.slice(0,5).forEach((b,i)=>{
+        setTimeout(()=>{const tr=document.querySelector(`tr[data-id="${b.id}"]`);if(tr)tr.classList.add('ai-resolving');},i*300);
+      });
+      setTimeout(()=>toast('⚡','AI Bulk Resolve',`${ready.length} exceptions auto-resolved · Submitted for approval`,'tg'),ready.length*300+400);
+    },600);
+    return`<div>Executing bulk AI resolution for <strong style="color:var(--ai1)">${ready.length} exceptions</strong> with confidence ≥80%.</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Resolving Now</span><span class="ai-rc-cnt">${ready.length} exceptions</span></div>
+    ${ready.map(b=>`<div class="ai-rc-row"><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span>${b.cpty}</span><span class="ai-rcv">${AMTS(b)}</span><span style="color:var(--ai1);font-family:var(--m);font-size:10px;">${b.ai}%</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic g">✓ Submitted ${ready.length} for approval</div><div class="aic a" onclick="openAppr()">View in Approvals →</div></div>`;
+  }
+
+  if(ql.includes('pattern')||ql.includes('detect')){
+    return`<div style="margin-bottom:8px;">Scanned 2,847 exceptions. Found <strong style="color:var(--ai1)">3 significant patterns</strong>:</div>
+    <div class="ai-rc" style="margin-bottom:7px;"><div class="ai-rc-hdr"><span class="ai-rc-title">Pattern 1 — Deutsche Bank Nostro Cluster</span><span class="ai-rc-cnt">96% conf</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:6px;"><strong>12 nostro breaks</strong> with Deutsche Bank London share identical settlement timing mismatch (T+1 CLS vs T+2 internal). Combined exposure <strong style="color:var(--red)">$18.4M</strong>. All resolvable with single value date correction.</div>
+    <div class="ai-chips"><div class="aic g" onclick="cmdSend('Resolve all high-confidence exceptions')">⚡ Resolve All 12</div></div></div>
+    <div class="ai-rc" style="margin-bottom:7px;"><div class="ai-rc-hdr"><span class="ai-rc-title">Pattern 2 — APAC Morning Spike</span><span class="ai-rc-cnt">Today</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:6px;"><strong>34% more exceptions</strong> created between 10:00-12:00 UTC today. Correlates with APAC market open. Source: DBS Singapore and MUFG Tokyo settlement batches running late.</div>
+    <div class="ai-chips"><div class="aic" onclick="switchView('trends')">📊 View Heat Map</div></div></div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Pattern 3 — Unassigned Critical</span><span class="ai-rc-cnt">Urgent</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:6px;"><strong style="color:var(--red)">EX-7208 ($23.1M)</strong> — JP Morgan Sec Lending collateral dispute is unassigned for 6 days with SLA breached. Risk score 88/100. Needs immediate assignment.</div>
+    <div class="ai-chips"><div class="aic r" onclick="rowClick('EX-7208')">⚠️ Open EX-7208</div><div class="aic" onclick="toast('👤','AI Auto-Assign','EX-7208 assigned to Senior Analyst','tg')">👤 AI Auto-Assign</div></div></div>`;
+  }
+
+  if(ql.includes('counterparty')||ql.includes('exposure')||ql.includes('region')){
+    return`<div style="margin-bottom:7px;">📊 <strong>Counterparty Exposure Analysis</strong>:</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Top Exposures by Counterparty</span><span class="ai-rc-cnt">$142M total</span></div>
+      <div class="ai-rc-row"><span>Deutsche Bank AG</span><span class="ai-rcv" style="color:var(--red)">$28.4M (EMEA)</span></div>
+      <div class="ai-rc-row"><span>JP Morgan Chase</span><span class="ai-rcv" style="color:var(--amb)">$19.6M (Americas)</span></div>
+      <div class="ai-rc-row"><span>HSBC London</span><span class="ai-rcv">$15.2M (EMEA)</span></div>
+      <div class="ai-rc-row"><span>MUFG Tokyo</span><span class="ai-rcv">$11.8M (APAC)</span></div>
+      <div class="ai-rc-row"><span>DBS Singapore</span><span class="ai-rcv">$8.2M (APAC)</span></div>
+    </div>
+    <div style="margin-top:7px;font-size:12px;color:var(--t2);">⚠ <strong style="color:var(--red);">EMEA concentration risk:</strong> 48% of exposure in 2 counterparties.</div>
+    <div class="ai-chips"><div class="aic" onclick="switchView('trends')">📊 View Trends</div></div>`;
+  }
+
+  if(ql.includes('health')||ql.includes('summar')||ql.includes('today')){
+    return`<div style="margin-bottom:7px;">📊 <strong>Reconciliation Health — NAB-NOSTRO-7291</strong> (as of ${new Date().toUTCString().slice(17,22)} UTC)</div>
+    <div class="ai-rc"><div style="display:flex;flex-direction:column;gap:4px;font-size:12px;">
+      <div class="ai-rc-row"><span class="ipk">Open Exceptions</span><span class="ai-rcv" style="color:var(--acc)">2,847</span></div>
+      <div class="ai-rc-row"><span class="ipk">Total Open Exposure</span><span class="ai-rcv" style="color:var(--red)">$142M ↑$18M</span></div>
+      <div class="ai-rc-row"><span class="ipk">SLA Breached</span><span class="ai-rcv" style="color:var(--red)">91 (3.2%) ⚠</span></div>
+      <div class="ai-rc-row"><span class="ipk">Resolved Today</span><span class="ai-rcv" style="color:var(--grn)">312 (+22%)</span></div>
+      <div class="ai-rc-row"><span class="ipk">AI Resolved Today</span><span class="ai-rcv" style="color:var(--ai1)">128 (41%)</span></div>
+      <div class="ai-rc-row"><span class="ipk">Counterparties Impacted</span><span class="ai-rcv">34</span></div>
+      <div class="ai-rc-row" style="border:none;"><span class="ipk">Analyst Hours Saved</span><span class="ai-rcv" style="color:var(--grn)">8.6h ◈</span></div>
+    </div></div>
+    <div class="ai-chips"><div class="aic r" onclick="rowClick('EX-7208')">⚠ Open EX-7208 ($23.1M)</div><div class="aic" onclick="switchView('trends')">📊 Full Analytics</div></div>`;
+  }
+
+  if(ql.includes('highest')||ql.includes('largest')||ql.includes('biggest')){
+    const top=[...BREAKS].sort((a,b)=>b.amount-a.amount)[0];
+    rowClick(top.id);
+    return`<div>The largest open exception is <strong style="color:var(--ai1)">${top.id}</strong>:</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Highest Value Exception</span></div>
+    <div class="ai-rc-row"><span>Exception ID</span><span class="ai-rcid" onclick="rowClick('${top.id}')">${top.id}</span></div>
+    <div class="ai-rc-row"><span>Counterparty</span><span class="ai-rcv">${top.cpty}</span></div>
+    <div class="ai-rc-row"><span>Amount</span><span class="ai-rcv" style="color:var(--red)">${AMTS(top)}</span></div>
+    <div class="ai-rc-row"><span>Type</span><span class="ai-rcv">${top.type}</span></div>
+    <div class="ai-rc-row"><span>Risk Score</span><span class="ai-rcv" style="color:var(--red)">${top.risk}/100</span></div>
+    <div class="ai-rc-row" style="border:none;"><span>Owner</span><span class="ai-rcv">${top.ownerName}</span></div>
+    </div>
+    <div class="ai-chips"><div class="aic r" onclick="rowClick('${top.id}')">📋 Open in Panel</div><div class="aic g" onclick="openMaker('${top.id}',null)">⚡ Resolve Now</div></div>`;
+  }
+
+  if(ql.includes('sla')&&(ql.includes('not escalat')||ql.includes('unescalat')||ql.includes('breach'))){
+    const bks=BREAKS.filter(b=>b.sla==='breach'&&b.status!=='esc');
+    applyTableFilter(bks,'SLA Breach · Unescalated');
+    return`<div>Found <strong style="color:var(--red)">${bks.length} SLA-breached exceptions</strong> not yet escalated.</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">SLA Breach · Unescalated</span><span class="ai-rc-cnt">${bks.length}</span></div>
+    ${bks.map(b=>`<div class="ai-rc-row"><span class="ai-rcid" onclick="rowClick('${b.id}')">${b.id}</span><span>${b.cpty}</span><span class="ai-rcv">${AMTS(b)}</span></div>`).join('')}
+    </div>
+    <div class="ai-chips"><div class="aic r" onclick="toast('▲','Escalate All','${bks.length} exceptions escalated','tm')">▲ Escalate All</div></div>`;
+  }
+
+  if(ql.includes('inbox')||ql.includes('review')){
+    switchView('inbox');
+    return`<div>Switched to <strong style="color:var(--ai1)">Inbox Review Mode</strong>. <strong>${BREAKS.filter(b=>b.status!=='res').length} exceptions</strong> in your queue.</div>
+    <div class="ai-chips"><div class="aic" onclick="switchView('trends')">📊 View Trends</div></div>`;
+  }
+
+  if(ql.includes('explain')){
+    return`<div style="margin-bottom:8px;">◈ <strong>Root Cause Analysis</strong>:</div>
+    <div class="ai-rc"><div class="ai-rc-hdr"><span class="ai-rc-title">Settlement Timing Pattern</span></div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.7;">
+      <strong style="color:var(--ai1);">Root Cause:</strong> Deutsche Bank London's CLS settlement engine applies T+1 convention for USD cash movements, while NAB's internal posting system books at T+2 per internal policy. The 3 MT940 entries (refs: 884729100-102) carry value date 05-Apr, but internal GL posted on 07-Apr.<br><br>
+      <strong style="color:var(--ai1);">Impact:</strong> $12.45M temporary nostro position mismatch. No P&L impact — timing difference only.<br><br>
+      <strong style="color:var(--ai1);">Resolution:</strong> Adjust internal value date to align with CLS convention. Update settlement calendar mapping for Deutsche Bank London branch.
+    </div></div>
+    <div class="ai-chips"><div class="aic g" onclick="cmdSend('Resolve all high-confidence exceptions')">⚡ Apply Fix</div></div>`;
+  }
+
+  return`<div>I understood <em>"${q}"</em>. Here's what I can do:</div>
+  <div class="ai-rc"><div style="font-size:12px;color:var(--t2);line-height:1.7;">
+    ⚡ <strong>Actions:</strong> "Resolve all high-confidence exceptions" · "Escalate all SLA breached"<br>
+    🔍 <strong>Filters:</strong> "Show nostro breaks" · "Show exceptions older than 8 days"<br>
+    🧠 <strong>Analysis:</strong> "Detect patterns" · "Show counterparty exposure by region"<br>
+    💰 <strong>Queries:</strong> "Largest break today" · "Health summary"<br>
+    📥 <strong>Navigate:</strong> "Switch to inbox" · "Show trends"
+  </div></div>
+  <div class="ai-chips"><div class="aic" onclick="cmdSend('Detect patterns across all current exceptions')">🧠 Detect Patterns</div><div class="aic" onclick="cmdSend('Summarize today reconciliation health')">📊 Health Summary</div></div>`;
+}
+
+function applyTableFilter(breaks,label){
+  renderTable(breaks);
+  document.getElementById('rcount').textContent=`${breaks.length} / ${BREAKS.length}`;
+  document.getElementById('resultPill').textContent=`${breaks.length} / ${BREAKS.length}`;
+  const t=document.getElementById('activeTag');
+  if(t){t.style.display='flex';t.innerHTML=`◈ ${label}<span onclick="clearAIFilter();renderTable(BREAKS);document.getElementById('rcount').textContent='${BREAKS.length} / ${BREAKS.length}'" style="cursor:pointer;opacity:.6;font-size:9px;margin-left:4px;">✕</span>`;}
+  setTimeout(()=>{document.querySelectorAll('tbody tr').forEach(tr=>tr.classList.add('ai-highlighted'));},200);
+}
+
+/* ─── TOAST ─── */
+let tid=0;
+function toast(ico,title,sub,cls=''){
+  const area=document.getElementById('toastArea'),id=++tid;
+  const t=document.createElement('div');t.className=`toast ${cls}`;t.id='t'+id;
+  t.innerHTML=`<span class="t-ico">${ico}</span><div class="t-body"><div class="t-title">${title}</div>${sub?`<div class="t-sub">${sub}</div>`:''}</div><span class="tx" onclick="rmT(${id})">✕</span>`;
+  area.appendChild(t);setTimeout(()=>rmT(id),3800);
+}
+function rmT(id){const el=document.getElementById('t'+id);if(el){el.style.opacity='0';el.style.transform='translateY(5px)';el.style.transition='150ms';setTimeout(()=>el.remove(),150);}}
+</script>
+</body>
+</html>
