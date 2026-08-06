@@ -1,0 +1,38 @@
+@page {
+  size: A4;
+  margin: 2.2cm;
+  @top-left {
+    content: string(part-title);
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #333;
+  }
+  @top-right {
+    content: string(chapter-title);
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #333;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    font-size: 9pt;
+    color: #111;
+  }
+}
+@page:first {
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+.pagedjs_pages { background: #fff !important; }
+.pagedjs_page {
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: #fff !important;
+}
+.pagedjs_margin-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

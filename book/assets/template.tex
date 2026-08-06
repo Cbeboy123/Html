@@ -1,0 +1,31 @@
+% Optional XeLaTeX template retained for portable Pandoc workflows.
+% The default build uses paged HTML so Mermaid SVG remains consistent.
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{fontspec}
+\usepackage{longtable,booktabs,array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\setstretch{1.4}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{DejaVu Sans Mono}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+$if(title)$
+\frontmatter
+\begin{titlepage}
+\centering
+{\sffamily\bfseries\Huge $title$\par}
+$if(subtitle)$\vspace{1em}{\sffamily\Large $subtitle$\par}$endif$
+\end{titlepage}
+$endif$
+$if(toc)$\tableofcontents\clearpage$endif$
+\mainmatter
+$body$
+\end{document}

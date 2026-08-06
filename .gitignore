@@ -1,0 +1,4 @@
+.tools/
+book/assets/vendor/
+book/_build/
+book/output/*-test.pdf
